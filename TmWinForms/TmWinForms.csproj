@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15FC2B5F-1C9F-4121-B4F7-880D2FA92B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TmWinForms</RootNamespace>
+    <AssemblyName>TmWinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.5.0.4\lib\net46\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\TELERIK\Bin40\Telerik.WinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\TELERIK\Bin40\Telerik.WinControls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\TELERIK\Bin40\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\TELERIK\Bin40\TelerikCommon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\1_Main_Form\FxMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\1_Main_Form\FxMain.Designer.cs">
+      <DependentUpon>FxMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\6_User_Forms\SubForm.cs" />
+    <Compile Include="Forms\7_Error_Message\FxMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\7_Error_Message\FxMessage.Designer.cs">
+      <DependentUpon>FxMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\Main\FrameworkManager.cs" />
+    <Compile Include="Management\Main\K_Main_Form_Closing.cs" />
+    <Compile Include="Management\Main\K_Setting_SubFolder.cs" />
+    <Compile Include="Management\Service\Service.cs" />
+    <Compile Include="Management\Service\X_Main_Form_Restore_Location_and_Size.cs" />
+    <Compile Include="Management\Service\X_Main_Page_View.cs" />
+    <Compile Include="Management\Service\X_Settings.cs" />
+    <Compile Include="Management\Service\Z_Main_Exit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Standard\Interfaces\IConnectedToServer.cs" />
+    <Compile Include="Standard\Interfaces\IDisconnectedFromServer.cs" />
+    <Compile Include="Standard\Interfaces\IEndWork.cs" />
+    <Compile Include="Standard\Interfaces\IStartWork.cs" />
+    <Compile Include="Standard\Interfaces\IUserLeftTheForm.cs" />
+    <Compile Include="Standard\Interfaces\IUserVisitedTheForm.cs" />
+    <Compile Include="Standard\Enum\MsgPos.cs" />
+    <Compile Include="Standard\Settings\StandardApplicationSettings.cs" />
+    <Compile Include="Standard\Settings\StandardFrameworkSettings.cs" />
+    <Compile Include="Standard\Settings\StandardJsonSettings.cs" />
+    <Compile Include="Standard\Settings\StandardUserSettingsLoader.cs" />
+    <Compile Include="Utilities\CxTools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\1_Main_Form\FxMain.resx">
+      <DependentUpon>FxMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\7_Error_Message\FxMessage.resx">
+      <DependentUpon>FxMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\2_Log\" />
+    <Folder Include="Forms\3_Settings\" />
+    <Folder Include="Forms\4_About\" />
+    <Folder Include="Forms\5_Exit\" />
+    <Folder Include="Framework\Settings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
