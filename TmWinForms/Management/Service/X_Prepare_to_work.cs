@@ -9,26 +9,30 @@ namespace TmWinForms
 {
   partial class FrameworkService
   {
-    public void PlaceAllSubFormsToMainPageView()
+
+    void AddFormsFromQueueToPageView()
     {
       while ( QueueForms.Count > 0 )
       {
         SubForm subForm = QueueForms.Dequeue();
         AddFormToPage(subForm);
       }
+    }
+
+
+    public void PlaceAllSubFormsToMainPageView()
+    {
+      AddFormsFromQueueToPageView(); // Добавляем формы из очереди на Page View //
 
       FlagItIsTimeToAddStandardForms = true;
 
+      CreateFormSetting(); 
       CreateFormLog();
-      CreateFormSetting();
       CreateFormExit();
 
-      while (QueueForms.Count > 0)
-      {
-        SubForm subForm = QueueForms.Dequeue();
-        AddFormToPage(subForm);
-      }
+      AddFormsFromQueueToPageView(); // Добавляем формы из очереди на Page View //
 
+      // Выполнить событие IStartForm для каждой формы, которая поддерживает этот интерфейс //
       ExecStartWorkHandlerForEachSubForm();
     }
 

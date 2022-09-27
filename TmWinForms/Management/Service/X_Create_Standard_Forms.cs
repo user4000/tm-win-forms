@@ -33,7 +33,7 @@ namespace TmWinForms
         loadedSettings = CurrentApplicationSettings;
         SetCurrentSettings(loadedSettings); // Set just loaded settings as current settings //
       }
-      catch (Exception ex)
+      catch 
       {
         ProjectDefaultApplicationSettings.LinkToPropertyGrid(FormSettings.GxProperty);
         //Log.Save(MsgType.Error, "An error has occured during loading application settings.", "");

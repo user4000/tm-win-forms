@@ -22,9 +22,16 @@ namespace TmWinForms
       FrameworkManager.SetSubFolderForSettings(SettingSubFolderName);
       T settingsDefault = new T(); // Create instance of concrete user settings //
       T localSettingsCurrent = settingsDefault;
+
       /* Since JSON Serializer cannot save attributes of members of [Settings] class we need this workaround */
-      try { localSettingsCurrent = StandardUserSettingsLoader<T>.LoadFromJsonFile(); }
-      catch { localSettingsCurrent = settingsDefault; }
+      try
+      {
+        localSettingsCurrent = StandardUserSettingsLoader<T>.LoadFromJsonFile();
+      }
+      catch
+      {
+        localSettingsCurrent = settingsDefault;
+      }
 
       CurrentApplicationSettings = localSettingsCurrent;
       ConfigureApplicationSettings(localSettingsCurrent);

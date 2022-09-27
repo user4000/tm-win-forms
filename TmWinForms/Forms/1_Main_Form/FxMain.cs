@@ -2,6 +2,7 @@
 using Telerik.WinControls;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using System.Drawing;
 
 namespace TmWinForms
 {
@@ -25,7 +26,20 @@ namespace TmWinForms
       }
 
       this.Visible = false;
+
+      AdjustFirstPage();
     }
+
+
+    internal void AdjustFirstPage()
+    {
+      var page = this.PgFirst;
+      page.ItemSize = new SizeF(120F, 30);
+      page.Location = new Point(10, 10);
+      page.TextAlignment = ContentAlignment.MiddleCenter;
+      page.Item.MinSize = new Size(FrameworkManager.FrameworkSettings.TabMinimumWidth, 0);
+    }
+
 
     internal void SetEvents()
     {

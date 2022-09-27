@@ -49,6 +49,10 @@ namespace TmWinForms
 
       await Task.Delay(500);
 
+
+
+
+
       // Если не выполнить строку MainForm.WindowState = FormWindowState.Minimized; 
       // тогда программа может выдать исключение "Ошибка при создании дескриптора окна".
       // System.ComponentModel.Win32Exception: Error creating window handle.
@@ -59,7 +63,7 @@ namespace TmWinForms
 
       MainFormClosingCounter++;
 
-      MainForm.Close();
+      MainForm.Close(); // Эта команда вызовет данный метод повторно //
 
       /* =============================================================================================================== */
     }
