@@ -22,16 +22,16 @@ namespace TmWinForms
     public virtual string FolderSettings { get; } = DefaultFolderUserSettings;
     public virtual string TextFileUserSettings { get; } = DefaultTextFileUserSettings;
 
-    public const string TJStandardDateTimeFull = "yyyy-MM-dd HH:mm:ss";
+    public const string CxStandardDateTimeFull = "yyyy-MM-dd HH:mm:ss";
 
-    public static DateTime TJStandardDateTimeDefaultValue { get; } = new DateTime(2000, 01, 01);
+    public static DateTime CxStandardDateTimeDefaultValue { get; } = new DateTime(2000, 01, 01);
 
-    public string GetDateTime(DateTime d) => d.ToString(TJStandardDateTimeFull);
+    public string GetDateTime(DateTime d) => d.ToString(CxStandardDateTimeFull);
 
     public DateTime SetDateTime(string DateTimeStringValue, DateTime ValueIfError)
     {
       DateTime d = ValueIfError;
-      try { d = DateTime.ParseExact(DateTimeStringValue, TJStandardDateTimeFull, System.Globalization.CultureInfo.InvariantCulture); }
+      try { d = DateTime.ParseExact(DateTimeStringValue, CxStandardDateTimeFull, System.Globalization.CultureInfo.InvariantCulture); }
       catch { d = ValueIfError; };
       return d;
     }
@@ -92,7 +92,7 @@ namespace TmWinForms
         JsonSerializer serializer = new JsonSerializer()
         {
           Formatting = Formatting.Indented,
-          DateFormatString = TJStandardDateTimeFull
+          DateFormatString = CxStandardDateTimeFull
         };
         //serializer.MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead;
         serializer.Serialize(file, this);

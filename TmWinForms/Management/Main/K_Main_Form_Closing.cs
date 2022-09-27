@@ -45,6 +45,8 @@ namespace TmWinForms
 
       MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
 
+      Service.ExecEndWorkHandlerForEachSubForm();
+
       await Task.Delay(500);
 
       // Если не выполнить строку MainForm.WindowState = FormWindowState.Minimized; 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -11,7 +12,6 @@ namespace TmWinForms
     int IndexPage { get; set; } = 0;
 
     bool PageExists(string uniqueName) => DicForms.ContainsKey(uniqueName);
-
 
 
 
@@ -32,9 +32,19 @@ namespace TmWinForms
 
     internal RadPageViewPage CreateNewPage(SubForm form)
     {
-      RadPageViewPage page = new RadPageViewPage() { Name = form.UniqueName, Text = form.PageText };
+      RadPageViewPage page = null;
 
-      MainForm.PvMain.Pages.Insert(++IndexPage, page);
+      if (FlagItIsTimeToAddStandardForms == false)
+      {
+        page = new RadPageViewPage() { Name = form.UniqueName, Text = form.PageText };
+        MainForm.PvMain.Pages.Insert(++IndexPage, page);
+      }
+      else
+      {
+        page = TryToSelectExistingPage(form.Form);
+      }
+
+      if (page == null) throw new ApplicationException("Error! Failed to find a [PageView] for standard form!");
 
       MainForm.PvMain.SelectedPage = null;
 
@@ -75,10 +85,6 @@ namespace TmWinForms
       page.Item.Enabled = subForm.FlagTabEnabled;
 
       if ((subForm.FlagTabVisible) && (MainForm.PvMain.Visible)) page.Refresh();
-
-      //CheckIsSettingsForm(subForm.ChildForm);
-      //CheckIsLogForm(subForm.ChildForm);
-      //CheckIsExitForm(subForm.ChildForm);
     }
   }
 }

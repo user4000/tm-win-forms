@@ -87,7 +87,7 @@ namespace TmWinFormsExample
     public bool ConnectionState { get; set; }
 
 
-    public DateTime inner_Date_Time = TJStandardDateTimeDefaultValue;
+    public DateTime inner_Date_Time = CxStandardDateTimeDefaultValue;
 
     [Category("Login")]
     [RadSortOrder(5)]
