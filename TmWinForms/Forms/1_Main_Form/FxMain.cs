@@ -7,6 +7,9 @@ namespace TmWinForms
 {
   public partial class FxMain : RadForm
   {
+
+    bool FadeIn { get; set; }
+
     public FxMain()
     {
       InitializeComponent();
@@ -14,18 +17,27 @@ namespace TmWinForms
 
     internal void SetProperties()
     {
-      this.Opacity = 0;
-      this.Visible = false;      
+      FadeIn = FrameworkManager.FrameworkSettings.VisualEffectOnStart;
+
+      if (FadeIn)
+      {
+        this.Opacity = 0;
+      }
+
+      this.Visible = false;
     }
 
     internal void SetEvents()
     {
       this.Load += new EventHandler(EventFormLoad);
-      this.Shown += new EventHandler(EventFormShown);
+
       this.Resize += new EventHandler(EventResize);
+
       this.ResizeBegin += new EventHandler(EventResizeBegin);
+
       this.ResizeEnd += new EventHandler(EventResizeEnd);
 
+      // Эти важные события будут запрограммированы в классе FrameworkManager //
       //this.FormClosing += new FormClosingEventHandler(EventFormClosing);
       //this.FormClosed += new FormClosedEventHandler(EventFormClosed);
     }
@@ -55,24 +67,15 @@ namespace TmWinForms
 
     }
 
-    void EventFormShown(object sender, EventArgs e)
-    {
-      this.Shown -= new EventHandler(EventFormShown);
-
-      VisualEffectFadeIn();
-
-      this.Visible = true;
-    }
-
     public void EventFormLoad(object sender, EventArgs e)
     {
 
     }
 
-
-
     internal void VisualEffectFadeIn()
     {
+      if (FadeIn == false) return;
+
       int duration = 500; // in milliseconds
       int steps = 20;
       Timer timer = new Timer() { Interval = duration / steps };

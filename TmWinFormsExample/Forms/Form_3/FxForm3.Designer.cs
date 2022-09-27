@@ -1,6 +1,6 @@
 ﻿namespace TmWinFormsExample
 {
-  partial class FxForm2
+  partial class FxForm3
   {
     /// <summary>
     /// Required designer variable.
@@ -50,12 +50,12 @@
       // LbFormTwo
       // 
       this.LbFormTwo.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.LbFormTwo.ForeColor = System.Drawing.Color.HotPink;
+      this.LbFormTwo.ForeColor = System.Drawing.Color.Green;
       this.LbFormTwo.Location = new System.Drawing.Point(31, 31);
       this.LbFormTwo.Name = "LbFormTwo";
       this.LbFormTwo.Size = new System.Drawing.Size(232, 38);
       this.LbFormTwo.TabIndex = 2;
-      this.LbFormTwo.Text = "Form Number 2";
+      this.LbFormTwo.Text = "Form Number 3";
       // 
       // TxtMessage
       // 
@@ -121,7 +121,7 @@
       this.BxTest1.TabIndex = 10;
       this.BxTest1.Text = "Test 1";
       // 
-      // FxForm2
+      // FxForm3
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,12 +134,12 @@
       this.Controls.Add(this.BxTest1);
       this.Controls.Add(this.TxtMessage);
       this.Controls.Add(this.LbFormTwo);
-      this.Name = "FxForm2";
+      this.Name = "FxForm3";
       // 
       // 
       // 
       this.RootElement.ApplyShapeToControl = true;
-      this.Text = "FxForm2";
+      this.Text = "";
       ((System.ComponentModel.ISupportInitialize)(this.LbFormTwo)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.TxtMessage)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest6)).EndInit();

@@ -80,11 +80,17 @@
     </Compile>
     <Compile Include="Management\Main\FrameworkManager.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closing.cs" />
+    <Compile Include="Management\Main\K_Main_Form_Shown.cs" />
     <Compile Include="Management\Main\K_Setting_SubFolder.cs" />
+    <Compile Include="Management\Pages\PagesManager.cs" />
     <Compile Include="Management\Service\Service.cs" />
+    <Compile Include="Management\Service\X_Add_Form.cs" />
+    <Compile Include="Management\Service\X_Add_Forms_to_Page_View.cs" />
     <Compile Include="Management\Service\X_Main_Form_Restore_Location_and_Size.cs" />
     <Compile Include="Management\Service\X_Main_Page_View.cs" />
+    <Compile Include="Management\Service\X_Prepare_to_work.cs" />
     <Compile Include="Management\Service\X_Settings.cs" />
+    <Compile Include="Management\Service\X_Set_Main_Page_View.cs" />
     <Compile Include="Management\Service\Z_Main_Exit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Standard\Interfaces\IConnectedToServer.cs" />

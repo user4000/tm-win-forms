@@ -93,6 +93,12 @@
     <Compile Include="Forms\Form_2\FxForm2.Designer.cs">
       <DependentUpon>FxForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_3\FxForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_3\FxForm3.Designer.cs">
+      <DependentUpon>FxForm3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\MySettings.cs" />
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_2\FxForm2.resx">
       <DependentUpon>FxForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_3\FxForm3.resx">
+      <DependentUpon>FxForm3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -133,9 +142,7 @@
       <Name>TmWinForms</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Form_3\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

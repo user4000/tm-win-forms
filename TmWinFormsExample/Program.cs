@@ -33,7 +33,14 @@ namespace TmWinFormsExample
 
       FrameworkManager.Service.CreateApplicationSettings<MySettings>(Assembly.GetExecutingAssembly().GetName().Name);
 
+      FrameworkSettings.VisualEffectOnStart = true;
       FrameworkSettings.RememberMainFormLocation = true;
+
+      FrameworkManager.Service.AddForm<FxForm1>(null, "My Form 1", true, true);
+
+      FrameworkManager.Service.AddForm<FxForm2>(null, "My Form 2", true, true);
+
+      FrameworkManager.Service.AddForm<FxForm3>(null, "My Form 3", true, true);
 
       FrameworkManager.Run();
 

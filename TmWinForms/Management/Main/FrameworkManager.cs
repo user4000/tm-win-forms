@@ -9,6 +9,9 @@ namespace TmWinForms
 
     public static FrameworkService Service { get; } = FrameworkService.Create();
 
+    public static PagesManager Pages { get; } = PagesManager.Create();
+
+
 
 
     public static T ApplicationSettings<T>() => (T)(object)Service.CurrentApplicationSettings;
@@ -27,6 +30,7 @@ namespace TmWinForms
       FxMain mainForm = CreateMainForm();
 
       ApplicationContext context = new ApplicationContext(mainForm);
+
       Application.Run(context);
     }
 
@@ -35,19 +39,25 @@ namespace TmWinForms
       MainForm = new FxMain();
 
       Service.Configure(MainForm);
+      Pages.Configure(MainForm);
 
       //MainForm.Visible = false;
 
       MainForm.Text = string.Empty;
 
       MainForm.SetProperties();
+
       MainForm.SetEvents();
 
       MainForm.FormClosing += new FormClosingEventHandler(EventMainFormClosing);
+
+      MainForm.Shown += new EventHandler(EventMainFormShown);
 
       FrameworkSettings.RestoreMainFormLocationAndSize();
 
       return MainForm;
     }
+
+
   }
 }

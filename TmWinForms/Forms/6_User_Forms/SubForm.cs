@@ -4,39 +4,66 @@ using Telerik.WinControls.UI;
 
 namespace TmWinForms
 {
-  internal class SubForm
+  public class SubForm
   {
-    RadForm Form { get; set; }
+    public RadForm Form { get; }
 
-    internal string PageName { get; } = string.Empty;
+    public ushort IdForm { get; }
 
-    internal string PageText { get; } = string.Empty;
+    public Type TypeForm { get; }
 
-    internal bool FlagTabEnabled { get; } = true; // Активна или отключена верхушка вкладки //
+    public string TypeName { get; }
 
-    internal bool FlagTabVisible { get; } = true; // Видима или скрыта верхушка вкладки //
+    public string UniqueName { get; } = string.Empty;
+
+    public string PageText { get; } = string.Empty;
+
+    public RadPageViewPage Page { get; set; }
 
 
-    private SubForm(RadForm form, string pageName, string pageText, bool enabled, bool visible)
+    public bool FlagTabEnabled { get; } = true; // Активна или отключена верхушка вкладки //
+
+    public bool FlagTabVisible { get; } = true; // Видима или скрыта верхушка вкладки //
+
+
+    private SubForm(ushort idForm, RadForm form, string uniqueName, string pageText, bool enabled, bool visible)
     { 
       Form = form;
-      PageName = pageName;
+      UniqueName = uniqueName;
       PageText = pageText;
       FlagTabEnabled = enabled;
       FlagTabVisible = visible;
+
+      IdForm = idForm;
+
+      TypeForm = form.GetType();
+      TypeName = TypeForm.FullName;
     }
 
-    internal static SubForm Create(RadForm form, string pageName, string pageText, bool enabled, bool visible)
+    internal static SubForm Create(ushort idForm, RadForm form, string uniqueName, string pageText, bool enabled, bool visible)
     {
-      SubForm userForm = new SubForm(form, pageName, pageText, enabled, visible);
+      SubForm userForm = new SubForm(idForm, form, uniqueName, pageText, enabled, visible);
       return userForm;
     }
 
-    internal static SubForm Create<T>(string pageName, string pageText, bool enabled, bool visible) where T : RadForm, new()
+    internal static SubForm Create<T>(ushort idForm, string uniqueName, string pageText, bool enabled, bool visible) where T : RadForm, new()
     {
       T form = new T();      
-      return Create(form, pageName, pageText, enabled, visible);
+      return Create(idForm, form, uniqueName, pageText, enabled, visible);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    internal void SetPage(RadPageViewPage page) => Page = page;
 
 
     internal void ExecStartWorkHandler()
@@ -65,7 +92,7 @@ namespace TmWinForms
         Form.Visible = false;
         Form.Close();
         try { Form.Dispose(); } catch { };
-        Form = null;
+        //Form = null;
       }
     }
   }
