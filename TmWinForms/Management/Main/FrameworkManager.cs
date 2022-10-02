@@ -13,6 +13,8 @@ namespace TmWinForms
 
     public static CxMessageManager Ms { get; } = CxMessageManager.Create();
 
+    public static IMessageHub MsHub { get; } = MessageHub.Create();
+
 
 
     public static T ApplicationSettings<T>() => (T)(object)Service.CurrentApplicationSettings;
@@ -39,7 +41,10 @@ namespace TmWinForms
     {
       MainForm = new FxMain();
 
+
+
       Service.Configure(MainForm);
+
       Pages.Configure(MainForm);
 
       //MainForm.Visible = false;
@@ -58,7 +63,5 @@ namespace TmWinForms
 
       return MainForm;
     }
-
-
   }
 }

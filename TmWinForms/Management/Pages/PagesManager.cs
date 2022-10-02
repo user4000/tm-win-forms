@@ -6,7 +6,7 @@ using Telerik.WinControls.UI;
 
 namespace TmWinForms
 {
-  public class PagesManager
+  public partial class PagesManager
   {
     FxMain MainForm { get; set; }
 
@@ -21,12 +21,10 @@ namespace TmWinForms
     {
       MainForm = mainForm;
       PvMain = MainForm.PvMain;
+      PvMain.SelectedPageChanged += new EventHandler(EventPageChanged);
     }
 
 
     internal static PagesManager Create() => new PagesManager();
-
-
-
   }
 }

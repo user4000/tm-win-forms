@@ -171,12 +171,11 @@ namespace TmWinForms
       }
     }
 
-    private string confirmExitButtonText = string.Empty;
 
 
     public string ConfirmExitButtonText { get; set; }
 
-
+    public bool ConfirmExit { get; set; } = false;
 
 
 

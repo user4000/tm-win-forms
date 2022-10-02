@@ -6,7 +6,7 @@ using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms.Form
 {
-  public partial class FxSettings : RadForm, IStartWork, IEndWork
+  public partial class FxSettings : RadForm, IStartWork, IEndWork, IUserVisitedTheForm
   {
     private Font itemFont { get; } = new Font("Verdana", 10);
 
@@ -152,7 +152,7 @@ namespace TmWinForms.Form
       }
     }
 
-    internal void EventUserVisitedThisPage()
+    public void EventUserVisitedTheForm()
     {
       SetColumnWidth();
     }

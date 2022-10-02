@@ -4,15 +4,15 @@ using TmWinForms.Extensions;
 using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 
-namespace TmWinForms.Standard
+namespace TmWinForms.Standard.Grid
 {
-  internal abstract class TJGridWithDataTable : TJGridManager // Действия с объектом который представлен в табличном виде. Содержит RadGridView связанный с DataTable //
+  internal abstract class GridWithDataTable : GridManager // Действия с объектом который представлен в табличном виде. Содержит RadGridView связанный с DataTable //
   {
     internal BindingSource DataBindingSource { get; } = new BindingSource();
 
     internal DataTable Table { get; set; } = new DataTable();
 
-    internal TJGridWithDataTable() { } // Constructor //
+    internal GridWithDataTable() { } // Constructor //
 
     internal void SetDataSourceForGrid() => Grid.DataSource = DataBindingSource;
 

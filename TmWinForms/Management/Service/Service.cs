@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
 
-
 namespace TmWinForms
 {
   public partial class FrameworkService
@@ -13,6 +12,8 @@ namespace TmWinForms
     public FxMain MainForm { get; private set; }
 
     public Dictionary<string, SubForm> DicForms { get; } = new Dictionary<string, SubForm>();
+
+    public Dictionary<RadPageViewPage, RadForm> DicPages { get; } = new Dictionary<RadPageViewPage, RadForm>();
 
     internal Queue<SubForm> QueueForms { get; } = new Queue<SubForm>();
 

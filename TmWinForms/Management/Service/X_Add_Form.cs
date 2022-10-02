@@ -11,6 +11,8 @@ namespace TmWinForms
   {
     ushort GetNextIdForm() => IdForm++;
 
+    ushort IdStartForm { get; set; } = 0;
+
     HashSet<string> HsUniqueNames { get; } = new HashSet<string>();
 
 
@@ -38,7 +40,7 @@ namespace TmWinForms
     }
 
 
-    public ushort AddForm(RadForm form, string uniqueName, string pageText, bool tabEnabled, bool tabVisible)
+    public ushort AddForm(RadForm form, string uniqueName, string pageText, bool tabEnabled, bool tabVisible) // Добавление формы в очередь //
     {
       ushort id = GetNextIdForm();
 
@@ -53,7 +55,7 @@ namespace TmWinForms
       return id;
     }
 
-    public ushort AddForm<T>(string uniqueName, string pageText, bool tabEnabled, bool tabVisible) where T : RadForm, new()
+    public ushort AddForm<T>(string uniqueName, string pageText, bool tabEnabled, bool tabVisible) where T : RadForm, new() // Добавление формы в очередь //
     {
       ushort id = GetNextIdForm();
 
@@ -66,6 +68,24 @@ namespace TmWinForms
       QueueForms.Enqueue(subForm);
 
       return id;
+    }
+
+    public void SetStartForm(ushort id)
+    {
+      IdStartForm = id;
+    }
+
+    internal void GotoStartForm()
+    {
+      if (IdStartForm == 0) return;
+      foreach(var pair in DicForms)
+      {
+        if (pair.Value.IdForm == IdStartForm)
+        {
+          MainForm.PvMain.SelectedPage = pair.Value.Page;
+          break;
+        }
+      }
     }
   }
 }

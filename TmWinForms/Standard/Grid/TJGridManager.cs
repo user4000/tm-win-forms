@@ -9,17 +9,15 @@ using TmWinForms.Extensions;
 using Telerik.WinControls.Themes;
 using System.Collections.Generic;
 
-namespace TmWinForms.Standard
+namespace TmWinForms.Standard.Grid
 {
-  internal abstract class TJGridManager
+  internal abstract class GridManager
   {
     internal static int DefaultRowCountOfDropDownList { get; } = 10;
     internal static int OneRowHeightOfDropDownList { get; } = 25;
     internal static int MinimumDropDownWidth { get; } = 300;
     internal static int MaximumDropDownHeight { get; } = 200;
 
-
-    //public static VisualStudio2012LightTheme ThemeForGrid { get; } = new VisualStudio2012LightTheme();
 
     internal static Color ColorRow { get; } = Color.WhiteSmoke;
     internal HashSet<string> NonemptyColumns { get; } = new HashSet<string>(); // Список столбцов которые не допускают вставку пустых значений //
@@ -30,13 +28,10 @@ namespace TmWinForms.Standard
 
     internal MasterGridViewTemplate MGridViewTemplate { get; set; } = null;
 
-    //public void SetThemeForGrid() => Grid.ThemeName = ThemeForGrid.ThemeName;
 
     internal virtual void InitializeGrid(RadGridView grid, bool SetAnotherTheme = false)
     {
       Grid = grid;
-
-      //if (SetAnotherTheme) Grid.ThemeName = ThemeForGrid.ThemeName;
 
       MGridViewTemplate = Grid.MasterTemplate;
       SetDataViewControlProperties();

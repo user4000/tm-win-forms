@@ -59,7 +59,7 @@ namespace TmWinForms
       RadMessageBox.Show("Hey you !");
     }
 
-    RadPageViewPage TryToSelectExistingPage(RadForm form)
+    RadPageViewPage TryToFindExistingPage(RadForm form)
     {
       RadPageViewPage page = null;
 

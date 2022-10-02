@@ -29,6 +29,13 @@ namespace TmWinForms
       }
     }
 
+    void AddPageAndFormToDictionary(RadPageViewPage page, RadForm form)
+    {
+      if (DicPages.ContainsKey(page) == false) DicPages.Add(page, form);
+    }
+
+
+
 
     internal RadPageViewPage CreateNewPage(SubForm form)
     {
@@ -41,7 +48,7 @@ namespace TmWinForms
       }
       else
       {
-        page = TryToSelectExistingPage(form.Form);
+        page = TryToFindExistingPage(form.Form);
       }
 
       if (page == null) throw new ApplicationException("Error! Failed to find a [PageView] for standard form!");
@@ -73,6 +80,9 @@ namespace TmWinForms
       form.BringToFront();
 
       page.Controls.Add(form);
+
+      AddPageAndFormToDictionary(page, form);
+
 
       subForm.SetPage(page);
 

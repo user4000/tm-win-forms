@@ -33,14 +33,33 @@ namespace TmWinFormsExample
 
       FrameworkManager.Service.CreateApplicationSettings<MySettings>(Assembly.GetExecutingAssembly().GetName().Name);
 
+      
+      
+      
+      
+      // Сначала установим настройки фреймворка //
+
       FrameworkSettings.VisualEffectOnStart = true;
       FrameworkSettings.RememberMainFormLocation = true;
+      FrameworkSettings.ConfirmExit = false;
+      
+      
+      
+      
+      
+      // Затем укажем какие формы нужно создать на вкладках главной формы //
 
-      FrameworkManager.Service.AddForm<FxForm1>(null, "My Form 1", true, true);
+      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>(null, "My Form 1", true, true);
 
-      FrameworkManager.Service.AddForm<FxForm2>(null, "My Form 2", true, true);
+      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>(null, "My Form 2", true, true);
 
-      FrameworkManager.Service.AddForm<FxForm3>(null, "My Form 3", true, true);
+      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>(null, "My Form 3", true, true);
+
+
+      FrameworkManager.Service.SetStartForm(f1);
+      
+      
+      // Далее следует запуск фреймворка //
 
       FrameworkManager.Run();
 

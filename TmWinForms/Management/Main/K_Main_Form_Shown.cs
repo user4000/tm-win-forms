@@ -14,6 +14,8 @@ namespace TmWinForms
       MainForm.VisualEffectFadeIn();
 
       MainForm.Visible = true;
+
+      Service.GotoStartForm();
     }
   }
 }

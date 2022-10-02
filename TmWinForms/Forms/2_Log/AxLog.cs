@@ -7,12 +7,13 @@ using TmWinForms.Standard;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using TmWinForms.Extensions;
+using TmWinForms.Standard.Grid;
 //using static TmWinForms.Logger.Manager;
 using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms.Form
 {
-  internal class AxLog : TJGridWithDataTable
+  internal class AxLog : GridWithDataTable
   {
     internal int CountRow { get; private set; } = 0;
 

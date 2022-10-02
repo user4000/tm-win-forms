@@ -14,6 +14,8 @@ namespace TmWinForms
       SetCurrentSettings(settings);
     }
 
+
+
     /// <summary>
     /// Use Assembly.GetExecutingAssembly().GetName().Name as an argument
     /// </summary>

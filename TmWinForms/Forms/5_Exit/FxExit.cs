@@ -5,7 +5,7 @@ using Telerik.WinControls.UI;
 
 namespace TmWinForms.Form
 {
-  public partial class FxExit : RadForm, IStartWork
+  public partial class FxExit : RadForm, IStartWork, IUserVisitedTheForm
   {
     public FxExit()
     {
@@ -14,18 +14,24 @@ namespace TmWinForms.Form
 
     public bool ExitWithoutConfirmation { get => string.IsNullOrWhiteSpace(FrameworkManager.FrameworkSettings.ConfirmExitButtonText); }
 
-
-
-
     public void EventStartWork()
     {
       ConfigureExitButton();
       BtnExit.MinimumSize = new System.Drawing.Size(250, 0);
     }
 
-    public void EventUserVisitedThisPage()
+    public void EventUserVisitedTheForm()
     {
-      ConfigureExitButton();
+      BtnExit.Visible = FrameworkManager.FrameworkSettings.ConfirmExit;
+
+      if (FrameworkManager.FrameworkSettings.ConfirmExit)
+      {
+        ConfigureExitButton();
+      }
+      else
+      {
+        FrameworkManager.MainForm.Close();
+      } 
     }
 
     public void ConfigureExitButton()
@@ -34,10 +40,9 @@ namespace TmWinForms.Form
 
       //RadMessageBox.Show($"TmWinForms.Form.FxExit  TEST:   ConfirmExitButtonText = {text}");
 
-
       if ( string.IsNullOrWhiteSpace(text) )
       {
-        BtnExit.Visible = false;
+        BtnExit.Text = "Click here to confirm exit";
       }
       else
       {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TmWinForms.Form
 {
-  public partial class FxLog : RadForm, IStartWork, IEndWork
+  public partial class FxLog : RadForm, IStartWork, IEndWork, IUserVisitedTheForm
   {
     internal AxLog CxLog { get; private set; }
 
@@ -47,7 +47,7 @@ namespace TmWinForms.Form
       BtnClearTable.Enabled = true;
     }
 
-    public void EventUserVisitedThisPage()
+    public void EventUserVisitedTheForm()
     {
       if (PanelMessageIsVisible) EventButtonShowDetailMessageClick();
       CxLog.EventUserVisitedThisPage();
