@@ -41,9 +41,10 @@ namespace TmWinFormsExample
 
       FrameworkSettings.VisualEffectOnStart = true;
       FrameworkSettings.RememberMainFormLocation = true;
-      FrameworkSettings.ConfirmExit = false;
+      FrameworkSettings.ConfirmExit = true;
+      FrameworkSettings.ValueColumnWidthPercent = 50;
       
-      
+     
       
       
       

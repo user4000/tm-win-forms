@@ -88,7 +88,8 @@ namespace TmWinForms
 
     internal void InitMessageSubsystem(Action<TmMessage> MessageHandlerMethod)
     {
-      if (ActionCreate == DoNothing) ActionCreate = MessageHandlerMethod;
+      /* if (ActionCreate == DoNothing) */
+      ActionCreate = MessageHandlerMethod;
     }
 
     internal void TurnOffMessageSubsystem()

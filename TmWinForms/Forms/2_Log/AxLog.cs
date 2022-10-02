@@ -105,6 +105,7 @@ namespace TmWinForms.Form
       Grid.SizeChanged += new EventHandler(EventGridSizeChanged);
       Grid.DoubleClick += new EventHandler(EventGridDoubleClick);
       Grid.SelectionChanged += new EventHandler(EventGridSelectionChanged);
+
       //Grid.RowHeightChanging += EventGridRowHeightChanging;
       //Grid.CellFormatting += new CellFormattingEventHandler(EventCellFormatting);
       //Grid.RowFormatting += new RowFormattingEventHandler(EventRowFormatting);

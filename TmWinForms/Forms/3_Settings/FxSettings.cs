@@ -42,10 +42,10 @@ namespace TmWinForms.Form
     {
       InitializeComponent();
       //-------------------------------------------------------------------------------------------
-      if (FrameworkManager.FrameworkSettings.ValueColumnWidthPercent > 0)
-        ValueColumnWidthPercent = FrameworkManager.FrameworkSettings.ValueColumnWidthPercent;
+      if (FrameworkSettings.ValueColumnWidthPercent > 0)
+        ValueColumnWidthPercent = FrameworkSettings.ValueColumnWidthPercent;
       //-------------------------------------------------------------------------------------------
-      GxProperty.Padding = FrameworkManager.FrameworkSettings.PropertyGridPadding;
+      GxProperty.Padding = FrameworkSettings.PropertyGridPadding;
       BtnSaveSettings.Left = GxProperty.Padding.Left;
       GxProperty.PropertyValueChanged += new PropertyGridItemValueChangedEventHandler(EventPropertyValueChanged);
       GxProperty.ItemFormatting += new PropertyGridItemFormattingEventHandler(EventItemFormatting);
@@ -144,11 +144,11 @@ namespace TmWinForms.Form
       string error = SaveSettings();
       if (error == string.Empty)
       {
-        Ms.Message("Settings have been saved.", string.Empty).Wire(BtnSaveSettings).Size(200, 35).NoIcon().Delay(2).Debug();
+        Ms.Message(" Settings have been saved ", string.Empty).Wire(BtnSaveSettings).Size(200, 35).NoIcon().Delay(2).Debug();
       }
       else
       {
-        Ms.Message("Error! Settings was not saved.", error).Wire(BtnSaveSettings).NoIcon().Delay(15).ToFile().Error();
+        Ms.Message(" Error! Settings was not saved ", error).Wire(BtnSaveSettings).NoIcon().Delay(15).ToFile().Error();
       }
     }
 

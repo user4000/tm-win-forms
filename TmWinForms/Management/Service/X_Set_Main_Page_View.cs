@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using Telerik.WinControls.UI;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
@@ -18,7 +18,7 @@ namespace TmWinForms
       element.ItemAlignment = StripViewItemAlignment.Near;
       element.ItemFitMode = StripViewItemFitMode.FillHeight;
       element.ShowItemCloseButton = false;
-      element.ItemSpacing = FrameworkManager.FrameworkSettings.PageViewItemSpacing;
+      element.ItemSpacing = FrameworkSettings.PageViewItemSpacing;
 
 
       //element.ItemSizeMode = PageViewItemSizeMode.Individual;

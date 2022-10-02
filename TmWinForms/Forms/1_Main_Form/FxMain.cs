@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Drawing;
 using Telerik.WinControls;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
-using System.Drawing;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
   public partial class FxMain : RadForm
   {
-
     bool FadeIn { get; set; }
 
     public FxMain()
@@ -18,7 +18,7 @@ namespace TmWinForms
 
     internal void SetProperties()
     {
-      FadeIn = FrameworkManager.FrameworkSettings.VisualEffectOnStart;
+      FadeIn = FrameworkSettings.VisualEffectOnStart;
 
       if (FadeIn)
       {
@@ -28,16 +28,28 @@ namespace TmWinForms
       this.Visible = false;
 
       AdjustFirstPage();
-    }
 
+      AdjustAboutProgramPage();
+    }
 
     internal void AdjustFirstPage()
     {
-      var page = this.PgFirst;
-      page.ItemSize = new SizeF(120F, 30);
+      var page = this.PageFirst;
+      page.ItemSize = new SizeF(130F, 30);
       page.Location = new Point(10, 10);
       page.TextAlignment = ContentAlignment.MiddleCenter;
-      page.Item.MinSize = new Size(FrameworkManager.FrameworkSettings.TabMinimumWidth, 0);
+      page.Item.MinSize = new Size(FrameworkSettings.TabMinimumWidth, 0);
+      page.Item.Visibility = ElementVisibility.Collapsed;
+    }
+
+    internal void AdjustAboutProgramPage()
+    {
+      var page = this.PageAbout;
+      page.ItemSize = new SizeF(130F, 30);
+      page.Location = new Point(10, 10);
+      page.TextAlignment = ContentAlignment.MiddleCenter;
+      page.Item.MinSize = new Size(FrameworkSettings.TabMinimumWidth, 0);
+      page.Item.Visibility = ElementVisibility.Collapsed;
     }
 
 

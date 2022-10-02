@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Drawing;
-using System.Threading.Tasks;
-using Telerik.WinControls.UI;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace TmWinForms
 {

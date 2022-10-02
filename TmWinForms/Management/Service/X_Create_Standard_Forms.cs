@@ -6,6 +6,7 @@ using Telerik.WinControls;
 using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
@@ -18,7 +19,7 @@ namespace TmWinForms
       FxLog form = new FxLog();
       FormLog = form;
       AlertService = new TmAlertService(this, FormLog);
-      AddForm(form, null, FrameworkManager.FrameworkSettings.HeaderFormLog, true, true);
+      AddForm(form, null, FrameworkSettings.HeaderFormLog, true, true);
     }
 
     public void CreateFormSetting()
@@ -42,21 +43,14 @@ namespace TmWinForms
 
       FormSettings.AcceptLoadedSettings(loadedSettings);
 
-      AddForm(form, null, FrameworkManager.FrameworkSettings.HeaderFormSettings, true, true);
+      AddForm(form, null, FrameworkSettings.HeaderFormSettings, true, true);
     }
 
     public void CreateFormExit()
     {
       FxExit form = new FxExit();
       FormExit = form;
-      FormExit.BtnExit.Click += new EventHandler(EventButtonExitClick);
-
-      AddForm(form, null, FrameworkManager.FrameworkSettings.HeaderFormExit, true, true);
-    }
-
-    private void EventButtonExitClick(object sender, EventArgs e)
-    {
-      RadMessageBox.Show("Hey you !");
+      AddForm(form, null, FrameworkSettings.HeaderFormExit, true, true);
     }
 
     RadPageViewPage TryToFindExistingPage(RadForm form)

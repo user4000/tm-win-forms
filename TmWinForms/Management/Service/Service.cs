@@ -4,6 +4,7 @@ using TmWinForms.Form;
 using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {

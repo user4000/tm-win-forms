@@ -41,7 +41,7 @@ namespace TmWinForms
 
 
 
-      FrameworkManager.FrameworkSettings.Save();      // Записать местоположение формы и её размер нужно до того, как мы её минимизируем //
+      FrameworkSettings.Save();      // Записать местоположение формы и её размер нужно до того, как мы её минимизируем //
 
       MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
 
@@ -59,7 +59,7 @@ namespace TmWinForms
       // Причём это происходит для приложения, которое было свёрнуто в system tray и потом заново активировано двойным кликом по иконке.
 
 
-      await Service.MainExit();
+      // await Service.MainExit();
 
       MainFormClosingCounter++;
 

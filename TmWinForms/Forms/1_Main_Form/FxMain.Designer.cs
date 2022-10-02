@@ -35,7 +35,7 @@
       this.PnMainSide = new Telerik.WinControls.UI.RadPanel();
       this.SplitterMainVertical = new System.Windows.Forms.Splitter();
       this.PvMain = new Telerik.WinControls.UI.RadPageView();
-      this.PgFirst = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageFirst = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageLog = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageSettings = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageAbout = new Telerik.WinControls.UI.RadPageViewPage();
@@ -108,7 +108,7 @@
       // 
       // PvMain
       // 
-      this.PvMain.Controls.Add(this.PgFirst);
+      this.PvMain.Controls.Add(this.PageFirst);
       this.PvMain.Controls.Add(this.PageLog);
       this.PvMain.Controls.Add(this.PageSettings);
       this.PvMain.Controls.Add(this.PageAbout);
@@ -117,7 +117,7 @@
       this.PvMain.Font = new System.Drawing.Font("Verdana", 10F);
       this.PvMain.Location = new System.Drawing.Point(50, 68);
       this.PvMain.Name = "PvMain";
-      this.PvMain.SelectedPage = this.PgFirst;
+      this.PvMain.SelectedPage = this.PageFirst;
       this.PvMain.Size = new System.Drawing.Size(1142, 702);
       this.PvMain.TabIndex = 6;
       ((Telerik.WinControls.UI.RadPageViewStripElement)(this.PvMain.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
@@ -126,11 +126,11 @@
       // 
       // PgFirst
       // 
-      this.PgFirst.ItemSize = new System.Drawing.SizeF(64F, 30F);
-      this.PgFirst.Location = new System.Drawing.Point(6, 35);
-      this.PgFirst.Name = "PgFirst";
-      this.PgFirst.Size = new System.Drawing.Size(1130, 661);
-      this.PgFirst.Text = "Page 1";
+      this.PageFirst.ItemSize = new System.Drawing.SizeF(64F, 30F);
+      this.PageFirst.Location = new System.Drawing.Point(6, 35);
+      this.PageFirst.Name = "PgFirst";
+      this.PageFirst.Size = new System.Drawing.Size(1130, 661);
+      this.PageFirst.Text = "Page 1";
       // 
       // PageLog
       // 
@@ -202,7 +202,7 @@
     public System.Windows.Forms.Splitter SplitterMainHorizontal;
     public Telerik.WinControls.UI.RadPanel PnMainSide;
     public System.Windows.Forms.Splitter SplitterMainVertical;
-    public Telerik.WinControls.UI.RadPageViewPage PgFirst;
+    public Telerik.WinControls.UI.RadPageViewPage PageFirst;
     public Telerik.WinControls.UI.RadPageViewPage PageLog;
     public Telerik.WinControls.UI.RadPageViewPage PageSettings;
     public Telerik.WinControls.UI.RadPageViewPage PageAbout;

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using Telerik.WinControls;
 using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
-using Telerik.WinControls;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {

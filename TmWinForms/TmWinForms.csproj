@@ -68,7 +68,12 @@
     <Compile Include="Alert\TmAlert.cs" />
     <Compile Include="Alert\TmAlertPainter.cs" />
     <Compile Include="Alert\TmAlertService.cs" />
-    <Compile Include="Management\Pages\X_Event_Page_Changed.cs" />
+    <Compile Include="Management\Events\Events.cs" />
+    <Compile Include="Management\Pages\X_Enable_Page.cs" />
+    <Compile Include="Management\Pages\V_Event_Page_Changed.cs" />
+    <Compile Include="Management\Pages\W_Find_A_Page.cs" />
+    <Compile Include="Management\Pages\X_Goto_Page.cs" />
+    <Compile Include="Management\Pages\X_Show_Page.cs" />
     <Compile Include="Standard\Extensions\XxDataColumnChangeEventArgs.cs" />
     <Compile Include="Standard\Extensions\XxDataTable.cs" />
     <Compile Include="Standard\Extensions\XxEncoding.cs" />

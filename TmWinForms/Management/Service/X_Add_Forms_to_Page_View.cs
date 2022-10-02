@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Telerik.WinControls;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
@@ -88,7 +89,7 @@ namespace TmWinForms
 
       page.Tag = subForm;
 
-      page.Item.MinSize = new Size(FrameworkManager.FrameworkSettings.TabMinimumWidth, 0);
+      page.Item.MinSize = new Size(FrameworkSettings.TabMinimumWidth, 0);
 
       page.Item.Visibility = subForm.FlagTabVisible ? ElementVisibility.Visible : ElementVisibility.Collapsed;
 

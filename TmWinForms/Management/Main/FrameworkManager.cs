@@ -15,6 +15,7 @@ namespace TmWinForms
 
     public static IMessageHub MsHub { get; } = MessageHub.Create();
 
+    public static UserEvents Events { get; } = UserEvents.Create();
 
 
     public static T ApplicationSettings<T>() => (T)(object)Service.CurrentApplicationSettings;
@@ -40,9 +41,7 @@ namespace TmWinForms
     static FxMain CreateMainForm()
     {
       MainForm = new FxMain();
-
-
-
+      
       Service.Configure(MainForm);
 
       Pages.Configure(MainForm);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 
 namespace TmWinForms
@@ -84,7 +83,7 @@ namespace TmWinForms
       };
     }
 
-    internal void Dispose(bool ExecuteEndWorkHandler)
+    void Dispose(bool ExecuteEndWorkHandler)
     {
       if (Form != null)
       {

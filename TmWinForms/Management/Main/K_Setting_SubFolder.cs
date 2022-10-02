@@ -47,7 +47,6 @@ namespace TmWinForms
     {
       string filePath = @"1______Error______1.txt";
 
-
       using (StreamWriter writer = new StreamWriter(filePath, true))
       {
         writer.WriteLine("-----------------------------------------------------------------------------");

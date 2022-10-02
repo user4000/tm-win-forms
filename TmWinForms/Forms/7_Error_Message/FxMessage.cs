@@ -2,7 +2,6 @@
 using System.IO;
 using Telerik.WinControls.UI;
 
-
 namespace TmWinForms
 {
   public partial class FxMessage : RadForm

@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using TmWinForms.Tools;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
@@ -72,13 +73,13 @@ namespace TmWinForms
       get => pageViewItemSize;
       set
       {
-        bool CheckIsNull = FrameworkManager.MainForm?.PvMain?.ItemSize == null ? true : false;
+        bool CheckIsNull = MainForm?.PvMain?.ItemSize == null ? true : false;
         bool ValueIsOK = ((value.Height >= 10) && (value.Width >= 10));
 
         if (ValueIsOK)
         {
           pageViewItemSize = value;
-          if (CheckIsNull == false) FrameworkManager.MainForm.PvMain.ItemSize = pageViewItemSize;
+          if (CheckIsNull == false) MainForm.PvMain.ItemSize = pageViewItemSize;
         }
       }
     }
@@ -221,8 +222,8 @@ namespace TmWinForms
 
     private void GetMainFormLocation()
     {
-      this.MainFormLocation = FrameworkManager.MainForm.Location;
-      this.MainFormSize = FrameworkManager.MainForm.Size;
+      this.MainFormSize = MainForm.Size;
+      this.MainFormLocation = MainForm.Location;
     }
 
     private void CheckErrorFileNamedAsDirectory()
@@ -244,7 +245,7 @@ namespace TmWinForms
     internal override void Save(string fileName = FrameworkSettingsFileName)
     {
       if (RememberMainFormLocation == false) return;
-      if (FrameworkManager.MainForm.WindowState != FormWindowState.Normal) return;
+      if (MainForm.WindowState != FormWindowState.Normal) return;
 
       GetMainFormLocation();
 
@@ -293,7 +294,7 @@ namespace TmWinForms
         }
       else
       {
-        FrameworkManager.Service.RestoreMainFormLocationAndSize(settings.MainFormLocation, settings.MainFormSize);
+        Service.RestoreMainFormLocationAndSize(settings.MainFormLocation, settings.MainFormSize);
       }
     }
   }
