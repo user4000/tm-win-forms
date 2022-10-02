@@ -59,9 +59,23 @@ namespace TmWinForms
 
       //Trace.WriteLine($"{form.GetType().FullName} --- {typeof(FxLog).FullName} --- {typeof(FxExit).FullName}");
 
-      if (form.GetType().FullName == typeof(FxLog).FullName) return MainForm.PageLog;
-      if (form.GetType().FullName == typeof(FxExit).FullName) return MainForm.PageExit;
-      if (form.GetType().FullName == typeof(FxSettings).FullName) return MainForm.PageSettings;
+      if (form.GetType().FullName == typeof(FxLog).FullName)
+      {
+        MainForm.PageLog.Text = FrameworkSettings.HeaderFormLog;
+        return MainForm.PageLog;
+      }
+
+      if (form.GetType().FullName == typeof(FxExit).FullName)
+      {
+        MainForm.PageExit.Text = FrameworkSettings.HeaderFormExit;
+        return MainForm.PageExit;
+      }
+
+      if (form.GetType().FullName == typeof(FxSettings).FullName)
+      {
+        MainForm.PageSettings.Text = FrameworkSettings.HeaderFormSettings;
+        return MainForm.PageSettings;
+      }
 
       return page;
     }

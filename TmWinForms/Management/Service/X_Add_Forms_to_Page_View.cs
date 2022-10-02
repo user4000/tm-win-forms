@@ -60,6 +60,17 @@ namespace TmWinForms
       page.Location = new Point(10, 10);
       page.TextAlignment = ContentAlignment.MiddleCenter;
 
+      RadPageViewStripElement element = (RadPageViewStripElement)MainForm.PvMain.GetChildAt(0);
+
+      element.ShowItemPinButton = false;
+      element.StripButtons = StripViewButtons.Scroll;
+      element.ItemAlignment = StripViewItemAlignment.Near;
+      element.ItemFitMode = StripViewItemFitMode.FillHeight;
+      element.ShowItemCloseButton = false;
+      element.ItemSpacing = FrameworkSettings.PageViewItemSpacing;
+
+      if (FrameworkSettings.StripOrientation != StripViewAlignment.Top) SetMainPageViewTabOrientation(FrameworkSettings.StripOrientation);
+
       return page;
     }
 

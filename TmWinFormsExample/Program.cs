@@ -43,23 +43,34 @@ namespace TmWinFormsExample
       FrameworkSettings.RememberMainFormLocation = true;
       FrameworkSettings.ConfirmExit = true;
       FrameworkSettings.ValueColumnWidthPercent = 50;
-      
-     
-      
-      
-      
+      FrameworkSettings.ConfirmExitButtonText = " Click me, my friend !";
+
+      FrameworkSettings.HeaderFormExit = "Test exit";
+      FrameworkSettings.HeaderFormLog = "Test log";
+      FrameworkSettings.HeaderFormSettings = "Test settings";
+
+      //FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = true;
+      //FrameworkSettings.MainFormCloseButtonMustNotCloseForm = true;
+
+      FrameworkSettings.PageViewItemSpacing = 5;
+      //FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left;
+      FrameworkSettings.TabMinimumWidth = 150;
+
+
+
       // Затем укажем какие формы нужно создать на вкладках главной формы //
 
-      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>(null, "My Form 1", true, true);
+      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
 
-      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>(null, "My Form 2", true, true);
+      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>("form2", "My Form 2", true, true);
 
-      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>(null, "My Form 3", true, true);
+      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
 
-      FrameworkManager.Service.SetStartForm(f1);
-      
-      
+      //FrameworkManager.Service.SetStartForm(f3);
+      //FrameworkManager.Service.SetStartForm("form2");
+
+
       // Далее следует запуск фреймворка //
 
       FrameworkManager.Run();

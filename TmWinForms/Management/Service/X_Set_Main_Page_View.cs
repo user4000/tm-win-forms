@@ -30,7 +30,7 @@ namespace TmWinForms
     /// <summary>
     /// Valid argument values = TOP, LEFT, RIGHT, BOTTOM
     /// </summary>
-    internal void SetMainPageViewTabOrientation(StripViewAlignment StripOrientation)
+    public void SetMainPageViewTabOrientation(StripViewAlignment StripOrientation)
     {
       PageViewContentOrientation ItemOrienation =
         ((StripOrientation == StripViewAlignment.Left) || (StripOrientation == StripViewAlignment.Right))

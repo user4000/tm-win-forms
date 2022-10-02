@@ -12,7 +12,6 @@ namespace TmWinForms
   [JsonObject(MemberSerialization.OptIn)]
   public class StandardFrameworkSettings : StandardJsonSettings<StandardFrameworkSettings>
   {
-
     private int tabMinWidth = 100;
 
     public int TabMinimumWidth // Минимальная ширина вкладки //
@@ -30,10 +29,8 @@ namespace TmWinForms
 
     public string ThemeName { get; set; } = string.Empty; // Если пользователь задаст это значение, то фреймворк постарается найти и применить данную тему //
 
-    public bool FlagMainPageViewVisibleWhileMainFormIsStarting { get; set; } = true;
 
 
-    public int MainFormDelayMillisecondsBeforeUserFormsAreLoaded { get; set; } = 500;
 
 
     private Font pageViewFont = new Font("Verdana", 9, FontStyle.Regular);
@@ -54,19 +51,29 @@ namespace TmWinForms
       }
     }
 
+
+
     public Font FontAlertCaption { get; set; } = new Font("Verdana", 9);
 
     public Font FontAlertText { get; set; } = new Font("Verdana", 9);
 
-    /*-----------------------------------------------------------------------------------------------------*/
-    //public bool PreviousAlertDisappears { get; set; } = false;
-    /*-----------------------------------------------------------------------------------------------------*/
-    public int MainFormMargin { get; set; } = 20;
+
+
+
+
+    public StripViewAlignment StripOrientation { get; set; } = StripViewAlignment.Top;
+
+
     /*-----------------------------------------------------------------------------------------------------*/
     public PageViewItemSizeMode ItemSizeMode { get; set; } = PageViewItemSizeMode.EqualHeight; //PageViewItemSizeMode.Individual ;
     /*-----------------------------------------------------------------------------------------------------*/
     public int PageViewItemSpacing { get; set; } = 10;
     /*-----------------------------------------------------------------------------------------------------*/
+
+
+
+
+
     private Size pageViewItemSize = new Size(100, 27);
     public Size PageViewItemSize
     {
@@ -83,16 +90,29 @@ namespace TmWinForms
         }
       }
     }
-    /*-----------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+    
     private int maxAlertCount = 5;
     public int MaxAlertCount
     {
       get => maxAlertCount;
       set { if ((value > 0) && (value < 11)) maxAlertCount = value; }
     }
-    /*-----------------------------------------------------------------------------------------------------*/
+    
+
+
 
     public bool LimitNumberOfAlerts { get; set; } = true;
+
+
 
 
     private MsgPos defaultAlertPosition = MsgPos.BottomRight;
@@ -103,21 +123,28 @@ namespace TmWinForms
     }
 
 
-    /*-----------------------------------------------------------------------------------------------------*/
+
+
+    
     private int secondsAlertAutoClose = 7;
     public int SecondsAlertAutoClose
     {
       get => secondsAlertAutoClose;
       set { if ((value >= 1) && (value <= 864000)) secondsAlertAutoClose = value; }
     }
-    /*-----------------------------------------------------------------------------------------------------*/
+
+
+
+
+
     private byte valueColumnWidthPercent = 0;
     public byte ValueColumnWidthPercent
     {
       get => valueColumnWidthPercent;
       set { if ((value <= 90) && (value >= 10)) valueColumnWidthPercent = value; }
     }
-    /*-----------------------------------------------------------------------------------------------------*/
+
+
     private Padding propertyGridPadding = new Padding(30, 30, 30, 30);
     public Padding PropertyGridPadding
     {
@@ -150,6 +177,12 @@ namespace TmWinForms
       }
     }
 
+
+
+
+
+
+
     private string headerFormExit = "Exit";
 
     public string HeaderFormExit
@@ -160,6 +193,12 @@ namespace TmWinForms
         if (!string.IsNullOrWhiteSpace(value)) headerFormExit = value;
       }
     }
+
+
+
+
+
+
 
     private string headerFormLog = "Message log";
 
@@ -174,7 +213,10 @@ namespace TmWinForms
 
 
 
-    public string ConfirmExitButtonText { get; set; }
+
+
+
+    public string ConfirmExitButtonText { get; set; } = string.Empty;
 
     public bool ConfirmExit { get; set; } = false;
 
@@ -187,28 +229,29 @@ namespace TmWinForms
 
 
 
-    public bool MainFormMinimizeBeforeClosing { get; set; } = false;
 
 
 
 
-    /*-----------------------------------------------------------------------------------------------------*/
     public bool RememberMainFormLocation { get; set; } = false;
-    /*-----------------------------------------------------------------------------------------------------*/
-    public bool MainPageViewReducePadding { get; set; } = false;
+
 
     public bool MainFormMinimizeToTray { get; set; } = false;
 
 
     public bool VisualEffectOnStart { get; set; } = false;
 
-    public bool VisualEffectOnExit { get; set; } = false;
 
 
     public bool MainFormCloseButtonActsAsMinimizeButton { get; set; } = false;
 
 
+
     public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
+
+
+
+
 
 
 
@@ -217,6 +260,11 @@ namespace TmWinForms
 
     [JsonProperty]
     public Size MainFormSize { get; set; } = default(Size);
+
+
+
+
+
 
 
 

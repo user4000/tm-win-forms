@@ -14,6 +14,8 @@ namespace TmWinForms
 
     ushort IdStartForm { get; set; } = 0;
 
+    string CodeStartForm { get; set; } = string.Empty;
+
     HashSet<string> HsUniqueNames { get; } = new HashSet<string>();
 
 
@@ -76,17 +78,47 @@ namespace TmWinForms
       IdStartForm = id;
     }
 
-    internal void GotoStartForm()
+    public void SetStartForm(string UniqueFormName)
     {
-      if (IdStartForm == 0) return;
+      CodeStartForm = UniqueFormName;
+    }
+
+    internal bool GotoStartForm()
+    {
+      if (IdStartForm == 0) return false;
+
+      bool result = false;
+
       foreach(var pair in DicForms)
       {
         if (pair.Value.IdForm == IdStartForm)
         {
           MainForm.PvMain.SelectedPage = pair.Value.Page;
+          result = true;
           break;
         }
       }
+
+      return result;
+    }
+
+    internal bool GotoStartFormUsingStringCode()
+    {
+      if (string.IsNullOrWhiteSpace(CodeStartForm)) return false;
+
+      bool result = false;
+
+      foreach (var pair in DicForms)
+      {
+        if (pair.Value.UniqueName == CodeStartForm)
+        {
+          MainForm.PvMain.SelectedPage = pair.Value.Page;
+          result = true;
+          break;
+        }
+      }
+
+      return result;
     }
   }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using TmWinForms;
-using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;

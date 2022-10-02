@@ -15,7 +15,9 @@ namespace TmWinForms
 
       MainForm.Visible = true;
 
-      Service.GotoStartForm();
+      bool startForm = Service.GotoStartForm();
+
+      if (startForm == false) Service.GotoStartFormUsingStringCode();
     }
   }
 }
