@@ -423,7 +423,7 @@ namespace TmWinForms.Form
 
       if (Message.FlagFile)
       {
-        //Log.Save(Message.MessageType, Message.Header, Message.Text); // TODO: Save message to log //
+        Log.Save(Message.MessageType, Message.Header, Message.Text); 
       }
 
       if (Message.FlagAlert)

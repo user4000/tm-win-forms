@@ -38,7 +38,7 @@ namespace TmWinFormsExample
 
       FrameworkSettings.VisualEffectOnStart = true;
       FrameworkSettings.RememberMainFormLocation = true;
-      FrameworkSettings.ConfirmExit = true;
+      FrameworkSettings.ConfirmExit = false;
       FrameworkSettings.ValueColumnWidthPercent = 50;
       FrameworkSettings.ConfirmExitButtonText = " Click me, my friend !";
 
@@ -50,7 +50,7 @@ namespace TmWinFormsExample
       //FrameworkSettings.MainFormCloseButtonMustNotCloseForm = true;
 
       FrameworkSettings.PageViewItemSpacing = 5;
-      //FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left;
+      FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left;
       FrameworkSettings.TabMinimumWidth = 150;
 
 

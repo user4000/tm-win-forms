@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
+
 namespace TmWinForms
 {
   [JsonObject(MemberSerialization.OptIn)]
@@ -55,13 +56,14 @@ namespace TmWinForms
 
     public Font FontAlertCaption { get; set; } = new Font("Verdana", 9);
 
+
     public Font FontAlertText { get; set; } = new Font("Verdana", 9);
 
 
-
-
-
+    [JsonProperty]
     public StripViewAlignment StripOrientation { get; set; } = StripViewAlignment.Top;
+
+
 
 
     /*-----------------------------------------------------------------------------------------------------*/
@@ -236,15 +238,10 @@ namespace TmWinForms
     public bool RememberMainFormLocation { get; set; } = false;
 
 
-    public bool MainFormMinimizeToTray { get; set; } = false;
-
-
     public bool VisualEffectOnStart { get; set; } = false;
 
 
-
     public bool MainFormCloseButtonActsAsMinimizeButton { get; set; } = false;
-
 
 
     public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
@@ -252,6 +249,10 @@ namespace TmWinForms
 
 
 
+
+
+
+    public bool MainFormMinimizeToTray { get; set; } = false;
 
 
 
@@ -266,6 +267,13 @@ namespace TmWinForms
 
     [JsonProperty]
     public DateTime TimeCheckOldLogFiles { get; set; } = new DateTime(2022, 1, 1);
+
+
+
+
+
+
+
 
 
 

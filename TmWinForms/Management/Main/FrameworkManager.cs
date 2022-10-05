@@ -55,7 +55,7 @@ namespace TmWinForms
 
       // Программист не удосужился сконфигурировать логгер //
       // Сделаем это за него, с настройками по умолчанию   //
-      if (Log.Configured == false) Log.Configure(); 
+      if (Log.FlagConfigured == false) Log.Configure(); 
 
       Service.Configure(MainForm);
 

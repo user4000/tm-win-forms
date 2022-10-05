@@ -13,7 +13,9 @@ namespace TmWinForms
 
     Serilog.Core.Logger MainLogger { get; set; }
 
-    internal bool Configured { get; private set; } = false;
+    internal bool FlagConfigured { get; private set; } = false;
+
+    internal bool FlagStopWork { get; private set; } = true;
 
     string FolderOfLogFiles { get; set; } = CxLoggerConfig.directory;
 
@@ -52,7 +54,7 @@ namespace TmWinForms
 
     internal void Configure(string applicationName = Empty, string filePrefix = Empty)
     {
-      if (Configured)
+      if (FlagConfigured)
       {
         RadMessageBox.Show("You must not configure the logger more than one time!", "Error !", System.Windows.Forms.MessageBoxButtons.OK, RadMessageIcon.Error);
         return;
@@ -78,7 +80,8 @@ namespace TmWinForms
       CheckOldLogFiles();
       string fileName = $"{folder}/{filePrefix}_{dateTime}.txt";
       CreateMainLogger(fileName);
-      Configured = true;
+      FlagConfigured = true;
+      FlagStopWork = !FlagConfigured;
     }
 
     void CheckOldLogFiles()
@@ -122,10 +125,9 @@ namespace TmWinForms
 
     internal void EventEndWork()
     {
+      FlagStopWork = true;
       Log.CloseAndFlush();
     }
-
-
 
     public void Save(string message)
     {
@@ -139,7 +141,9 @@ namespace TmWinForms
 
     public void Save(MsgType type, string header, string message)
     {
-      string HeaderAndMessage = header + "; " + message;
+      if (FlagStopWork == true) return;
+
+      string HeaderAndMessage = string.IsNullOrWhiteSpace(header) ? message : header + "; " + message;
 
       switch (type)
       {
@@ -155,6 +159,8 @@ namespace TmWinForms
 
     public void Save(Exception exception, string message, MsgType type = MsgType.Error)
     {
+      if (FlagStopWork == true) return;
+
       switch (type)
       {
         case MsgType.Debug: MainLogger.Debug(exception, message); break;
