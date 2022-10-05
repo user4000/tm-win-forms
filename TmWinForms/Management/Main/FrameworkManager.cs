@@ -13,6 +13,10 @@ namespace TmWinForms
 
     public static CxMessageManager Ms { get; } = CxMessageManager.Create();
 
+    public static CxLogger Log { get; } = CxLogger.Create();
+
+
+
     public static IMessageHub MsHub { get; } = MessageHub.Create();
 
     public static UserEvents Events { get; } = UserEvents.Create();
@@ -38,10 +42,21 @@ namespace TmWinForms
       Application.Run(context);
     }
 
+    public static void CreateLogger(string applicationName = "", string filePrefix = "")
+    {
+      Log.Configure(applicationName, filePrefix);
+    }
+
+
+
     static FxMain CreateMainForm()
     {
       MainForm = new FxMain();
-      
+
+      // Программист не удосужился сконфигурировать логгер //
+      // Сделаем это за него, с настройками по умолчанию   //
+      if (Log.Configured == false) Log.Configure(); 
+
       Service.Configure(MainForm);
 
       Pages.Configure(MainForm);

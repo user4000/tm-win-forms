@@ -1,7 +1,7 @@
 ﻿using System;
 using TmWinForms;
-using System.Windows.Forms;
 using Telerik.WinControls;
+using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
@@ -19,6 +19,7 @@ namespace TmWinFormsExample
     {
       SetProperties();
       SetEvents();
+      Log.Save($"{this.GetType().FullName} ---> EventStartWork()");
     }
 
     void SetProperties()
@@ -38,7 +39,7 @@ namespace TmWinFormsExample
 
     public void EventEndWork()
     {
-
+      Log.Save($"{this.GetType().FullName} ---> EventEndWork()");
     }
   }
 }

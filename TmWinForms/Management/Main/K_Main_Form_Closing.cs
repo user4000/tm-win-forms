@@ -29,7 +29,7 @@ namespace TmWinForms
         return;
       }
       // ------------------------------------------------------------------------------------------------------------- //
-
+      
       if (MainFormClosingCounter > 0) return; // Со второго захода выполнится инструкция return в данном условии //
 
       /* =============================================================================================================== */
@@ -47,10 +47,9 @@ namespace TmWinForms
 
       Service.ExecEndWorkHandlerForEachSubForm();
 
+      Log.EventEndWork(); // Завершаем работу логгера //
+
       await Task.Delay(500);
-
-
-
 
 
       // Если не выполнить строку MainForm.WindowState = FormWindowState.Minimized; 

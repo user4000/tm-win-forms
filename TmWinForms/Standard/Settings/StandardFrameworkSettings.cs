@@ -258,11 +258,14 @@ namespace TmWinForms
     [JsonProperty]
     public Point MainFormLocation { get; set; } = default(Point);
 
+
+
     [JsonProperty]
     public Size MainFormSize { get; set; } = default(Size);
 
 
-
+    [JsonProperty]
+    public DateTime TimeCheckOldLogFiles { get; set; } = new DateTime(2022, 1, 1);
 
 
 

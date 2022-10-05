@@ -7,18 +7,13 @@ using System.Diagnostics;
 using Telerik.WinControls;
 using System.Windows.Forms;
 
-
 namespace TmWinFormsExample
 {
   static class Program
   {
-
-
-
     public static MySettings ApplicationSettings { get => FrameworkManager.ApplicationSettings<MySettings>(); } // User custom settings in Property Grid //
 
     public static StandardFrameworkSettings FrameworkSettings { get; } = FrameworkManager.FrameworkSettings; // Framework embedded settings //
-
 
 
     /// <summary>
@@ -31,12 +26,14 @@ namespace TmWinFormsExample
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
-      FrameworkManager.Service.CreateApplicationSettings<MySettings>(Assembly.GetExecutingAssembly().GetName().Name);
+      string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+      string applicationName = "Test_Application";
 
+      FrameworkManager.Service.CreateApplicationSettings<MySettings>(assemblyName);
+
+      FrameworkManager.CreateLogger(null, applicationName);
       
-      
-      
-      
+        
       // Сначала установим настройки фреймворка //
 
       FrameworkSettings.VisualEffectOnStart = true;
