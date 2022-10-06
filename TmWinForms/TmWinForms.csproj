@@ -74,6 +74,7 @@
     <Compile Include="Management\Events\Events.cs" />
     <Compile Include="Management\Logger\CxLogger.cs" />
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
+    <Compile Include="Management\Main\K_Create_Main_Form.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closed.cs" />
     <Compile Include="Management\Pages\X_Enable_Page.cs" />
     <Compile Include="Management\Pages\V_Event_Page_Changed.cs" />

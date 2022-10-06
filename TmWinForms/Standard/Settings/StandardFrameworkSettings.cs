@@ -252,6 +252,8 @@ namespace TmWinForms
     public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
 
 
+    [JsonProperty]
+    public bool HideMainPageViewBeforeMainFormIsShown { get; set; } = false;
 
 
 

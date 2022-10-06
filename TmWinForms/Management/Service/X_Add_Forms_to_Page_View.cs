@@ -106,7 +106,7 @@ namespace TmWinForms
 
       page.Item.Enabled = subForm.FlagTabEnabled;
 
-      if ((subForm.FlagTabVisible) && (MainForm.PvMain.Visible)) page.Refresh();
+      //if ((subForm.FlagTabVisible) && (MainForm.PvMain.Visible)) page.Refresh();
     }
   }
 }

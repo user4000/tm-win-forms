@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace TmWinForms
 {
@@ -11,7 +12,11 @@ namespace TmWinForms
 
       Events.BeforeSubFormsAreCreated?.Invoke();
 
+ 
+
       Service.PlaceAllSubFormsToMainPageView();
+
+  
 
       Events.BeforeMainFormBecomesVisible?.Invoke();
 
@@ -19,14 +24,25 @@ namespace TmWinForms
 
       MainForm.Visible = true;
 
+
+
+
       bool startForm = Service.GotoStartForm();
 
       if (startForm == false) Service.GotoStartFormUsingStringCode();
 
+
+
+
+      MainForm.ShowMainPageView(true);
+
+
+
+
       Events.MainFormShown?.Invoke();
 
       Events.Start?.Invoke();
-    
+
       MainForm.LaunchStartTimer();      
     }
   }

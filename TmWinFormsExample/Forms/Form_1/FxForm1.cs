@@ -19,7 +19,7 @@ namespace TmWinFormsExample
     {
       SetProperties();
       SetEvents();
-      Log.Save($"{this.GetType().FullName} ---> EventStartWork()");
+      //Log.Save($"{this.GetType().FullName} ---> EventStartWork()");
     }
 
     void SetProperties()
@@ -39,7 +39,7 @@ namespace TmWinFormsExample
 
     public void EventEndWork()
     {
-      Log.Save($"{this.GetType().FullName} ---> EventEndWork()");
+      //Log.Save($"{this.GetType().FullName} ---> EventEndWork()");
     }
   }
 }

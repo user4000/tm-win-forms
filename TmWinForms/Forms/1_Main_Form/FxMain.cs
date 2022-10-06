@@ -26,8 +26,6 @@ namespace TmWinForms
         this.Opacity = 0;
       }
 
-      this.Visible = false;
-
       AdjustFirstPage();
 
       AdjustAboutProgramPage();
@@ -122,7 +120,7 @@ namespace TmWinForms
       if (FrameworkSettings.VisualEffectOnStart == false) return;
 
       int duration = 500; // in milliseconds
-      int steps = 20;
+      int steps = 25;
       Timer timer = new Timer() { Interval = duration / steps };
       int currentStep = 0;
       timer.Tick += (arg1, arg2) =>
@@ -137,15 +135,15 @@ namespace TmWinForms
           this.Opacity = 1;
         }
       };
-      timer.Start();
+      timer.Start();      
     }
 
     internal void VisualEffectFadeOut()
     {
       if (FrameworkSettings.VisualEffectOnExit == false) return;
 
-      int duration = 1500; // in milliseconds
-      int steps = 30;
+      int duration = 500; // in milliseconds
+      int steps = 25;
       Timer timer = new Timer() { Interval = duration / steps };
       int currentStep = 0;
       timer.Tick += (arg1, arg2) =>
@@ -161,6 +159,15 @@ namespace TmWinForms
         }
       };
       timer.Start();
+    }
+
+    internal void ShowMainPageView(bool show)
+    {
+      if (FrameworkSettings.HideMainPageViewBeforeMainFormIsShown == false) return;
+      
+      //MainForm.PvMain.Visible = show;
+
+      ((RadPageViewStripElement)PvMain.ViewElement).ItemContainer.Visibility = show ? ElementVisibility.Visible : ElementVisibility.Collapsed;
     }
   }
 }

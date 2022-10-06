@@ -99,17 +99,35 @@ namespace TmWinFormsExample
 
     static void SetApplicationEvents()
     {
-      Action action1 = () => { SaveToLog("MainFormLoad"); };
+      Action action1 = () => 
+      {
+        //SaveToLog("MainFormLoad");
+      };
 
-      Action action2 = () => { SaveToLog("BeforeSubFormsAreCreated"); };
+      Action action2 = () => 
+      {
+        //SaveToLog("BeforeSubFormsAreCreated");
+      };
 
-      Action action3 = () => { SaveToLog("BeforeMainFormBecomesVisible"); };
+      Action action3 = () => 
+      {
+        //SaveToLog("BeforeMainFormBecomesVisible");
+      };
 
-      Action action4 = () => { SaveToLog("MainFormShown"); };
+      Action action4 = () => 
+      {
+        //SaveToLog("MainFormShown");
+      };
 
-      Action action5 = () => { SaveToLog("Start"); };
+      Action action5 = () => 
+      {
+        //SaveToLog("Start");
+      };
 
-      Action action6 = () => { SaveToLog("StartByTimer"); };
+      Action action6 = () => 
+      {
+        //SaveToLog("StartByTimer");
+      };
 
 
 

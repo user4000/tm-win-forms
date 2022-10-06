@@ -53,6 +53,10 @@ namespace TmWinForms
       {
         MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
       }
+      else if (FrameworkSettings.VisualEffectOnExit)
+      {
+        MainForm.VisualEffectFadeOut();
+      }
 
 
 

@@ -29,61 +29,31 @@ namespace TmWinForms
 
 
 
-
-
-
-
-    public static void Run() // Главная точка входа - запуск программы начинается с этого метода //
-    {
-      FxMain mainForm = CreateMainForm();
-
-      ApplicationContext context = new ApplicationContext(mainForm);
-
-      Application.Run(context);
-    }
-
     public static void CreateLogger(string applicationName = "", string filePrefix = "")
     {
       Log.Configure(applicationName, filePrefix);
     }
 
-
-
-    static FxMain CreateMainForm()
+    static void LoadFrameworkSettings()
     {
-      FrameworkSettings.LoadFrameworkSettings();
-
-      Events.OverrideLoadedFrameworkSettings?.Invoke();
-
-      Events.BeforeMainFormIsCreated?.Invoke();
-
-      MainForm = new FxMain();
-
       // Программист не удосужился сконфигурировать логгер //
       // Сделаем это за него, с настройками по умолчанию   //
-      if (Log.FlagConfigured == false) Log.Configure(); 
+      if (Log.FlagConfigured == false) Log.Configure();
 
-      Service.Configure(MainForm);
+      FrameworkSettings.LoadFrameworkSettings();
+      Events.OverrideLoadedFrameworkSettings?.Invoke();
+      Events.BeforeMainFormIsCreated?.Invoke();
+    }
 
-      Pages.Configure(MainForm);
+    public static void Run() // Главная точка входа - запуск программы начинается с этого метода //
+    {
+      LoadFrameworkSettings();
 
-      //MainForm.Visible = false;
+      FxMain mainForm = CreateMainForm();
 
-      MainForm.Text = string.Empty;
+      ApplicationContext context = new ApplicationContext(mainForm);
 
-      MainForm.SetProperties();
-
-      MainForm.SetEvents();
-
-      MainForm.FormClosing += new FormClosingEventHandler(EventMainFormClosing);
-
-      MainForm.FormClosed += new FormClosedEventHandler(EventMainFormClosed);
-
-      MainForm.Shown += new EventHandler(EventMainFormShown);
-
-      FrameworkSettings.RestoreMainFormLocationAndSize();
-
-      return MainForm;
+      Application.Run(context);
     }
   }
 }
