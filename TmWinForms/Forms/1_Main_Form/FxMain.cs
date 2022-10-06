@@ -100,6 +100,16 @@ namespace TmWinForms
     internal void SetEventForSystemTrayIcon()
     {
       if (FrameworkSettings.FlagMinimizeMainFormToSystemTray == false) return;
+
+      if (FlagSystemTrayIconIsConfigured == false)
+      {
+        // Приложение должно минимизироваться в трей, но программист не настроил иконку для системного лотка. Придётся сделать это за него //
+        SetIconForSystemTray(null);
+      };
+
+      if (MainForm.NotifyIconMainForm.Icon == null) return; // Проверка на всякий случай - а то минимизируем главную форму а иконки нет в системном лотке //
+
+      this.NotifyIconMainForm.Visible = true;
       this.Resize += new EventHandler(EventResizeCheckWindowState);
     }
 
@@ -111,6 +121,8 @@ namespace TmWinForms
 
     void EventResizeCheckWindowState(object sender, EventArgs e)
     {
+      if (UserHasClickedExitButton) return;
+
       if ((this.WindowState == FormWindowState.Minimized))
       {
         this.ShowInTaskbar = false;
@@ -147,6 +159,7 @@ namespace TmWinForms
 
     void EventResize(object sender, EventArgs e)
     {
+      if (UserHasClickedExitButton) return;
       FrameworkManager.Events.MainFormResize();
     }
 

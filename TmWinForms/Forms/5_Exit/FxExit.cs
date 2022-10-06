@@ -1,6 +1,4 @@
 ﻿using System;
-using TmWinForms;
-using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
@@ -15,7 +13,7 @@ namespace TmWinForms.Form
 
     public void EventStartWork()
     {
-      ConfigureExitButton();
+      ConfigureTextOfExitButton();
       BtnExit.MinimumSize = new System.Drawing.Size(250, 0);
       BtnExit.Click += new EventHandler(EventUserClickedExitButton);
     }
@@ -41,7 +39,7 @@ namespace TmWinForms.Form
 
       if (Confirmation)
       {
-        ConfigureExitButton();
+        ConfigureTextOfExitButton();
       }
       else
       {
@@ -49,7 +47,7 @@ namespace TmWinForms.Form
       }
     }
 
-    public void ConfigureExitButton()
+    public void ConfigureTextOfExitButton()
     {
       string text = FrameworkSettings.ConfirmExitButtonText;
 

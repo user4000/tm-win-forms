@@ -33,7 +33,7 @@ namespace TmWinFormsExample
       FrameworkManager.CreateLogger(null, applicationName);
 
       FrameworkManager.SetApplicationIcon(Properties.Resources.ApplicationIcon);
-
+     
       //FrameworkManager.SetIconForSystemTray(Properties.Resources.ApplicationIcon);
 
 
@@ -133,25 +133,6 @@ namespace TmWinFormsExample
 
       //FrameworkManager.Events.StartByTimer = action6;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -80,11 +80,13 @@ namespace TmWinForms
       }
 
 
+
+
       Log.EventEndWork(); // Завершаем работу логгера //
 
 
-      await Task.Delay(750);
 
+      await Task.Delay(750);
 
 
 

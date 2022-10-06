@@ -14,15 +14,20 @@ namespace TmWinForms
         page.Item.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
       }
 
+
+
+
+      #region Tune Icons ---------------------------------------------------------------------------------------------------------
+
+      SetIconDefaultValuesIfTheyHaveNoAnyValue();
+
       MainForm.Icon = IconApplication;
+      MainForm.NotifyIconMainForm.Icon = IconSystemTray;  
+ 
+      #endregion ----------------------------------------------------------------------------------------------------------------
 
-      if ((FlagUseSystemTrayIcon) && (IconSystemTray != null))
-      {
-        MainForm.NotifyIconMainForm.Icon = IconSystemTray;
-        MainForm.NotifyIconMainForm.Visible = true;
-      }
 
-      MainForm.NotifyIconMainForm.Visible = true;
+
 
       MainForm.Visible = false;
 
@@ -34,7 +39,7 @@ namespace TmWinForms
 
       Pages.Configure(MainForm);
 
-      MainForm.Text = string.Empty;
+      MainForm.Text = string.Empty; // TODO: Form caption //
 
       MainForm.SetProperties();
 

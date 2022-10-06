@@ -67,8 +67,9 @@ namespace TmWinForms
         FrameworkSettings.ConfirmExit = true;
       }
 
-      if ((FrameworkSettings.FlagMainFormStartMinimized) && (FlagUseSystemTrayIcon == false))
+      if ((FrameworkSettings.FlagMainFormStartMinimized) && (FlagSystemTrayIconIsConfigured == false))
       {
+        // Приложение - серверное, но программист не настроил иконку для системного лотка. Придётся сделать это за него //
         SetIconForSystemTray(null);
       }
     }

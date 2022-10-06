@@ -33,12 +33,15 @@ namespace TmWinForms
     public static Icon IconSystemTray  { get; private set; }
 
 
-    public static bool FlagUseSystemTrayIcon { get; private set; } = false; // Пользователь хочет использовать иконку приложения в системном лотке //
+    public static bool FlagSystemTrayIconIsConfigured { get; private set; } = false; // Пользователь хочет использовать иконку приложения в системном лотке //
 
 
     static bool FlagServiceApplication()
     {
-      return (FrameworkSettings.FlagMainFormStartMinimized) && (FlagUseSystemTrayIcon) && (IconSystemTray != null);
+      return 
+        (FrameworkSettings.FlagMainFormStartMinimized) && 
+        (FlagSystemTrayIconIsConfigured) && 
+        (IconSystemTray != null);
     }
 
 
@@ -61,7 +64,7 @@ namespace TmWinForms
       {
         IconSystemTray = icon;
       }
-      FlagUseSystemTrayIcon = true;
+      FlagSystemTrayIconIsConfigured = true;
     }
 
 
@@ -69,13 +72,16 @@ namespace TmWinForms
 
     static FrameworkManager()
     {
-      IconApplication = Properties.Resources.ApplicationIcon;
-      IconSystemTray = Properties.Resources.ApplicationIcon;
+
     }
 
 
 
-
+    static void SetIconDefaultValuesIfTheyHaveNoAnyValue()
+    {
+      if (IconApplication == null) IconApplication = Properties.Resources.ApplicationIcon;
+      if (IconSystemTray == null) IconSystemTray = Properties.Resources.ApplicationIcon;
+    }
 
 
 
