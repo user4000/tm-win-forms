@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Diagnostics;
 using Telerik.WinControls;
 using System.Windows.Forms;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinFormsExample
 {
@@ -23,17 +24,6 @@ namespace TmWinFormsExample
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     static void SetFrameworkSettingsBeforeLoadingFromTextFile()
     {
       string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
@@ -41,8 +31,13 @@ namespace TmWinFormsExample
 
       FrameworkManager.Service.CreateApplicationSettings<MySettings>(assemblyName);
       FrameworkManager.CreateLogger(null, applicationName);
-     
-      /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений */
+
+      FrameworkManager.SetApplicationIcon(Properties.Resources.ApplicationIcon);
+
+      //FrameworkManager.SetIconForSystemTray(Properties.Resources.ApplicationIcon);
+
+
+      /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений (если не устраивают значения по умолчанию) */
 
       //FmSettings.VisualEffectOnStart = true;
       //FmSettings.RememberMainFormLocation = true;
@@ -50,13 +45,13 @@ namespace TmWinFormsExample
 
       //FmSettings.ValueColumnWidthPercent = 50;
 
-      //FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = true;
-      //FrameworkSettings.MainFormCloseButtonMustNotCloseForm = true;
+      //FmSettings.MainFormCloseButtonActsAsMinimizeButton = true;
+      //FmSettings.MainFormCloseButtonMustNotCloseForm = true;
 
+      //FmSettings.TabMinimumWidth = 150;
       //FmSettings.PageViewItemSpacing = 5;
       //FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left; 
-      //FmSettings.TabMinimumWidth = 150;
-      //FmSettings.StripOrientation = AppSettings.MainPageOrientation;
+
 
       FmSettings.ConfirmExitButtonText = " Click me, my friend !";
 
@@ -69,12 +64,12 @@ namespace TmWinFormsExample
     {
       /* 
        Настройки фреймворка, которые сохраняются в текстовом файле и получают свои значения из текстового файла, но тем не менее
-       значения эти могут быть явно перекрыты другими значениями, которые программист должен указать явно в этом методе.
+       значения эти могут быть перекрыты другими значениями, которые программист должен указать явно в этом методе.
        Это может быть нужно в тех случаях, когда в некотором приложении настройка не должна зависеть от значения в текстовом файле,
        а должна иметь явное значение и не допускать изменения этого значения.
       */
 
-
+      FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 1500;
     }
 
     static void SetFrameworkSettingsAfterLoadingFromTextFile()
@@ -127,6 +122,7 @@ namespace TmWinFormsExample
       Action action6 = () => 
       {
         //SaveToLog("StartByTimer");
+        Ms.ShortMessage("Application has been started", 290, null, MsgPos.BottomRight).Info(3);
       };
 
 

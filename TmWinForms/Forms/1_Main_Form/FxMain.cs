@@ -88,10 +88,50 @@ namespace TmWinForms
 
       if (FrameworkManager.Events.MainFormResizeEnd != null) this.ResizeEnd += new EventHandler(EventResizeEnd);
 
+
+      NotifyIconMainForm.DoubleClick += new EventHandler(EventTrayIconDoubleClick);
+
       // Эти важные события будут запрограммированы в классе FrameworkManager //
       //this.FormClosing += new FormClosingEventHandler(EventFormClosing);
       //this.FormClosed += new FormClosedEventHandler(EventFormClosed);
     }
+
+
+    internal void SetEventForSystemTrayIcon()
+    {
+      if (FrameworkSettings.FlagMinimizeMainFormToSystemTray == false) return;
+      this.Resize += new EventHandler(EventResizeCheckWindowState);
+    }
+
+    void EventTrayIconDoubleClick(object sender, EventArgs e)
+    {
+      this.WindowState = FormWindowState.Normal;
+      this.ShowInTaskbar = true;
+    }
+
+    void EventResizeCheckWindowState(object sender, EventArgs e)
+    {
+      if ((this.WindowState == FormWindowState.Minimized))
+      {
+        this.ShowInTaskbar = false;
+        this.Hide();
+      }
+      else if (this.WindowState == FormWindowState.Normal)
+      {
+        this.Show();
+        this.ShowInTaskbar = true;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
 
     void EventResizeEnd(object sender, EventArgs e)
     {
@@ -118,6 +158,7 @@ namespace TmWinForms
     internal void VisualEffectFadeIn()
     {
       if (FrameworkSettings.VisualEffectOnStart == false) return;
+      if (FrameworkSettings.FlagMainFormStartMinimized) return;
 
       int duration = 500; // in milliseconds
       int steps = 25;
@@ -168,6 +209,12 @@ namespace TmWinForms
       //MainForm.PvMain.Visible = show;
 
       ((RadPageViewStripElement)PvMain.ViewElement).ItemContainer.Visibility = show ? ElementVisibility.Visible : ElementVisibility.Collapsed;
+    }
+
+    public void ShowSystemTrayIcon(bool show)
+    {
+      if (NotifyIconMainForm.Icon == null) return;
+      NotifyIconMainForm.Visible = show;
     }
   }
 }

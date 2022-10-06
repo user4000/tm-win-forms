@@ -81,6 +81,11 @@
     <Compile Include="Management\Pages\W_Find_A_Page.cs" />
     <Compile Include="Management\Pages\X_Goto_Page.cs" />
     <Compile Include="Management\Pages\X_Show_Page.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Standard\Extensions\XxDataColumnChangeEventArgs.cs" />
     <Compile Include="Standard\Extensions\XxDataTable.cs" />
     <Compile Include="Standard\Extensions\XxEncoding.cs" />
@@ -193,6 +198,10 @@
       <DependentUpon>FxMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\4_About\" />
@@ -200,6 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

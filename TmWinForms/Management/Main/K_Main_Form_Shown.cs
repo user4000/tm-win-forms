@@ -43,7 +43,11 @@ namespace TmWinForms
 
       Events.Start?.Invoke();
 
-      MainForm.LaunchStartTimer();      
+      MainForm.LaunchStartTimer();
+
+      MainForm.SetEventForSystemTrayIcon();
+
+      if (FlagServiceApplication()) MainForm.ShowInTaskbar = false;
     }
   }
 }

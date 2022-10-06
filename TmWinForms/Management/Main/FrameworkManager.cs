@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TmWinForms
@@ -13,9 +14,8 @@ namespace TmWinForms
 
     public static CxMessageManager Ms { get; } = CxMessageManager.Create();
 
+
     public static CxLogger Log { get; } = CxLogger.Create();
-
-
 
     public static IMessageHub MsHub { get; } = MessageHub.Create();
 
@@ -28,6 +28,61 @@ namespace TmWinForms
 
 
 
+    public static Icon IconApplication { get; private set; }
+
+    public static Icon IconSystemTray  { get; private set; }
+
+
+    public static bool FlagUseSystemTrayIcon { get; private set; } = false; // Пользователь хочет использовать иконку приложения в системном лотке //
+
+
+    static bool FlagServiceApplication()
+    {
+      return (FrameworkSettings.FlagMainFormStartMinimized) && (FlagUseSystemTrayIcon) && (IconSystemTray != null);
+    }
+
+
+
+    public static void SetApplicationIcon(Icon icon)
+    {
+      if (icon != null)
+      {
+        IconApplication = icon;
+      }
+    }
+
+    /// <summary>
+    /// If you call this method the icon of the application will appear in the system tray.
+    /// </summary>
+    /// <param name="icon"></param>
+    public static void SetIconForSystemTray(Icon icon)
+    {
+      if (icon != null)
+      {
+        IconSystemTray = icon;
+      }
+      FlagUseSystemTrayIcon = true;
+    }
+
+
+
+
+    static FrameworkManager()
+    {
+      IconApplication = Properties.Resources.ApplicationIcon;
+      IconSystemTray = Properties.Resources.ApplicationIcon;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public static void CreateLogger(string applicationName = "", string filePrefix = "")
     {
@@ -36,14 +91,21 @@ namespace TmWinForms
 
     static void LoadFrameworkSettings()
     {
-      // Программист не удосужился сконфигурировать логгер //
-      // Сделаем это за него, с настройками по умолчанию   //
-      if (Log.FlagConfigured == false) Log.Configure();
+      // Программист не удосужился сконфигурировать логгер. Сделаем это за него, с настройками по умолчанию //
+      if (Log.FlagConfigured == false) Log.Configure(); 
 
       FrameworkSettings.LoadFrameworkSettings();
-      Events.OverrideLoadedFrameworkSettings?.Invoke();
+
+      Events.OverrideLoadedFrameworkSettings?.Invoke();   // При необходимости перезапишем значение настроек фреймворка //
+
+      FrameworkSettings.CheckFrameworkSettings();         // Проверка согласованности настроек фреймворка //
+
       Events.BeforeMainFormIsCreated?.Invoke();
     }
+
+
+
+
 
     public static void Run() // Главная точка входа - запуск программы начинается с этого метода //
     {

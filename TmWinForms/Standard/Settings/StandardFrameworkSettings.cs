@@ -14,6 +14,11 @@ namespace TmWinForms
   {
     private int tabMinWidth = 100;
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+    
     [JsonProperty]
     public int TabMinimumWidth // Минимальная ширина вкладки //
     {
@@ -37,6 +42,11 @@ namespace TmWinForms
     private Font pageViewFont = new Font("Verdana", 9, FontStyle.Regular);
 
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
     [JsonProperty]
     public Font PageViewFont
     {
@@ -55,13 +65,24 @@ namespace TmWinForms
     }
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public Font FontAlertCaption { get; set; } = new Font("Verdana", 9);
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+    
     [JsonProperty]
     public Font FontAlertText { get; set; } = new Font("Verdana", 9);
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public StripViewAlignment StripOrientation { get; set; } = StripViewAlignment.Top;
@@ -73,6 +94,9 @@ namespace TmWinForms
     public PageViewItemSizeMode ItemSizeMode { get; set; } = PageViewItemSizeMode.EqualHeight; //PageViewItemSizeMode.Individual ;
                                                                                                /*-----------------------------------------------------------------------------------------------------*/
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public int PageViewItemSpacing { get; set; } = 10;
@@ -110,6 +134,15 @@ namespace TmWinForms
 
     private int maxAlertCount = 5;
 
+
+
+
+
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
     [JsonProperty]
     public int MaxAlertCount
     {
@@ -138,6 +171,11 @@ namespace TmWinForms
 
     private int secondsAlertAutoClose = 7;
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
     [JsonProperty]
     public int SecondsAlertAutoClose
     {
@@ -150,6 +188,10 @@ namespace TmWinForms
 
 
     private byte valueColumnWidthPercent = 0;
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public byte ValueColumnWidthPercent
@@ -242,15 +284,25 @@ namespace TmWinForms
 
 
 
-    public bool MainFormMinimizeToTray { get; set; } = false;
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public bool MainFormCloseButtonActsAsMinimizeButton { get; set; } = false;
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+    /// 
     [JsonProperty]
     public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public bool HideMainPageViewBeforeMainFormIsShown { get; set; } = false;
@@ -259,45 +311,86 @@ namespace TmWinForms
 
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public bool ConfirmExit { get; set; } = false;
 
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
     [JsonProperty]
     public bool RememberMainFormLocation { get; set; } = false;
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public bool VisualEffectOnStart { get; set; } = false;
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
     [JsonProperty]
     public bool VisualEffectOnExit { get; set; } = false;
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public Point MainFormLocation { get; set; } = default(Point);
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public Size MainFormSize { get; set; } = default(Size);
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public DateTime TimeCheckOldLogFiles { get; set; } = new DateTime(2022, 1, 1);
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public bool FlagMinimizeMainFormBeforeClosing { get; set; } = true;
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
 
     [JsonProperty]
     public int StartTimerIntervalMilliseconds { get; set; } = 200;
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
+    [JsonProperty]
+    public bool FlagMinimizeMainFormToSystemTray { get; set; } = false;
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// Set value to "true" if your program is a service application, i.e. application must work as a server.
+    /// </summary>
 
-
-
+    [JsonProperty]
+    public bool FlagMainFormStartMinimized { get; set; } = false;
 
 
 
@@ -355,8 +448,13 @@ namespace TmWinForms
     }
 
 
-    StandardFrameworkSettings SettingsLoadedFromFile { get; set; }
 
+
+
+
+
+
+    StandardFrameworkSettings SettingsLoadedFromFile { get; set; }
 
     internal void LoadFrameworkSettings()
     {

@@ -14,7 +14,19 @@ namespace TmWinForms
         page.Item.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
       }
 
+      MainForm.Icon = IconApplication;
+
+      if ((FlagUseSystemTrayIcon) && (IconSystemTray != null))
+      {
+        MainForm.NotifyIconMainForm.Icon = IconSystemTray;
+        MainForm.NotifyIconMainForm.Visible = true;
+      }
+
+      MainForm.NotifyIconMainForm.Visible = true;
+
       MainForm.Visible = false;
+
+      if (FlagServiceApplication()) MainForm.WindowState = FormWindowState.Minimized;
 
       MainForm.ShowMainPageView(false);
 

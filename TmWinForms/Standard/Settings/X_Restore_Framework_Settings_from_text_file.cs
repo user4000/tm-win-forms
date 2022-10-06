@@ -9,7 +9,7 @@ namespace TmWinForms
     {
       StandardFrameworkSettings settings = SettingsLoadedFromFile;
       if (settings == null) return;
-    
+
       FrameworkSettings.StartTimerIntervalMilliseconds = settings.StartTimerIntervalMilliseconds;
 
       FrameworkSettings.StripOrientation = settings.StripOrientation;
@@ -47,12 +47,31 @@ namespace TmWinForms
       FrameworkSettings.MainFormCloseButtonMustNotCloseForm = settings.MainFormCloseButtonMustNotCloseForm;
 
       FrameworkSettings.HideMainPageViewBeforeMainFormIsShown = settings.HideMainPageViewBeforeMainFormIsShown;
+
+      FrameworkSettings.FlagMainFormStartMinimized = settings.FlagMainFormStartMinimized;
+
+      FrameworkSettings.FlagMinimizeMainFormToSystemTray = settings.FlagMinimizeMainFormToSystemTray;
     }
 
 
 
 
+    internal void CheckFrameworkSettings() // Проверка согласованности настроек //
+    {
+      if (FrameworkSettings.FlagMainFormStartMinimized) // Запускать приложение в минимизированном виде //
+      {
+        FrameworkSettings.VisualEffectOnStart = false;
+        FrameworkSettings.HideMainPageViewBeforeMainFormIsShown = false;
+        FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = true;
+        FrameworkSettings.FlagMinimizeMainFormToSystemTray = true;
+        FrameworkSettings.ConfirmExit = true;
+      }
 
+      if ((FrameworkSettings.FlagMainFormStartMinimized) && (FlagUseSystemTrayIcon == false))
+      {
+        SetIconForSystemTray(null);
+      }
+    }
 
 
 
