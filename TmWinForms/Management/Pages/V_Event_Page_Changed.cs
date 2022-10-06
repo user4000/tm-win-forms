@@ -29,7 +29,7 @@ namespace TmWinForms
     {
       if (page == null) return;
 
-      Events.ActionUserLeftPage?.Invoke(page);
+      Events.UserLeftPage?.Invoke(page);
 
       if (Service.DicPages.ContainsKey(page) == false) return;
       if (Service.DicPages.TryGetValue(page, out RadForm form))
@@ -45,7 +45,7 @@ namespace TmWinForms
     {
       if (page == null) return;
 
-      Events.ActionUserVisitedPage?.Invoke(page);
+      Events.UserVisitedPage?.Invoke(page);
 
       if (Service.DicPages.ContainsKey(page) == false) return;
       if (Service.DicPages.TryGetValue(page, out RadForm form))

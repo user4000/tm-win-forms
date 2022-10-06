@@ -41,11 +41,20 @@ namespace TmWinForms
 
 
 
-      FrameworkSettings.Save();      // Записать местоположение формы и её размер нужно до того, как мы её минимизируем //
-
-      MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
 
       Service.ExecEndWorkHandlerForEachSubForm();
+
+      FrameworkSettings.Save();      // Записать местоположение формы и её размер нужно до того, как мы её минимизируем //
+
+
+
+
+      if (FrameworkSettings.FlagMinimizeMainFormBeforeClosing)
+      {
+        MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
+      }
+
+
 
       Log.EventEndWork(); // Завершаем работу логгера //
 

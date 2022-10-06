@@ -7,20 +7,20 @@ using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
-
 namespace TmWinForms
 {
   [JsonObject(MemberSerialization.OptIn)]
-  public class StandardFrameworkSettings : StandardJsonSettings<StandardFrameworkSettings>
+  public partial class StandardFrameworkSettings : StandardJsonSettings<StandardFrameworkSettings>
   {
     private int tabMinWidth = 100;
 
+    [JsonProperty]
     public int TabMinimumWidth // Минимальная ширина вкладки //
     {
       get => tabMinWidth;
       set
       {
-        bool ValueIsOk = ((value >= 50) && (value <= 500));
+        bool ValueIsOk = ((value >= 30) && (value <= 500));
         if (ValueIsOk)
           tabMinWidth = value;
         else
@@ -36,13 +36,15 @@ namespace TmWinForms
 
     private Font pageViewFont = new Font("Verdana", 9, FontStyle.Regular);
 
+
+    [JsonProperty]
     public Font PageViewFont
     {
       get => pageViewFont;
       set
       {
         bool CheckIsNull = FrameworkManager.MainForm?.PvMain?.Font == null ? true : false;
-        bool ValueIsOK = ((value.Size >= 8) && (value.Size <= 20));
+        bool ValueIsOK = ((value.Size >= 6) && (value.Size <= 30));
 
         if (ValueIsOK)
         {
@@ -54,9 +56,10 @@ namespace TmWinForms
 
 
 
+    [JsonProperty]
     public Font FontAlertCaption { get; set; } = new Font("Verdana", 9);
 
-
+    [JsonProperty]
     public Font FontAlertText { get; set; } = new Font("Verdana", 9);
 
 
@@ -68,7 +71,10 @@ namespace TmWinForms
 
     /*-----------------------------------------------------------------------------------------------------*/
     public PageViewItemSizeMode ItemSizeMode { get; set; } = PageViewItemSizeMode.EqualHeight; //PageViewItemSizeMode.Individual ;
-    /*-----------------------------------------------------------------------------------------------------*/
+                                                                                               /*-----------------------------------------------------------------------------------------------------*/
+
+
+    [JsonProperty]
     public int PageViewItemSpacing { get; set; } = 10;
     /*-----------------------------------------------------------------------------------------------------*/
 
@@ -101,14 +107,16 @@ namespace TmWinForms
 
 
 
-    
+
     private int maxAlertCount = 5;
+
+    [JsonProperty]
     public int MaxAlertCount
     {
       get => maxAlertCount;
       set { if ((value > 0) && (value < 11)) maxAlertCount = value; }
     }
-    
+
 
 
 
@@ -127,8 +135,10 @@ namespace TmWinForms
 
 
 
-    
+
     private int secondsAlertAutoClose = 7;
+
+    [JsonProperty]
     public int SecondsAlertAutoClose
     {
       get => secondsAlertAutoClose;
@@ -140,6 +150,8 @@ namespace TmWinForms
 
 
     private byte valueColumnWidthPercent = 0;
+
+    [JsonProperty]
     public byte ValueColumnWidthPercent
     {
       get => valueColumnWidthPercent;
@@ -218,33 +230,11 @@ namespace TmWinForms
 
 
 
+
+
+
     public string ConfirmExitButtonText { get; set; } = string.Empty;
 
-    public bool ConfirmExit { get; set; } = false;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public bool RememberMainFormLocation { get; set; } = false;
-
-
-    public bool VisualEffectOnStart { get; set; } = false;
-
-
-    public bool MainFormCloseButtonActsAsMinimizeButton { get; set; } = false;
-
-
-    public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
 
 
 
@@ -255,10 +245,34 @@ namespace TmWinForms
     public bool MainFormMinimizeToTray { get; set; } = false;
 
 
+    [JsonProperty]
+    public bool MainFormCloseButtonActsAsMinimizeButton { get; set; } = false;
+
+    [JsonProperty]
+    public bool MainFormCloseButtonMustNotCloseForm { get; set; } = false;
+
+
+
+
+
+
+
+
+    [JsonProperty]
+    public bool ConfirmExit { get; set; } = false;
+
+    [JsonProperty]
+    public bool RememberMainFormLocation { get; set; } = false;
+
+    [JsonProperty]
+    public bool VisualEffectOnStart { get; set; } = false;
+
+    [JsonProperty]
+    public bool VisualEffectOnExit { get; set; } = false;
+
 
     [JsonProperty]
     public Point MainFormLocation { get; set; } = default(Point);
-
 
 
     [JsonProperty]
@@ -267,6 +281,19 @@ namespace TmWinForms
 
     [JsonProperty]
     public DateTime TimeCheckOldLogFiles { get; set; } = new DateTime(2022, 1, 1);
+
+
+    [JsonProperty]
+    public bool FlagMinimizeMainFormBeforeClosing { get; set; } = true;
+
+
+    [JsonProperty]
+    public int StartTimerIntervalMilliseconds { get; set; } = 200;
+
+
+
+
+
 
 
 
@@ -281,6 +308,8 @@ namespace TmWinForms
 
     private void GetMainFormLocation()
     {
+      if (MainForm.WindowState != FormWindowState.Normal) return;
+
       this.MainFormSize = MainForm.Size;
       this.MainFormLocation = MainForm.Location;
     }
@@ -303,8 +332,9 @@ namespace TmWinForms
 
     internal override void Save(string fileName = FrameworkSettingsFileName)
     {
-      if (RememberMainFormLocation == false) return;
-      if (MainForm.WindowState != FormWindowState.Normal) return;
+      //if (RememberMainFormLocation == false) return;
+
+      //if (MainForm.WindowState != FormWindowState.Normal) return;
 
       GetMainFormLocation();
 
@@ -322,14 +352,18 @@ namespace TmWinForms
       }
     }
 
-    internal void RestoreMainFormLocationAndSize()
+
+    StandardFrameworkSettings SettingsLoadedFromFile { get; set; }
+
+
+    internal void LoadFrameworkSettings()
     {
-      if (RememberMainFormLocation == false) return;
       StandardFrameworkSettings settings = null;
 
       try
       {
         settings = Load();
+        SettingsLoadedFromFile = settings;
       }
       catch (Exception ex)
       {
@@ -338,6 +372,7 @@ namespace TmWinForms
         //Log.Save(ex, h, MsgType.Fail);
         //Ms.Error(h, ex).Pos(MsgPos.BottomRight).Delay(10).Create();
       };
+
 
       if (settings == null)
         try
@@ -351,10 +386,10 @@ namespace TmWinForms
           //Log.Save(ex, h, MsgType.Error);
           //Ms.Error(h, ex).Pos(MsgPos.BottomRight).Delay(10).Create();
         }
-      else
-      {
-        Service.RestoreMainFormLocationAndSize(settings.MainFormLocation, settings.MainFormSize);
-      }
+
+
+
+      RestoreValuesFromFile();
     }
   }
 }

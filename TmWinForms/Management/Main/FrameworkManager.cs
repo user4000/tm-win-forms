@@ -51,6 +51,12 @@ namespace TmWinForms
 
     static FxMain CreateMainForm()
     {
+      FrameworkSettings.LoadFrameworkSettings();
+
+      Events.OverrideLoadedFrameworkSettings?.Invoke();
+
+      Events.BeforeMainFormIsCreated?.Invoke();
+
       MainForm = new FxMain();
 
       // Программист не удосужился сконфигурировать логгер //
@@ -70,6 +76,8 @@ namespace TmWinForms
       MainForm.SetEvents();
 
       MainForm.FormClosing += new FormClosingEventHandler(EventMainFormClosing);
+
+      MainForm.FormClosed += new FormClosedEventHandler(EventMainFormClosed);
 
       MainForm.Shown += new EventHandler(EventMainFormShown);
 

@@ -8,7 +8,6 @@ namespace TmWinForms
   {
     internal StripViewAlignment OrientationStripMainPageView { get; private set; } = StripViewAlignment.Top;
 
-
     private void SetPageViewStripProperties(RadPageView pageView)
     {
       RadPageViewStripElement element = (RadPageViewStripElement)pageView.GetChildAt(0);

@@ -8,6 +8,8 @@ namespace TmWinForms
   {
     internal void RestoreMainFormLocationAndSize(Point location, Size size)
     {
+      if (FrameworkManager.FrameworkSettings.RememberMainFormLocation == false) return;
+
       if ((location.X < 0) || (location.Y < 0))
       {
         location = new Point(20, 20);

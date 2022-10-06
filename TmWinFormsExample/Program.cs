@@ -11,9 +11,153 @@ namespace TmWinFormsExample
 {
   static class Program
   {
-    public static MySettings ApplicationSettings { get => FrameworkManager.ApplicationSettings<MySettings>(); } // User custom settings in Property Grid //
+    public static MySettings AppSettings { get => FrameworkManager.ApplicationSettings<MySettings>(); } // User custom settings in Property Grid //
 
-    public static StandardFrameworkSettings FrameworkSettings { get; } = FrameworkManager.FrameworkSettings; // Framework embedded settings //
+    public static StandardFrameworkSettings FmSettings { get; } = FrameworkManager.FrameworkSettings; // Framework embedded settings //
+
+
+    static void SaveToLog(string msg) => FrameworkManager.Log.Save(msg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    static void SetFrameworkSettingsBeforeLoadingFromTextFile()
+    {
+      string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+      string applicationName = "Test_Application";
+
+      FrameworkManager.Service.CreateApplicationSettings<MySettings>(assemblyName);
+      FrameworkManager.CreateLogger(null, applicationName);
+     
+      /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений */
+
+      //FmSettings.VisualEffectOnStart = true;
+      //FmSettings.RememberMainFormLocation = true;
+      //FmSettings.ConfirmExit = false;
+
+      //FmSettings.ValueColumnWidthPercent = 50;
+
+      //FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = true;
+      //FrameworkSettings.MainFormCloseButtonMustNotCloseForm = true;
+
+      //FmSettings.PageViewItemSpacing = 5;
+      //FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left; 
+      //FmSettings.TabMinimumWidth = 150;
+      //FmSettings.StripOrientation = AppSettings.MainPageOrientation;
+
+      FmSettings.ConfirmExitButtonText = " Click me, my friend !";
+
+      FmSettings.HeaderFormExit = "Test exit";
+      FmSettings.HeaderFormLog = "Test log";
+      FmSettings.HeaderFormSettings = "Test settings";
+    }
+
+    static void OverrideFrameworkSettingsAfterLoadingFromTextFile()
+    {
+      /* 
+       Настройки фреймворка, которые сохраняются в текстовом файле и получают свои значения из текстового файла, но тем не менее
+       значения эти могут быть явно перекрыты другими значениями, которые программист должен указать явно в этом методе.
+       Это может быть нужно в тех случаях, когда в некотором приложении настройка не должна зависеть от значения в текстовом файле,
+       а должна иметь явное значение и не допускать изменения этого значения.
+      */
+
+
+    }
+
+    static void SetFrameworkSettingsAfterLoadingFromTextFile()
+    {
+      FrameworkManager.Events.OverrideLoadedFrameworkSettings = OverrideFrameworkSettingsAfterLoadingFromTextFile;
+    }
+
+
+
+    static void SetUserForms()
+    {
+      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
+
+      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>("form2", "My Form 2", true, true);
+
+      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
+
+
+      //FrameworkManager.Service.SetStartForm(f3);
+      //FrameworkManager.Service.SetStartForm("form2");
+    }
+
+    static void SetApplicationEvents()
+    {
+      Action action1 = () => { SaveToLog("MainFormLoad"); };
+
+      Action action2 = () => { SaveToLog("BeforeSubFormsAreCreated"); };
+
+      Action action3 = () => { SaveToLog("BeforeMainFormBecomesVisible"); };
+
+      Action action4 = () => { SaveToLog("MainFormShown"); };
+
+      Action action5 = () => { SaveToLog("Start"); };
+
+      Action action6 = () => { SaveToLog("StartByTimer"); };
+
+
+
+
+
+
+
+      FrameworkManager.Events.MainFormLoad = action1;
+
+      FrameworkManager.Events.BeforeSubFormsAreCreated = action2;
+
+      // Then EventStartWork of each sub-form is executing //
+
+      FrameworkManager.Events.BeforeMainFormBecomesVisible = action3;
+
+      FrameworkManager.Events.MainFormShown = action4;
+
+      FrameworkManager.Events.Start = action5;
+
+      //FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 500;
+
+      FrameworkManager.Events.StartByTimer = action6;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /// <summary>
@@ -26,53 +170,50 @@ namespace TmWinFormsExample
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
-      string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-      string applicationName = "Test_Application";
+      // Сначала установим настройки фреймворка которые не сохраняются в текстовом файле //
+      SetFrameworkSettingsBeforeLoadingFromTextFile();
 
-      FrameworkManager.Service.CreateApplicationSettings<MySettings>(assemblyName);
-
-      FrameworkManager.CreateLogger(null, applicationName);
-      
-        
-      // Сначала установим настройки фреймворка //
-
-      FrameworkSettings.VisualEffectOnStart = true;
-      FrameworkSettings.RememberMainFormLocation = true;
-      FrameworkSettings.ConfirmExit = false;
-      FrameworkSettings.ValueColumnWidthPercent = 50;
-      FrameworkSettings.ConfirmExitButtonText = " Click me, my friend !";
-
-      FrameworkSettings.HeaderFormExit = "Test exit";
-      FrameworkSettings.HeaderFormLog = "Test log";
-      FrameworkSettings.HeaderFormSettings = "Test settings";
-
-      //FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = true;
-      //FrameworkSettings.MainFormCloseButtonMustNotCloseForm = true;
-
-      FrameworkSettings.PageViewItemSpacing = 5;
-      FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left;
-      FrameworkSettings.TabMinimumWidth = 150;
-
-
+      // Потом установим настройки фреймворка, которые сохраняются в текстовом файле, но их значения мы хотим явно переопределить //
+      SetFrameworkSettingsAfterLoadingFromTextFile();
 
       // Затем укажем какие формы нужно создать на вкладках главной формы //
+      SetUserForms();
 
-      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
-
-      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>("form2", "My Form 2", true, true);
-
-      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
-
-
-      //FrameworkManager.Service.SetStartForm(f3);
-      //FrameworkManager.Service.SetStartForm("form2");
-
+      // Затем следует настроить события фреймворка //
+      SetApplicationEvents();
 
       // Далее следует запуск фреймворка //
-
       FrameworkManager.Run();
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

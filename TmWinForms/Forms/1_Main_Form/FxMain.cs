@@ -9,7 +9,10 @@ namespace TmWinForms
 {
   public partial class FxMain : RadForm
   {
-    bool FadeIn { get; set; }
+    System.Windows.Forms.Timer TmStartMainApplication { get; set; } = new System.Windows.Forms.Timer();
+
+    public bool FlagSizeIsBeingChanged { get; private set; } = false;
+
 
     public FxMain()
     {
@@ -18,9 +21,7 @@ namespace TmWinForms
 
     internal void SetProperties()
     {
-      FadeIn = FrameworkSettings.VisualEffectOnStart;
-
-      if (FadeIn)
+      if (FrameworkSettings.VisualEffectOnStart)
       {
         this.Opacity = 0;
       }
@@ -30,6 +31,32 @@ namespace TmWinForms
       AdjustFirstPage();
 
       AdjustAboutProgramPage();
+
+
+      this.MinimumSize = new Size(800, 600);
+
+      // TODO: Сделать также настроку для PvMain  ItemFitMode
+      // https://docs.telerik.com/devtools/winforms/controls/pageview/stripview/fitting-items
+    }
+
+    internal void LaunchStartTimer()
+    {
+      if (FrameworkManager.Events.StartByTimer == null) return;
+
+      int milliseconds = Math.Abs(FrameworkSettings.StartTimerIntervalMilliseconds);
+
+      if (milliseconds == 0) return;
+
+      TmStartMainApplication.Interval = FrameworkSettings.StartTimerIntervalMilliseconds;
+      TmStartMainApplication.Tick += new EventHandler(EventStartMainApplication);
+      TmStartMainApplication.Start();
+    }
+
+    void EventStartMainApplication(object sender, EventArgs e)
+    {
+      TmStartMainApplication.Stop();
+      TmStartMainApplication.Tick -= new EventHandler(EventStartMainApplication);
+      FrameworkManager.Events.StartByTimer?.Invoke();
     }
 
     internal void AdjustFirstPage()
@@ -55,52 +82,44 @@ namespace TmWinForms
 
     internal void SetEvents()
     {
-      this.Load += new EventHandler(EventFormLoad);
+      if (FrameworkManager.Events.MainFormLoad != null)  this.Load += new EventHandler(EventFormLoad);
 
-      this.Resize += new EventHandler(EventResize);
+      if (FrameworkManager.Events.MainFormResize != null) this.Resize += new EventHandler(EventResize);
 
-      this.ResizeBegin += new EventHandler(EventResizeBegin);
+      if (FrameworkManager.Events.MainFormResizeBegin != null) this.ResizeBegin += new EventHandler(EventResizeBegin);
 
-      this.ResizeEnd += new EventHandler(EventResizeEnd);
+      if (FrameworkManager.Events.MainFormResizeEnd != null) this.ResizeEnd += new EventHandler(EventResizeEnd);
 
       // Эти важные события будут запрограммированы в классе FrameworkManager //
       //this.FormClosing += new FormClosingEventHandler(EventFormClosing);
       //this.FormClosed += new FormClosedEventHandler(EventFormClosed);
     }
 
-    void EventFormClosed(object sender, FormClosedEventArgs e)
-    {
-
-    }
-
-    void EventFormClosing(object sender, FormClosingEventArgs e)
-    {
-
-    }
-
     void EventResizeEnd(object sender, EventArgs e)
     {
-
+      FlagSizeIsBeingChanged = false;
+      FrameworkManager.Events.MainFormResizeEnd();
     }
 
     void EventResizeBegin(object sender, EventArgs e)
     {
-      
+      FlagSizeIsBeingChanged = true;
+      FrameworkManager.Events.MainFormResizeBegin();
     }
 
     void EventResize(object sender, EventArgs e)
     {
-
+      FrameworkManager.Events.MainFormResize();
     }
 
     public void EventFormLoad(object sender, EventArgs e)
     {
-
+      FrameworkManager.Events.MainFormLoad();
     }
 
     internal void VisualEffectFadeIn()
     {
-      if (FadeIn == false) return;
+      if (FrameworkSettings.VisualEffectOnStart == false) return;
 
       int duration = 500; // in milliseconds
       int steps = 20;
@@ -116,6 +135,29 @@ namespace TmWinForms
           timer.Stop();
           timer.Dispose();
           this.Opacity = 1;
+        }
+      };
+      timer.Start();
+    }
+
+    internal void VisualEffectFadeOut()
+    {
+      if (FrameworkSettings.VisualEffectOnExit == false) return;
+
+      int duration = 1500; // in milliseconds
+      int steps = 30;
+      Timer timer = new Timer() { Interval = duration / steps };
+      int currentStep = 0;
+      timer.Tick += (arg1, arg2) =>
+      {
+        this.Opacity = 1 - (((double)currentStep) / steps);
+        currentStep++;
+
+        if (currentStep >= steps)
+        {
+          timer.Stop();
+          timer.Dispose();
+          this.Opacity = 0;
         }
       };
       timer.Start();

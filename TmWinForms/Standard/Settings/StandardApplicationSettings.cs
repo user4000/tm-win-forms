@@ -19,8 +19,10 @@ namespace TmWinForms
 
     public const string DefaultTextFileName = DefaultFolderUserSettings + @"\" + DefaultTextFileUserSettings;
 
-    public virtual string FolderSettings { get; } = DefaultFolderUserSettings;
-    public virtual string TextFileUserSettings { get; } = DefaultTextFileUserSettings;
+    //public virtual string FolderSettings { get; } = DefaultFolderUserSettings;
+
+    //public virtual string TextFileUserSettings { get; } = DefaultTextFileUserSettings;
+
 
     public const string CxStandardDateTimeFull = "yyyy-MM-dd HH:mm:ss";
 
