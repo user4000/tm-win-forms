@@ -7,7 +7,7 @@ namespace TmWinForms
   {
     private static void EventMainFormClosed(object sender, FormClosedEventArgs e)
     {
-      Events.MainFormClosed?.Invoke(sender, e);
+      Events.MainFormClosed?.Invoke(sender, e);     
     }
   }
 }

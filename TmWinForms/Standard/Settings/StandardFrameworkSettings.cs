@@ -366,7 +366,7 @@ namespace TmWinForms
     /// </summary>
 
     [JsonProperty]
-    public bool FlagMinimizeMainFormBeforeClosing { get; set; } = true;
+    public bool FlagMinimizeMainFormBeforeClosing { get; set; } = true; // TODO: IT does not work !!! //
 
     /// <summary>
     /// The property is stored in the file.

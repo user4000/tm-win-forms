@@ -13,11 +13,9 @@ namespace TmWinForms
       Events.BeforeSubFormsAreCreated?.Invoke();
 
  
-
       Service.PlaceAllSubFormsToMainPageView();
 
   
-
       Events.BeforeMainFormBecomesVisible?.Invoke();
 
       MainForm.VisualEffectFadeIn();
@@ -47,7 +45,7 @@ namespace TmWinForms
 
       MainForm.SetEventForSystemTrayIcon();
 
-      if (FlagServiceApplication()) MainForm.ShowInTaskbar = false;
+      if (FlagServiceApplication()) MainForm.ShowInTaskbar = false; // Если это серверное приложение то не показывать его на панели задач //
     }
   }
 }

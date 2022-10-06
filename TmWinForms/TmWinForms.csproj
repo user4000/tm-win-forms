@@ -150,7 +150,6 @@
     <Compile Include="Management\Service\X_Prepare_To_Work.cs" />
     <Compile Include="Management\Service\X_Settings.cs" />
     <Compile Include="Management\Service\X_Set_Main_Page_View.cs" />
-    <Compile Include="Management\Service\Z_Main_Exit.cs" />
     <Compile Include="Standard\Interfaces\IFrameworkLogger.cs" />
     <Compile Include="Standard\Message\CxMessageManager.cs" />
     <Compile Include="Standard\Message\TmMessage.cs" />

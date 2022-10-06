@@ -67,7 +67,10 @@ namespace TmWinForms
 
 
 
-      if (FrameworkSettings.FlagMinimizeMainFormBeforeClosing)
+
+
+      // Один из двух эффектов при закрытии формы: минимизация или исчезновение //
+      if (FrameworkSettings.FlagMinimizeMainFormBeforeClosing) 
       {
         MainForm.WindowState = FormWindowState.Minimized; // Очень важная строка //
       }
@@ -77,10 +80,14 @@ namespace TmWinForms
       }
 
 
-
       Log.EventEndWork(); // Завершаем работу логгера //
 
-      await Task.Delay(500);
+
+      await Task.Delay(750);
+
+
+
+
 
 
       // Если не выполнить строку MainForm.WindowState = FormWindowState.Minimized; 
@@ -89,7 +96,7 @@ namespace TmWinForms
       // Причём это происходит для приложения, которое было свёрнуто в system tray и потом заново активировано двойным кликом по иконке.
 
 
-      // await Service.MainExit();
+
 
       MainFormClosingCounter++;
 

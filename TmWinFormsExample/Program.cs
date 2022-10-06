@@ -39,20 +39,6 @@ namespace TmWinFormsExample
 
       /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений (если не устраивают значения по умолчанию) */
 
-      //FmSettings.VisualEffectOnStart = true;
-      //FmSettings.RememberMainFormLocation = true;
-      //FmSettings.ConfirmExit = false;
-
-      //FmSettings.ValueColumnWidthPercent = 50;
-
-      //FmSettings.MainFormCloseButtonActsAsMinimizeButton = true;
-      //FmSettings.MainFormCloseButtonMustNotCloseForm = true;
-
-      //FmSettings.TabMinimumWidth = 150;
-      //FmSettings.PageViewItemSpacing = 5;
-      //FrameworkSettings.StripOrientation = Telerik.WinControls.UI.StripViewAlignment.Left; 
-
-
       FmSettings.ConfirmExitButtonText = " Click me, my friend !";
 
       FmSettings.HeaderFormExit = "Test exit";
@@ -69,7 +55,7 @@ namespace TmWinFormsExample
        а должна иметь явное значение и не допускать изменения этого значения.
       */
 
-      FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 1500;
+      FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 200;
     }
 
     static void SetFrameworkSettingsAfterLoadingFromTextFile()
@@ -89,7 +75,7 @@ namespace TmWinFormsExample
 
 
       //FrameworkManager.Service.SetStartForm(f3);
-      //FrameworkManager.Service.SetStartForm("form2");
+      FrameworkManager.Service.SetStartForm("form2");
     }
 
     static void SetApplicationEvents()
@@ -145,7 +131,7 @@ namespace TmWinFormsExample
 
       //FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 500;
 
-      FrameworkManager.Events.StartByTimer = action6;
+      //FrameworkManager.Events.StartByTimer = action6;
     }
 
 
