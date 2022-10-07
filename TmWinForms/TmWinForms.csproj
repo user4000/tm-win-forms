@@ -170,10 +170,13 @@
     <Compile Include="Standard\Interfaces\IUserVisitedTheForm.cs" />
     <Compile Include="Standard\Enum\MsgPos.cs" />
     <Compile Include="Standard\Settings\StandardApplicationSettings.cs" />
-    <Compile Include="Standard\Settings\StandardFrameworkSettings.cs" />
+    <Compile Include="Standard\Settings_Framework\StandardFrameworkSettings.cs" />
     <Compile Include="Standard\Settings\StandardJsonSettings.cs" />
     <Compile Include="Standard\Settings\StandardUserSettingsLoader.cs" />
-    <Compile Include="Standard\Settings\X_Restore_Framework_Settings_from_text_file.cs" />
+    <Compile Include="Standard\Settings_Framework\U_Methods.cs" />
+    <Compile Include="Standard\Settings_Framework\V_Alerts.cs" />
+    <Compile Include="Standard\Settings_Framework\V_Standard_Forms.cs" />
+    <Compile Include="Standard\Settings_Framework\X_Restore_Framework_Settings_from_text_file.cs" />
     <Compile Include="Utilities\CxStandard.cs" />
     <Compile Include="Utilities\TJConvert.cs" />
     <Compile Include="Utilities\TJStandardJsonSerializerSetting.cs" />

@@ -79,14 +79,6 @@ namespace TmWinForms
 
 
 
-
-
-
-
-
-
-
-
     internal void RestoreMainFormLocationAndSize()
     {
       if (SettingsLoadedFromFile == null) return;

@@ -32,9 +32,8 @@ namespace TmWinFormsExample
       FrameworkManager.Service.CreateApplicationSettings<MySettings>(assemblyName);
       FrameworkManager.CreateLogger(null, applicationName);
 
-      FrameworkManager.SetApplicationIcon(Properties.Resources.ApplicationIcon);
-     
-      //FrameworkManager.SetIconForSystemTray(Properties.Resources.ApplicationIcon);
+      FrameworkManager.SetApplicationIcon(Properties.Resources.ApplicationIcon);     
+      FrameworkManager.SetIconForSystemTray(Properties.Resources.ApplicationIcon);
 
 
       /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений (если не устраивают значения по умолчанию) */
@@ -55,27 +54,24 @@ namespace TmWinFormsExample
        а должна иметь явное значение и не допускать изменения этого значения.
       */
 
-      FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 200;
+      FrameworkSettings.StartTimerIntervalMilliseconds = 1000;
     }
 
     static void SetFrameworkSettingsAfterLoadingFromTextFile()
     {
-      FrameworkManager.Events.OverrideLoadedFrameworkSettings = OverrideFrameworkSettingsAfterLoadingFromTextFile;
+      Events.OverrideLoadedFrameworkSettings = OverrideFrameworkSettingsAfterLoadingFromTextFile;
     }
-
 
 
     static void SetUserForms()
     {
-      ushort f1 = FrameworkManager.Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
+      ushort f1 = Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
 
-      ushort f2 = FrameworkManager.Service.AddForm<FxForm2>("form2", "My Form 2", true, true);
+      ushort f2 = Service.AddForm<FxForm2>("form2", "My Form 2", true, true);
 
-      ushort f3 = FrameworkManager.Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
+      ushort f3 = Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
-
-      //FrameworkManager.Service.SetStartForm(f3);
-      FrameworkManager.Service.SetStartForm("form2");
+      Service.SetStartForm("form2");      // or Service.SetStartForm(f3);
     }
 
     static void SetApplicationEvents()
@@ -115,23 +111,21 @@ namespace TmWinFormsExample
 
 
 
+      // Далее указаны события в порядке выполнения //
 
+      Events.MainFormLoad = action1;
 
-      FrameworkManager.Events.MainFormLoad = action1;
+      Events.BeforeSubFormsAreCreated = action2;
 
-      FrameworkManager.Events.BeforeSubFormsAreCreated = action2;
+      // Then EventStartWork of each sub-form is executed ... //
 
-      // Then EventStartWork of each sub-form is executing //
+      Events.BeforeMainFormBecomesVisible = action3;
 
-      FrameworkManager.Events.BeforeMainFormBecomesVisible = action3;
+      Events.MainFormShown = action4;
 
-      FrameworkManager.Events.MainFormShown = action4;
+      Events.Start = action5;        // <--- Данное событие есть основная стартовая точка приложения // 
 
-      FrameworkManager.Events.Start = action5;
-
-      //FrameworkManager.FrameworkSettings.StartTimerIntervalMilliseconds = 500;
-
-      //FrameworkManager.Events.StartByTimer = action6;
+      Events.StartByTimer = action6; // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds) // 
     }
 
 
