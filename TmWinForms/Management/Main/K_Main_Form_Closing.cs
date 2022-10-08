@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace TmWinForms
 {
@@ -31,15 +32,20 @@ namespace TmWinForms
       // ------------------------------------------------------------------------------------------------------------- //
 
 
+
+ 
+
+
+
+
+
+
       // ------------------------------------------------------------------------------------------------------------- //
       if (MainFormClosingCounter > 0) // Это уже второй заход на закрытие формы //
       {
         MainForm.ShowSystemTrayIcon(false);
       }
       // ------------------------------------------------------------------------------------------------------------- //
-
-
-
 
 
 
@@ -56,6 +62,10 @@ namespace TmWinForms
       // А со второго захода в этом методе выполнение до этой строки уже не дойдёт (см. инструкцию return выше).
 
       e.Cancel = true; // С первого раза этот метод не закроет форму. А со второго захода закроет. И в этом нам поможет переменная MainFormClosingCounter //
+
+      /* =============================================================================================================== */
+
+
 
 
 
@@ -82,12 +92,23 @@ namespace TmWinForms
 
 
 
-      Log.EventEndWork(); // Завершаем работу логгера //
+      Events.MainFormClosing?.Invoke();
+
+      var sw = Stopwatch.StartNew();
+
+      Task mainFormClosingAsync = Events.MainFormClosingAsync();
+      if (mainFormClosingAsync != null) await mainFormClosingAsync;
+
+      sw.Stop();
 
 
 
-      await Task.Delay(750);
-
+      if (sw.ElapsedMilliseconds < 710)
+      {
+        long delayLong = 750 - sw.ElapsedMilliseconds;
+        int delayInt = Convert.ToInt32(delayLong);
+        await Task.Delay(delayInt);
+      }
 
 
 
@@ -98,11 +119,11 @@ namespace TmWinForms
       // Причём это происходит для приложения, которое было свёрнуто в system tray и потом заново активировано двойным кликом по иконке.
 
 
-
-
       MainFormClosingCounter++;
 
-      MainForm.Close(); // Эта команда вызовет данный метод повторно //
+      Log.EventEndWork(); // Завершаем работу логгера //
+
+      MainForm.Close();   // Эта команда вызовет данный метод повторно //
 
       /* =============================================================================================================== */
     }

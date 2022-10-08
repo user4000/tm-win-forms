@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Diagnostics;
 using Telerik.WinControls;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using static TmWinForms.FrameworkManager;
 
 namespace TmWinFormsExample
@@ -104,7 +105,7 @@ namespace TmWinFormsExample
       Action action6 = () => 
       {
         //SaveToLog("StartByTimer");
-        Ms.ShortMessage("Application has been started", 290, null, MsgPos.BottomRight).Info(3);
+        Ms.ShortMessage("Application has been started", 290, null, MsgPos.BottomRight).Info(1);
       };
 
 
@@ -130,7 +131,27 @@ namespace TmWinFormsExample
 
 
 
+    static void SetEventsMainFormClosing()
+    {
 
+      Action action1 = () => { WriteToEventLog("Main Exit Test 1"); };
+
+      Action<object, FormClosedEventArgs> action2 = (object sender, FormClosedEventArgs args) => { WriteToEventLog("Main Exit Test 2"); };
+
+      Func<Task> task1 = async () =>
+      {
+        WriteToEventLog("Main Exit ASYNC Point 1 - START");
+        await Task.Delay(1000);
+        WriteToEventLog("Main Exit ASYNC Point 1 - END");
+      };
+
+
+      Events.MainFormClosing = action1;
+
+      Events.MainFormClosingAsync = task1;
+
+      Events.MainFormClosed = action2;
+    }
 
 
 
@@ -156,6 +177,9 @@ namespace TmWinFormsExample
 
       // Затем следует настроить события фреймворка //
       SetApplicationEvents();
+
+      // Затем следует настроить события, выполняемые при завершении работы приложения //
+      SetEventsMainFormClosing();
 
       // Далее следует запуск фреймворка //
       FrameworkManager.Run();
@@ -196,7 +220,14 @@ namespace TmWinFormsExample
 
 
 
-
+    static void WriteToEventLog(string message)
+    {
+      using (EventLog eventLog = new EventLog("Application"))
+      {
+        eventLog.Source = "Application";
+        eventLog.WriteEntry(message, EventLogEntryType.Information);
+      }
+    }
 
 
 

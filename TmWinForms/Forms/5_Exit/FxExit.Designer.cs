@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
       this.BtnExit = new Telerik.WinControls.UI.RadButton();
+      this.MainCheckBox = new Telerik.WinControls.UI.RadCheckBox();
       ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MainCheckBox)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
       this.SuspendLayout();
       // 
@@ -46,11 +48,22 @@
       this.BtnExit.Text = "Click this button to confirm exit";
       this.BtnExit.TextWrap = true;
       // 
+      // MainCheckBox
+      // 
+      this.MainCheckBox.AutoSize = false;
+      this.MainCheckBox.Location = new System.Drawing.Point(52, 396);
+      this.MainCheckBox.Name = "MainCheckBox";
+      this.MainCheckBox.Size = new System.Drawing.Size(133, 28);
+      this.MainCheckBox.TabIndex = 1;
+      this.MainCheckBox.Text = "Check box";
+      this.MainCheckBox.Visible = false;
+      // 
       // FxExit
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(718, 470);
+      this.Controls.Add(this.MainCheckBox);
       this.Controls.Add(this.BtnExit);
       this.Name = "FxExit";
       // 
@@ -59,6 +72,7 @@
       this.RootElement.ApplyShapeToControl = true;
       this.Text = "FxExit";
       ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MainCheckBox)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
       this.ResumeLayout(false);
 
@@ -67,5 +81,6 @@
     #endregion
 
     public Telerik.WinControls.UI.RadButton BtnExit;
+    private Telerik.WinControls.UI.RadCheckBox MainCheckBox;
   }
 }

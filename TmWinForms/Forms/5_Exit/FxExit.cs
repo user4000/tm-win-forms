@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
@@ -18,10 +19,10 @@ namespace TmWinForms.Form
       BtnExit.Click += new EventHandler(EventUserClickedExitButton);
     }
 
-
     void UserWantsToExit()
     {
       FrameworkManager.UserHasClickedExitButton = true;
+      FrameworkManager.Events.UserClickedExitButton?.Invoke();
       MainForm.Close();
     }
 

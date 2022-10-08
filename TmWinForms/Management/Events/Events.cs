@@ -18,11 +18,6 @@ namespace TmWinForms
 
 
 
-    public Action<object, FormClosedEventArgs> MainFormClosed { get; set; }
-
-
-
-
 
 
 
@@ -89,6 +84,30 @@ namespace TmWinForms
 
 
 
+    #region События, выполняемые при попытке закрытия формы OnFromClosing
+
+
+    public Action UserClickedExitButton { get; set; }
+
+    public Action MainFormClosing { get; set; }
+
+    public Func<Task> MainFormClosingAsync { get; set; }
+
+
+
+
+    #endregion
+
+
+
+
+
+
+    public Action<object, FormClosedEventArgs> MainFormClosed { get; set; }
+
+ 
+
+ 
 
 
     UserEvents()

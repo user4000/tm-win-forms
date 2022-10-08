@@ -53,6 +53,8 @@ namespace TmWinForms
 
       FrameworkSettings.RestoreMainFormLocationAndSize();
 
+      //Application.ApplicationExit += new EventHandler(EventApplicationExit);
+
       return MainForm;
     }
   }

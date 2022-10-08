@@ -13,7 +13,7 @@ namespace TmWinForms
 
     public bool FlagSizeIsBeingChanged { get; private set; } = false;
 
-
+  
     public FxMain()
     {
       InitializeComponent();
