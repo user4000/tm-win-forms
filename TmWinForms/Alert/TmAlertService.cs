@@ -48,8 +48,14 @@ namespace TmWinForms
       {
         CaptionText = Message.Header.Length > AlertHeaderMaxLength ? Message.Header.StringLeft(AlertHeaderMaxLength) : Message.Header,
         ContentText = Message.Text.Length > AlertMessageMaxLength ? Message.Text.StringLeft(AlertMessageMaxLength) : Message.Text,
-        AutoCloseDelay = Message.AutoCloseDelay > 0 ? Message.AutoCloseDelay : FrameworkManager.FrameworkSettings.SecondsAlertAutoClose
+        AutoCloseDelay = Message.AutoCloseDelay > 0 ? Message.AutoCloseDelay : FrameworkManager.FrameworkSettings.SecondsAlertAutoClose,
+        PlaySound = Message.FlagPlaySound
       };
+
+      if (Alert.PlaySound) Alert.SoundToPlay = Message.SoundForAlert;
+
+      if (Message.AlertOpacity > 0) Alert.Opacity = Message.AlertOpacity;
+
 
       Painter.SetColor(Alert, Message.MessageType);
       SetAlertPicture(Alert, Message);

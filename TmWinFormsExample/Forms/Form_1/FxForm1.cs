@@ -1,5 +1,6 @@
 ﻿using System;
 using TmWinForms;
+using System.Media;
 using Telerik.WinControls;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
@@ -34,7 +35,7 @@ namespace TmWinFormsExample
 
     private void EventTest1(object sender, EventArgs e)
     {
-      Ms.Message("test", "test").Single(BxTest3).Info(7);
+      Ms.Message("test", "test").Single(BxTest3).Sound(SystemSounds.Question).Info(3);
     }
 
     public void EventEndWork()

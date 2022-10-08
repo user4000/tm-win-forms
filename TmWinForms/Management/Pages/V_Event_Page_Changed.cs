@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
@@ -14,20 +15,22 @@ namespace TmWinForms
 
 
 
-    void EventPageChanged(object sender, EventArgs e)
+    async void EventPageChanged(object sender, EventArgs e)
     {
       PreviousPage = CurrentPage;
 
-      EventUserLeftThePage(PreviousPage);
-
       CurrentPage = PvMain.SelectedPage;
 
-      EventPageChanged(CurrentPage);
+      await EventUserLeftThePage(PreviousPage);
+
+      await EventPageChanged(CurrentPage);
     }
 
-    void EventUserLeftThePage(RadPageViewPage page)
+    async Task EventUserLeftThePage(RadPageViewPage page)
     {
       if (page == null) return;
+
+      if ((CurrentPage == FrameworkManager.MainForm.PageExit) && (FrameworkSettings.ConfirmExit == false)) return;
 
       Events.UserLeftPage?.Invoke(page);
 
@@ -38,10 +41,15 @@ namespace TmWinForms
         {
           (form as IUserLeftTheForm).EventUserLeftTheForm();
         }
+
+        if (form is IUserLeftTheFormAsync)
+        {
+          await (form as IUserLeftTheFormAsync).EventUserLeftTheFormAsync();
+        }
       }
     }
 
-    void EventPageChanged(RadPageViewPage page)
+    async Task EventPageChanged(RadPageViewPage page)
     {
       if (page == null) return;
 
@@ -53,6 +61,11 @@ namespace TmWinForms
         if (form is IUserVisitedTheForm)
         {
           (form as IUserVisitedTheForm).EventUserVisitedTheForm();
+        }
+
+        if (form is IUserVisitedTheFormAsync)
+        {
+          await (form as IUserVisitedTheFormAsync).EventUserVisitedTheFormAsync();
         }
       }
 

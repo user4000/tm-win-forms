@@ -76,6 +76,7 @@
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
     <Compile Include="Management\Main\K_Create_Main_Form.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closed.cs" />
+    <Compile Include="Management\Pages\W_Find_A_Form.cs" />
     <Compile Include="Management\Pages\X_Enable_Page.cs" />
     <Compile Include="Management\Pages\V_Event_Page_Changed.cs" />
     <Compile Include="Management\Pages\W_Find_A_Page.cs" />
@@ -151,6 +152,8 @@
     <Compile Include="Management\Service\X_Settings.cs" />
     <Compile Include="Management\Service\X_Set_Main_Page_View.cs" />
     <Compile Include="Standard\Interfaces\IFrameworkLogger.cs" />
+    <Compile Include="Standard\Interfaces\IUserLeftTheFormAsync.cs" />
+    <Compile Include="Standard\Interfaces\IUserVisitedTheFormAsync.cs" />
     <Compile Include="Standard\Message\CxMessageManager.cs" />
     <Compile Include="Standard\Message\TmMessage.cs" />
     <Compile Include="Message_Hub\Message_Hub\IMessageHub.cs" />

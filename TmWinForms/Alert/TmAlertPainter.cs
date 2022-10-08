@@ -16,7 +16,7 @@ namespace TmWinForms
     const string backColorRGB1 = "#FCFCFC";
     const string backColorRGB2 = "#FCDEDE";
 
-    const float AlertOpacity = 0.98f;
+    public const float AlertOpacity = 0.96f;
 
 
     private static ColorConverter VxConverter { get; } = new ColorConverter();
@@ -115,7 +115,6 @@ namespace TmWinForms
       Alert.Popup.AlertElement.ContentElement.TextImageRelation = TextImageRelation.TextBeforeImage;
       Alert.Popup.AlertElement.GradientStyle = GradientStyles.Gel;
       Alert.Popup.AlertElement.CaptionElement.TextAndButtonsElement.TextElement.TextWrap = true;
-      Alert.Opacity = AlertOpacity;
     }
 
     internal void SetColor(RadDesktopAlert Alert, MsgType MessageType)

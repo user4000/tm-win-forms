@@ -8,13 +8,14 @@ namespace TmWinForms
     internal TmAlert(IContainer container) : base(container)
     {
       AutoClose = true;
-      FadeAnimationFrames = 1;
-      FadeAnimationSpeed = 1;
-      FadeAnimationType = FadeAnimationType.None;
+      FadeAnimationFrames = 100;
+      FadeAnimationSpeed = 50;
+      FadeAnimationType = FadeAnimationType.FadeOut;
       AutoSize = true;
       CanMove = true;
       PopupAnimation = false;
       ShowOptionsButton = false;
+      Opacity = TmAlertPainter.AlertOpacity;      
     }
   }
 }

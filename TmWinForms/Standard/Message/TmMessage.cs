@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.Windows.Forms;
@@ -21,14 +22,21 @@ namespace TmWinForms
     internal bool FlagShowPinButton { get; set; } = false;
     internal bool FlagCloseOnClick { get; set; } = false;
     internal bool FlagIcon { get; set; } = true;
+    internal bool FlagPlaySound { get; set; } = false;
     internal bool FlagRemovePreviousAlerts { get; set; } = false;
     internal int AutoCloseDelay { get; set; } = 0;
+    internal float AlertOpacity { get; set; } = 0;
+
 
     [JsonIgnore]
     internal Control AlertControl { get; set; } = null;
 
     [JsonIgnore]
     internal RadElement AlertRadElement { get; set; } = null;
+
+    [JsonIgnore]
+    internal SystemSound SoundForAlert { get; set; } = null;
+
 
 
     internal Size AlertSize { get; set; } = CxStandard.ZeroSize;
@@ -76,6 +84,25 @@ namespace TmWinForms
       AlertPosition = position;
       FlagCloseOnClick = true;
       FlagRemovePreviousAlerts = true;
+      return this;
+    }
+
+    public TmMessage Sound(SystemSound sound, bool enableSound = true)
+    {
+      if ((sound != null) && (enableSound))
+      {
+        FlagPlaySound = true;
+        SoundForAlert = sound;
+      }
+      return this;
+    }
+
+    public TmMessage Opacity(float opacity)
+    {
+      if ((opacity > 0) && (opacity <= 1))
+      {
+        AlertOpacity = opacity;
+      }
       return this;
     }
 
