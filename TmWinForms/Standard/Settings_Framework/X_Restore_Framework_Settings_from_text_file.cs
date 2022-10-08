@@ -42,6 +42,8 @@ namespace TmWinForms
 
       FrameworkSettings.ValueColumnWidthPercent = settings.ValueColumnWidthPercent;
 
+      FrameworkSettings.ThemeName = settings.ThemeName;
+
       FrameworkSettings.MainFormCloseButtonActsAsMinimizeButton = settings.MainFormCloseButtonActsAsMinimizeButton;
 
       FrameworkSettings.MainFormCloseButtonMustNotCloseForm = settings.MainFormCloseButtonMustNotCloseForm;

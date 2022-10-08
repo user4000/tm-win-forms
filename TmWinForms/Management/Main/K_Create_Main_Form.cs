@@ -53,6 +53,15 @@ namespace TmWinForms
 
       FrameworkSettings.RestoreMainFormLocationAndSize();
 
+
+      // Если пользователь хочет применить тему приложения, то сделаем это по части имени темы //
+      if (string.IsNullOrWhiteSpace(FrameworkSettings.ThemeName) == false)
+      {
+        ThemeManager.SetApplicationTheme(FrameworkSettings.ThemeName);
+      }
+
+
+
       //Application.ApplicationExit += new EventHandler(EventApplicationExit);
 
       return MainForm;

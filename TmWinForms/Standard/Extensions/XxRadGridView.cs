@@ -1,29 +1,11 @@
 ﻿using System;
-using System.Linq;
-using TmWinForms.Standard;
 using Telerik.WinControls.UI;
-using Telerik.WinControls.Data;
 using System.Collections.Generic;
 
 namespace TmWinForms.Extensions
 {
-  public static class XxRadGridView
+  internal static class XxRadGridView
   {
-    private static string ZzGetStringValue_OLD(this RadGridView grid, string GridColumnName)
-    {// Получим значение ячейки в указанном столбце текущей строки //
-      string s = string.Empty;
-      try
-      {
-        GridViewRowInfo selectedRow = grid.CurrentCell.RowInfo;
-        s = Convert.ToString(selectedRow.Cells[GridColumnName].Value); /* Внимание! Имя столбца грида а не имя столбца данных таблицы */
-      }
-      catch 
-      {
-        //TmWinForms.Logger.Manager.Log.Save(ex, "ZzGetStringValue");
-      }
-      return s;
-    }
-
     private static string ZzGetStringValue(this RadGridView grid, string GridColumnName)
     {// Получим значение ячейки в указанном столбце текущей строки //
       string s = string.Empty;
@@ -40,18 +22,9 @@ namespace TmWinForms.Extensions
       return s;
     }
 
-    public static string ZzGetStringValueByFieldName(this RadGridView grid, string FieldName) => ZzGetStringValue(grid, CxStandard.GetGridColumnName(FieldName));
+    internal static string ZzGetStringValueByFieldName(this RadGridView grid, string FieldName) => ZzGetStringValue(grid, CxStandard.GetGridColumnName(FieldName));
 
-    public static int ZzGetIntegerValueByFieldName(this RadGridView grid, string FieldName, int DefaultValue) => TJConvert.ToInt32(ZzGetStringValue(grid, CxStandard.GetGridColumnName(FieldName)), DefaultValue);
-
-    public static void ZzSetGridMainProperties(this RadGridView grid, int RowHeight = 30, bool AllowRowResize = false)
-    {
-      grid.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.None;
-      grid.TableElement.RowHeight = RowHeight;
-      grid.AllowRowResize = AllowRowResize;
-    }
-
-    public static void ZzLoadColumnWidth(this RadGridView grid, Dictionary<string, int> d)
+    internal static void ZzLoadColumnWidth(this RadGridView grid, Dictionary<string, int> d)
     {
       int width = 0;
       try
@@ -63,72 +36,7 @@ namespace TmWinForms.Extensions
       catch { }
     }
 
-    public static void ZzSaveColumnWidth(this RadGridView grid, Dictionary<string, int> d)
-    {
-      d.Clear();
-      for (int i = 0; i < grid.ColumnCount; i++)
-        d.Add(grid.Columns[i].FieldName, grid.Columns[i].Width);
-    }
-
-    public static GridViewDataColumn ZzGetByFieldName(this RadGridView grid, string FieldName)
-    {
-      GridViewDataColumn[] collection = grid.Columns.GetColumnByFieldName(FieldName);
-      if (collection.Count<GridViewDataColumn>() == 1) return collection.First(); else return null;
-    }
-
-    public static int ZzGetColumnWidthByFieldName(this RadGridView grid, string FieldName)
-    {
-      GridViewDataColumn[] collection = grid.Columns.GetColumnByFieldName(FieldName);
-      if (collection.Count<GridViewDataColumn>() == 1) return collection.First().Width; else return -1;
-    }
-
-    public static bool ZzIsColumnVisibleByFieldName(this RadGridView grid, string FieldName)
-    {
-      GridViewDataColumn[] collection = grid.Columns.GetColumnByFieldName(FieldName);
-      if (collection.Count<GridViewDataColumn>() == 1) return collection.First().IsVisible; else return false;
-    }
-
-    public static int ZzGetRowIndex(this RadGridView grid, string GridColumnName, string Value, bool MakeCurrent)
-    {
-      int rowIndex = -1; GridViewRowInfo row = null;
-
-      try
-      {
-        row = grid.Rows
-         .Cast<GridViewRowInfo>()
-         .Where(r => r.Cells[GridColumnName].Value.ToString().Equals(Value))
-         .First();
-        rowIndex = row.Index;
-      }
-      catch { rowIndex = -1; }
-
-      if ((rowIndex >= 0) && MakeCurrent) grid.Rows[rowIndex].IsCurrent = true;
-
-      return rowIndex;
-    }
-
-    public static int ZzGetRowIndexForeach(this RadGridView grid, string GridColumnName, string Value, bool MakeCurrent)
-    {
-      int rowIndex = -1;
-      foreach (GridViewRowInfo row in grid.Rows)
-      {
-        if (row.Cells[GridColumnName].Value.ToString().Equals(Value))
-        {
-          rowIndex = row.Index;
-          break;
-        }
-      }
-      if ((rowIndex >= 0) && MakeCurrent) grid.Rows[rowIndex].IsCurrent = true;
-      return rowIndex;
-    }
-
-    public static void ZzSetAllColumnsReadOnly(this RadGridView grid)
-    {
-      foreach (GridViewDataColumn col in grid.Columns)
-        if (!col.ReadOnly) col.ReadOnly = true;
-    }
-
-    public static void ZzDisposeAllColumns(this RadGridView grid)
+    internal static void ZzDisposeAllColumns(this RadGridView grid)
     {
       GridViewDataColumn col;
       for (int i = 0; i < grid.ColumnCount; i++)
@@ -141,18 +49,12 @@ namespace TmWinForms.Extensions
       grid.Columns.Clear();
     }
 
-    public static void ZzDispose(this RadGridView grid)
+    internal static void ZzDispose(this RadGridView grid)
     {
       grid.Visible = false;
       grid.DataSource = null;
       grid.ZzDisposeAllColumns();
       grid.Dispose();
-    }
-
-    public static void ZzFilter(this RadGridView grid, string FieldName, FilterOperator filterOperator, object value, bool ClearPreviousFilter = true)
-    {
-      if (ClearPreviousFilter) grid.FilterDescriptors.Clear();
-      grid.FilterDescriptors.Add(CxStandard.GetGridColumnName(FieldName), FilterOperator.StartsWith, value);
     }
   }
 }

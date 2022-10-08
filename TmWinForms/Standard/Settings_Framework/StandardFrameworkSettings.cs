@@ -142,6 +142,15 @@ namespace TmWinForms
 
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
+    [JsonProperty(Order = 70)]
+
+    public string ThemeName { get; set; } = string.Empty; // Если пользователь задаст это значение, то фреймворк постарается найти и применить данную тему //
+
+
 
 
 

@@ -322,7 +322,7 @@ namespace TmWinForms.Form
       if (NxByte > 5) NxByte = (byte)(NxByte % 6);
 
       DataRow row = Table.NewRow();
-      row[1] = TJConvert.Time;
+      row[1] = CxConvert.Time;
       row[2] = ArrayMessageType[NxByte];
       row[3] = StHeader.Left(MaxHeaderLength);
       row[4] = StText.Left(MaxMessageLength);
@@ -406,7 +406,7 @@ namespace TmWinForms.Form
     internal void TestAddOneRowToTable()
     {
       AddOneRow((byte)CxRnd.Next(0, 6),
-        TJString.RandomPhrase(CxRnd.Next(1, 22)), TJString.RandomPhrase(CxRnd.Next(1, 175)));
+        CxString.RandomPhrase(CxRnd.Next(1, 22)), CxString.RandomPhrase(CxRnd.Next(1, 175)));
     }
 
     internal void TestAddManyRowsToTable()

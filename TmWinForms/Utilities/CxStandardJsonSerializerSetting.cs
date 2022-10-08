@@ -2,11 +2,11 @@
 
 namespace TmWinForms.Tools
 {
-  internal class TJStandardJsonSerializerSetting
+  internal class CxStandardJsonSerializerSetting
   {
     internal JsonSerializerSettings setting = new JsonSerializerSettings();
 
-    internal TJStandardJsonSerializerSetting() // Constructor //
+    internal CxStandardJsonSerializerSetting() // Constructor //
     {
       setting.Formatting = Formatting.Indented;
       setting.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;

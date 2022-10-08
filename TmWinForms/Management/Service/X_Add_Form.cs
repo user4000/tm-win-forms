@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
 using static TmWinForms.FrameworkManager;
+using System.Diagnostics;
 
 namespace TmWinForms
 {
@@ -76,11 +77,62 @@ namespace TmWinForms
     public void SetStartForm(ushort id)
     {
       IdStartForm = id;
+      if (FormExists(id) == false)
+      {
+        Trace.WriteLine($"[TmWinForms] framework: Warning! There is no form with id = {id}");
+      }
     }
 
     public void SetStartForm(string UniqueFormName)
     {
       CodeStartForm = UniqueFormName;
+      if (FormExists(UniqueFormName) == false)
+      {
+        Trace.WriteLine($"[TmWinForms] framework: Warning! There is no form with unique form name = {UniqueFormName}");
+      }
+    }
+
+    bool FormExists(ushort id)
+    {
+      bool result = false;
+      foreach(var item in QueueForms)
+      {
+        if (item.IdForm == id)
+        {
+          result = true;
+          break;
+        }
+      }
+      return result;
+    }
+
+    bool FormExists(string UniqueFormName)
+    {
+      bool result = false;
+      foreach (var item in QueueForms)
+      {
+        if (item.UniqueName == UniqueFormName)
+        {
+          result = true;
+          break;
+        }
+      }
+      return result;
+    }
+
+
+
+
+
+
+
+
+
+    bool SelectPage(RadPageViewPage page)
+    {
+      if (page == MainForm.PageExit) return false;
+      MainForm.PvMain.SelectedPage = page;
+      return true;
     }
 
     internal bool GotoStartForm()
@@ -93,8 +145,7 @@ namespace TmWinForms
       {
         if (pair.Value.IdForm == IdStartForm)
         {
-          MainForm.PvMain.SelectedPage = pair.Value.Page;
-          result = true;
+          result = SelectPage(pair.Value.Page);
           break;
         }
       }
@@ -112,8 +163,7 @@ namespace TmWinForms
       {
         if (pair.Value.UniqueName == CodeStartForm)
         {
-          MainForm.PvMain.SelectedPage = pair.Value.Page;
-          result = true;
+          result = SelectPage(pair.Value.Page);
           break;
         }
       }

@@ -3,23 +3,23 @@ using System.Drawing;
 
 namespace TmWinForms
 {
-  public static class CxStandard
+  internal static class CxStandard
   {
-    public static char MessageHeaderSeparator { get; } = '|';
+    internal static char MessageHeaderSeparator { get; } = '|';
 
-    public static string MessageType1 { get; } = "O";
-    public static string MessageType2 { get; } = "i";
-    public static string MessageType3 { get; } = "a";
-    public static string MessageType4 { get; } = "@";
-    public static string MessageType5 { get; } = "x";
-    public static string MessageType6 { get; } = "r";
+    internal static string MessageType1 { get; } = "O";
+    internal static string MessageType2 { get; } = "i";
+    internal static string MessageType3 { get; } = "a";
+    internal static string MessageType4 { get; } = "@";
+    internal static string MessageType5 { get; } = "x";
+    internal static string MessageType6 { get; } = "r";
 
-    public static Size ZeroSize { get; } = new Size(0, 0);
+    internal static Size ZeroSize { get; } = new Size(0, 0);
 
-    public static Point ZeroPoint { get; } = new Point(0, 0);
+    internal static Point ZeroPoint { get; } = new Point(0, 0);
 
-    public static string GridColumnPrefix { get; } = "Cc";
+    internal static string GridColumnPrefix { get; } = "Cc";
 
-    public static string GetGridColumnName(string ColumnName) => $"{GridColumnPrefix}{ColumnName}";
+    internal static string GetGridColumnName(string ColumnName) => $"{GridColumnPrefix}{ColumnName}";
   }
 }

@@ -75,7 +75,7 @@ namespace TmWinForms.Standard.Grid
       SetRowHeight(20);
     }
 
-    internal void SetRowHeight(int height) => Grid.TableElement.RowHeight = TJConvert.ValueInRange(height, 20, 50);
+    internal void SetRowHeight(int height) => Grid.TableElement.RowHeight = CxConvert.ValueInRange(height, 20, 50);
 
     internal void SetSizeOfCombobox(RadDropDownListEditorElement element)
     {

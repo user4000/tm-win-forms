@@ -9,13 +9,6 @@ namespace TmWinForms
   partial class StandardFrameworkSettings
   {
 
-
-    public string ThemeName { get; set; } = string.Empty; // Если пользователь задаст это значение, то фреймворк постарается найти и применить данную тему //
-
-
-
-
-
     private string headerFormSettings = "Settings";
     public string HeaderFormSettings
     {

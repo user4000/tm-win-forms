@@ -103,9 +103,9 @@ namespace TmWinForms
 
 
 
-      if (sw.ElapsedMilliseconds < 710)
+      if (sw.ElapsedMilliseconds < 750)
       {
-        long delayLong = 750 - sw.ElapsedMilliseconds;
+        long delayLong = 800 - sw.ElapsedMilliseconds;
         int delayInt = Convert.ToInt32(delayLong);
         await Task.Delay(delayInt);
       }

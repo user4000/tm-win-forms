@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using TmWinForms.Themes;
 using System.Windows.Forms;
 
 namespace TmWinForms
@@ -20,6 +21,11 @@ namespace TmWinForms
     public static IMessageHub MsHub { get; } = MessageHub.Create();
 
     public static UserEvents Events { get; } = UserEvents.Create();
+
+    public static CxThemeManager ThemeManager { get; } = CxThemeManager.Create();
+
+
+
 
 
     public static T ApplicationSettings<T>() => (T)(object)Service.CurrentApplicationSettings;

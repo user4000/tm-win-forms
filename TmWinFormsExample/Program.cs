@@ -72,7 +72,7 @@ namespace TmWinFormsExample
 
       ushort f3 = Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
-      Service.SetStartForm("form2");      // or Service.SetStartForm(f3);
+      Service.SetStartForm("form1");      // or Service.SetStartForm(f3);
     }
 
     static void SetApplicationEvents()

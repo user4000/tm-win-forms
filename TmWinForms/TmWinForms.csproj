@@ -82,6 +82,7 @@
     <Compile Include="Management\Pages\W_Find_A_Page.cs" />
     <Compile Include="Management\Pages\X_Goto_Page.cs" />
     <Compile Include="Management\Pages\X_Show_Page.cs" />
+    <Compile Include="Management\Themes\CxThemeManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,20 +90,8 @@
     </Compile>
     <Compile Include="Standard\Extensions\XxDataColumnChangeEventArgs.cs" />
     <Compile Include="Standard\Extensions\XxDataTable.cs" />
-    <Compile Include="Standard\Extensions\XxEncoding.cs" />
     <Compile Include="Standard\Extensions\XxGridViewDataColumn.cs" />
-    <Compile Include="Standard\Extensions\XxGridViewRowInfo.cs" />
-    <Compile Include="Standard\Extensions\XxIListGeneric.cs" />
-    <Compile Include="Standard\Extensions\XxIListReturnCode.cs" />
-    <Compile Include="Standard\Extensions\XxRadButton.cs" />
-    <Compile Include="Standard\Extensions\XxRadButtonTextBox.cs" />
-    <Compile Include="Standard\Extensions\XxRadDateTimePicker.cs" />
-    <Compile Include="Standard\Extensions\XxRadDropDownList.cs" />
-    <Compile Include="Standard\Extensions\XxRadDropDownListClassificatorStandard.cs" />
     <Compile Include="Standard\Extensions\XxRadGridView.cs" />
-    <Compile Include="Standard\Extensions\XxRadPanel.cs" />
-    <Compile Include="Standard\Extensions\XxRadTextBox.cs" />
-    <Compile Include="Standard\Extensions\XxRadTextBoxControl.cs" />
     <Compile Include="Standard\Extensions\XxString.cs" />
     <Compile Include="Forms\1_Main_Form\FxMain.cs">
       <SubType>Form</SubType>
@@ -180,10 +169,10 @@
     <Compile Include="Standard\Settings_Framework\V_Alerts.cs" />
     <Compile Include="Standard\Settings_Framework\V_Standard_Forms.cs" />
     <Compile Include="Standard\Settings_Framework\X_Restore_Framework_Settings_from_text_file.cs" />
+    <Compile Include="Utilities\CxConvert.cs" />
     <Compile Include="Utilities\CxStandard.cs" />
-    <Compile Include="Utilities\TJConvert.cs" />
-    <Compile Include="Utilities\TJStandardJsonSerializerSetting.cs" />
-    <Compile Include="Utilities\TJString.cs" />
+    <Compile Include="Utilities\CxStandardJsonSerializerSetting.cs" />
+    <Compile Include="Utilities\CxString.cs" />
     <Compile Include="Utilities\CxTools.cs" />
   </ItemGroup>
   <ItemGroup>
