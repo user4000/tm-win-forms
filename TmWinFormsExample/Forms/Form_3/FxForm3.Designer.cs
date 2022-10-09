@@ -29,21 +29,19 @@
     private void InitializeComponent()
     {
       this.LbFormTwo = new Telerik.WinControls.UI.RadLabel();
-      this.TxtMessage = new Telerik.WinControls.UI.RadTextBoxControl();
-      this.BxTest6 = new Telerik.WinControls.UI.RadButton();
-      this.BxTest5 = new Telerik.WinControls.UI.RadButton();
-      this.BxTest4 = new Telerik.WinControls.UI.RadButton();
-      this.BxTest3 = new Telerik.WinControls.UI.RadButton();
-      this.BxTest2 = new Telerik.WinControls.UI.RadButton();
-      this.BxTest1 = new Telerik.WinControls.UI.RadButton();
+      this.PvMain = new Telerik.WinControls.UI.RadPageView();
+      this.PageFirst = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageLog = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageSettings = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageAboutProgram = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageExit = new Telerik.WinControls.UI.RadPageViewPage();
+      this.radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
+      this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
+      this.radPageViewPage3 = new Telerik.WinControls.UI.RadPageViewPage();
+      this.radPageViewPage4 = new Telerik.WinControls.UI.RadPageViewPage();
       ((System.ComponentModel.ISupportInitialize)(this.LbFormTwo)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.TxtMessage)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest6)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest5)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest4)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest3)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest2)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.PvMain)).BeginInit();
+      this.PvMain.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
       this.SuspendLayout();
       // 
@@ -57,82 +55,115 @@
       this.LbFormTwo.TabIndex = 2;
       this.LbFormTwo.Text = "Form Number 3";
       // 
-      // TxtMessage
+      // PvMain
       // 
-      this.TxtMessage.Location = new System.Drawing.Point(79, 130);
-      this.TxtMessage.MaxLength = 90000;
-      this.TxtMessage.Multiline = true;
-      this.TxtMessage.Name = "TxtMessage";
-      this.TxtMessage.Size = new System.Drawing.Size(852, 315);
-      this.TxtMessage.TabIndex = 4;
-      this.TxtMessage.VerticalScrollBarState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
+      this.PvMain.Controls.Add(this.PageFirst);
+      this.PvMain.Controls.Add(this.PageLog);
+      this.PvMain.Controls.Add(this.PageSettings);
+      this.PvMain.Controls.Add(this.PageAboutProgram);
+      this.PvMain.Controls.Add(this.PageExit);
+      this.PvMain.Controls.Add(this.radPageViewPage1);
+      this.PvMain.Controls.Add(this.radPageViewPage2);
+      this.PvMain.Controls.Add(this.radPageViewPage3);
+      this.PvMain.Controls.Add(this.radPageViewPage4);
+      this.PvMain.Font = new System.Drawing.Font("Verdana", 10F);
+      this.PvMain.Location = new System.Drawing.Point(74, 171);
+      this.PvMain.Name = "PvMain";
+      this.PvMain.SelectedPage = this.radPageViewPage4;
+      this.PvMain.Size = new System.Drawing.Size(674, 411);
+      this.PvMain.TabIndex = 7;
+      ((Telerik.WinControls.UI.RadPageViewStripElement)(this.PvMain.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
+      ((Telerik.WinControls.UI.RadPageViewStripElement)(this.PvMain.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(1);
+      ((Telerik.WinControls.UI.StripViewItemContainer)(this.PvMain.GetChildAt(0).GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).DrawBorder = true;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).EnableImageTransparency = false;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).EnableFocusBorder = false;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).EnableHighlight = true;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).ToolTipText = "Scroll Strip Left";
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Visible;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).MinSize = new System.Drawing.Size(32, 24);
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(1))).ToolTipText = "Scroll Strip Right";
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(1))).Enabled = false;
+      ((Telerik.WinControls.UI.RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(1))).MinSize = new System.Drawing.Size(32, 24);
       // 
-      // BxTest6
+      // PageFirst
       // 
-      this.BxTest6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest6.Location = new System.Drawing.Point(808, 498);
-      this.BxTest6.Name = "BxTest6";
-      this.BxTest6.Size = new System.Drawing.Size(123, 37);
-      this.BxTest6.TabIndex = 5;
-      this.BxTest6.Text = "Test 6";
+      this.PageFirst.ItemSize = new System.Drawing.SizeF(64F, 30F);
+      this.PageFirst.Location = new System.Drawing.Point(6, 35);
+      this.PageFirst.Name = "PageFirst";
+      this.PageFirst.Size = new System.Drawing.Size(498, 370);
+      this.PageFirst.Text = "Page 1";
       // 
-      // BxTest5
+      // PageLog
       // 
-      this.BxTest5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest5.Location = new System.Drawing.Point(662, 498);
-      this.BxTest5.Name = "BxTest5";
-      this.BxTest5.Size = new System.Drawing.Size(123, 37);
-      this.BxTest5.TabIndex = 6;
-      this.BxTest5.Text = "Test 5";
+      this.PageLog.ItemSize = new System.Drawing.SizeF(83F, 30F);
+      this.PageLog.Location = new System.Drawing.Point(6, 35);
+      this.PageLog.Name = "PageLog";
+      this.PageLog.Size = new System.Drawing.Size(1045, 660);
+      this.PageLog.Text = "Messages";
       // 
-      // BxTest4
+      // PageSettings
       // 
-      this.BxTest4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest4.Location = new System.Drawing.Point(517, 498);
-      this.BxTest4.Name = "BxTest4";
-      this.BxTest4.Size = new System.Drawing.Size(123, 37);
-      this.BxTest4.TabIndex = 7;
-      this.BxTest4.Text = "Test 4";
+      this.PageSettings.ItemSize = new System.Drawing.SizeF(74F, 30F);
+      this.PageSettings.Location = new System.Drawing.Point(6, 35);
+      this.PageSettings.Name = "PageSettings";
+      this.PageSettings.Size = new System.Drawing.Size(1045, 660);
+      this.PageSettings.Text = "Settings";
       // 
-      // BxTest3
+      // PageAboutProgram
       // 
-      this.BxTest3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest3.Location = new System.Drawing.Point(372, 498);
-      this.BxTest3.Name = "BxTest3";
-      this.BxTest3.Size = new System.Drawing.Size(123, 37);
-      this.BxTest3.TabIndex = 8;
-      this.BxTest3.Text = "Test 3";
+      this.PageAboutProgram.ItemSize = new System.Drawing.SizeF(121F, 30F);
+      this.PageAboutProgram.Location = new System.Drawing.Point(6, 35);
+      this.PageAboutProgram.Name = "PageAboutProgram";
+      this.PageAboutProgram.Size = new System.Drawing.Size(1045, 660);
+      this.PageAboutProgram.Text = "About Program";
       // 
-      // BxTest2
+      // PageExit
       // 
-      this.BxTest2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest2.Location = new System.Drawing.Point(227, 498);
-      this.BxTest2.Name = "BxTest2";
-      this.BxTest2.Size = new System.Drawing.Size(123, 37);
-      this.BxTest2.TabIndex = 9;
-      this.BxTest2.Text = "Test 2";
+      this.PageExit.ItemSize = new System.Drawing.SizeF(43F, 30F);
+      this.PageExit.Location = new System.Drawing.Point(6, 35);
+      this.PageExit.Name = "PageExit";
+      this.PageExit.Size = new System.Drawing.Size(1045, 660);
+      this.PageExit.Text = "Exit";
       // 
-      // BxTest1
+      // radPageViewPage1
       // 
-      this.BxTest1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest1.Location = new System.Drawing.Point(79, 498);
-      this.BxTest1.Name = "BxTest1";
-      this.BxTest1.Size = new System.Drawing.Size(123, 37);
-      this.BxTest1.TabIndex = 10;
-      this.BxTest1.Text = "Test 1";
+      this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(147F, 30F);
+      this.radPageViewPage1.Location = new System.Drawing.Point(6, 35);
+      this.radPageViewPage1.Name = "radPageViewPage1";
+      this.radPageViewPage1.Size = new System.Drawing.Size(498, 370);
+      this.radPageViewPage1.Text = "radPageViewPage1";
+      // 
+      // radPageViewPage2
+      // 
+      this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(147F, 30F);
+      this.radPageViewPage2.Location = new System.Drawing.Point(6, 35);
+      this.radPageViewPage2.Name = "radPageViewPage2";
+      this.radPageViewPage2.Size = new System.Drawing.Size(498, 370);
+      this.radPageViewPage2.Text = "radPageViewPage2";
+      // 
+      // radPageViewPage3
+      // 
+      this.radPageViewPage3.ItemSize = new System.Drawing.SizeF(147F, 30F);
+      this.radPageViewPage3.Location = new System.Drawing.Point(6, 35);
+      this.radPageViewPage3.Name = "radPageViewPage3";
+      this.radPageViewPage3.Size = new System.Drawing.Size(662, 370);
+      this.radPageViewPage3.Text = "radPageViewPage3";
+      // 
+      // radPageViewPage4
+      // 
+      this.radPageViewPage4.ItemSize = new System.Drawing.SizeF(147F, 30F);
+      this.radPageViewPage4.Location = new System.Drawing.Point(6, 35);
+      this.radPageViewPage4.Name = "radPageViewPage4";
+      this.radPageViewPage4.Size = new System.Drawing.Size(662, 370);
+      this.radPageViewPage4.Text = "radPageViewPage4";
       // 
       // FxForm3
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1081, 671);
-      this.Controls.Add(this.BxTest6);
-      this.Controls.Add(this.BxTest5);
-      this.Controls.Add(this.BxTest4);
-      this.Controls.Add(this.BxTest3);
-      this.Controls.Add(this.BxTest2);
-      this.Controls.Add(this.BxTest1);
-      this.Controls.Add(this.TxtMessage);
+      this.Controls.Add(this.PvMain);
       this.Controls.Add(this.LbFormTwo);
       this.Name = "FxForm3";
       // 
@@ -141,13 +172,8 @@
       this.RootElement.ApplyShapeToControl = true;
       this.Text = "";
       ((System.ComponentModel.ISupportInitialize)(this.LbFormTwo)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.TxtMessage)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest6)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest5)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest4)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest3)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest2)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.BxTest1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.PvMain)).EndInit();
+      this.PvMain.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -157,12 +183,15 @@
     #endregion
 
     private Telerik.WinControls.UI.RadLabel LbFormTwo;
-    public Telerik.WinControls.UI.RadTextBoxControl TxtMessage;
-    public Telerik.WinControls.UI.RadButton BxTest6;
-    public Telerik.WinControls.UI.RadButton BxTest5;
-    public Telerik.WinControls.UI.RadButton BxTest4;
-    public Telerik.WinControls.UI.RadButton BxTest3;
-    public Telerik.WinControls.UI.RadButton BxTest2;
-    public Telerik.WinControls.UI.RadButton BxTest1;
+    public Telerik.WinControls.UI.RadPageView PvMain;
+    public Telerik.WinControls.UI.RadPageViewPage PageFirst;
+    public Telerik.WinControls.UI.RadPageViewPage PageLog;
+    public Telerik.WinControls.UI.RadPageViewPage PageSettings;
+    public Telerik.WinControls.UI.RadPageViewPage PageAboutProgram;
+    public Telerik.WinControls.UI.RadPageViewPage PageExit;
+    private Telerik.WinControls.UI.RadPageViewPage radPageViewPage1;
+    private Telerik.WinControls.UI.RadPageViewPage radPageViewPage2;
+    private Telerik.WinControls.UI.RadPageViewPage radPageViewPage3;
+    private Telerik.WinControls.UI.RadPageViewPage radPageViewPage4;
   }
 }

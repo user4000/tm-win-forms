@@ -22,7 +22,7 @@ namespace TmWinForms.Extensions
       return s;
     }
 
-    internal static string ZzGetStringValueByFieldName(this RadGridView grid, string FieldName) => ZzGetStringValue(grid, CxStandard.GetGridColumnName(FieldName));
+    internal static string ZzGetStringValueByFieldName(this RadGridView grid, string FieldName) => ZzGetStringValue(grid, Tools.CxStandard.GetGridColumnName(FieldName));
 
     internal static void ZzLoadColumnWidth(this RadGridView grid, Dictionary<string, int> d)
     {

@@ -56,7 +56,7 @@ namespace TmWinForms.Standard.Grid
     internal string GetValue(CurrentRowChangedEventArgs e, string FieldName)
     {
       string s = string.Empty;
-      try { s = e.CurrentRow.Cells[CxStandard.GetGridColumnName(FieldName)].Value.ToString(); } catch { s = string.Empty; }
+      try { s = e.CurrentRow.Cells[Tools.CxStandard.GetGridColumnName(FieldName)].Value.ToString(); } catch { s = string.Empty; }
       return s;
     }
 

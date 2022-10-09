@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace TmWinForms
+namespace TmWinForms.Tools
 {
   internal static class CxStandard
   {

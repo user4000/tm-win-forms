@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Globalization;
 
-namespace TmWinForms.Standard
+namespace TmWinForms.Tools
 {
   internal static class CxString
   {

@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using TmWinForms.Extensions;
 using TmWinForms.Standard.Grid;
-//using static TmWinForms.Logger.Manager;
 using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms.Form
@@ -172,62 +171,62 @@ namespace TmWinForms.Form
 
     internal void InitArrayMessageType()
     {
-      ArrayMessageType[0] = CxStandard.MessageType1;
-      ArrayMessageType[1] = CxStandard.MessageType2;
-      ArrayMessageType[2] = CxStandard.MessageType3;
-      ArrayMessageType[3] = CxStandard.MessageType4;
-      ArrayMessageType[4] = CxStandard.MessageType5;
-      ArrayMessageType[5] = CxStandard.MessageType6;
+      ArrayMessageType[0] = Tools.CxStandard.MessageType1;
+      ArrayMessageType[1] = Tools.CxStandard.MessageType2;
+      ArrayMessageType[2] = Tools.CxStandard.MessageType3;
+      ArrayMessageType[3] = Tools.CxStandard.MessageType4;
+      ArrayMessageType[4] = Tools.CxStandard.MessageType5;
+      ArrayMessageType[5] = Tools.CxStandard.MessageType6;
     }
 
     internal void AddConditionalFormatting()
     {
-      ConditionalFormattingObject format = new ConditionalFormattingObject("Debug", ConditionTypes.Equal, CxStandard.MessageType1.ToString(), "", false);
+      ConditionalFormattingObject format = new ConditionalFormattingObject("Debug", ConditionTypes.Equal, Tools.CxStandard.MessageType1.ToString(), "", false);
       format.CellForeColor = Color.Black;
       format.CellFont = FontWingdingsRegular;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Info", ConditionTypes.Equal, CxStandard.MessageType2.ToString(), "", false);
+      format = new ConditionalFormattingObject("Info", ConditionTypes.Equal, Tools.CxStandard.MessageType2.ToString(), "", false);
       format.CellForeColor = Color.DeepSkyBlue;
       format.CellFont = FontWebdingsBold;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Ok", ConditionTypes.Equal, CxStandard.MessageType3.ToString(), "", false);
+      format = new ConditionalFormattingObject("Ok", ConditionTypes.Equal, Tools.CxStandard.MessageType3.ToString(), "", false);
       format.CellForeColor = Color.Green;
       format.CellFont = FontWebdingsBold;
       format.ApplyToRow = false;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Failure1", ConditionTypes.Equal, CxStandard.MessageType4.ToString(), "", false);
+      format = new ConditionalFormattingObject("Failure1", ConditionTypes.Equal, Tools.CxStandard.MessageType4.ToString(), "", false);
       format.CellBackColor = Color.Yellow;
       format.CellForeColor = Color.Brown;
       format.CellFont = FontWebdingsRegular;
       format.ApplyToRow = false;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Failure2", ConditionTypes.Equal, CxStandard.MessageType4.ToString(), "", true);
+      format = new ConditionalFormattingObject("Failure2", ConditionTypes.Equal, Tools.CxStandard.MessageType4.ToString(), "", true);
       format.RowForeColor = Color.Navy;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Warning1", ConditionTypes.Equal, CxStandard.MessageType5.ToString(), "", false);
+      format = new ConditionalFormattingObject("Warning1", ConditionTypes.Equal, Tools.CxStandard.MessageType5.ToString(), "", false);
       format.CellBackColor = Color.Yellow;
       format.CellForeColor = Color.Magenta;
       format.CellFont = FontWebdingsBold;
       format.ApplyToRow = false;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Warning2", ConditionTypes.Equal, CxStandard.MessageType5.ToString(), "", true);
+      format = new ConditionalFormattingObject("Warning2", ConditionTypes.Equal, Tools.CxStandard.MessageType5.ToString(), "", true);
       format.RowForeColor = Color.Brown;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Error1", ConditionTypes.Equal, CxStandard.MessageType6.ToString(), "", false);
+      format = new ConditionalFormattingObject("Error1", ConditionTypes.Equal, Tools.CxStandard.MessageType6.ToString(), "", false);
       format.CellBackColor = Color.LightPink;
       format.CellForeColor = Color.Red;
       format.CellFont = FontWebdingsRegular;
       format.ApplyToRow = false;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
 
-      format = new ConditionalFormattingObject("Error2", ConditionTypes.Equal, CxStandard.MessageType6.ToString(), "", true);
+      format = new ConditionalFormattingObject("Error2", ConditionTypes.Equal, Tools.CxStandard.MessageType6.ToString(), "", true);
       format.RowForeColor = Color.DeepPink;
       CoTypePresentation.ConditionalFormattingObjectList.Add(format);
     }
@@ -322,7 +321,7 @@ namespace TmWinForms.Form
       if (NxByte > 5) NxByte = (byte)(NxByte % 6);
 
       DataRow row = Table.NewRow();
-      row[1] = CxConvert.Time;
+      row[1] = Tools.CxConvert.Time;
       row[2] = ArrayMessageType[NxByte];
       row[3] = StHeader.Left(MaxHeaderLength);
       row[4] = StText.Left(MaxMessageLength);
@@ -406,7 +405,7 @@ namespace TmWinForms.Form
     internal void TestAddOneRowToTable()
     {
       AddOneRow((byte)CxRnd.Next(0, 6),
-        CxString.RandomPhrase(CxRnd.Next(1, 22)), CxString.RandomPhrase(CxRnd.Next(1, 175)));
+        Tools.CxString.RandomPhrase(CxRnd.Next(1, 22)), Tools.CxString.RandomPhrase(CxRnd.Next(1, 175)));
     }
 
     internal void TestAddManyRowsToTable()
@@ -469,34 +468,3 @@ namespace TmWinForms.Form
     }
   }
 }
-
-
-/*
-    internal void AddOneRow(byte NxByte, string StHeader, string StText)
-    {
-      if (NxByte > 5) NxByte = (byte)(NxByte % 6);
-
-      DataRow row = Table.NewRow();
-      row[1] = TJConvert.Time;
-      row[2] = ArrayMessageType[NxByte];
-      row[3] = StHeader;
-      row[4] = StText;
-      row[5] = NxByte;
-      Table.Rows.Add(row);
-   
-      //GridViewRowInfo row = Grid.Rows.AddNew();
-      //row.Cells[1].Value = TJConvert.Time;
-      //row.Cells[2].Value = ArrayMessageType[NxByte];
-      //row.Cells[3].Value = StHeader;
-      //row.Cells[4].Value = StText;
-      //row.Cells[5].Value = NxByte;
-      
-      CountRow++;
-      DeleteOldRows();
-      if (FormLog.PanelMessageIsVisible) EventCopyMessageToDetailMessagePanel();
-
-      //Grid.BeginUpdate();
-      //SelectLastRow();
-      //Grid.EndUpdate();
-    }
-*/

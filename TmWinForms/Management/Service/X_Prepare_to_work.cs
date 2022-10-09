@@ -5,7 +5,6 @@ namespace TmWinForms
 {
   partial class FrameworkService
   {
-
     void AddFormsFromQueueToPageView()
     {
       while ( QueueForms.Count > 0 )
@@ -14,7 +13,6 @@ namespace TmWinForms
         AddFormToPage(subForm);
       }
     }
-
 
     public void PlaceAllSubFormsToMainPageView()
     {

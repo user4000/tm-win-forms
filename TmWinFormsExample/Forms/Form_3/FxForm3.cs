@@ -16,12 +16,12 @@ namespace TmWinFormsExample
 
     public void EventUserLeftTheForm()
     {
-      Ms.Message("Form number 3 reports", "User left the page  !").Pos(MsgPos.TopLeft).Debug(2);
+      //Ms.Message("Form number 3 reports", "User left the page  !").Pos(MsgPos.TopLeft).Debug(2);
     }
 
     public void EventUserVisitedTheForm()
     {
-      Ms.Message("Form number 3 reports", "User visited the page  !").Pos(MsgPos.TopLeft).Info(2);
+      //Ms.Message("Form number 3 reports", "User visited the page  !").Pos(MsgPos.TopLeft).Info(2);
     }
   }
 }

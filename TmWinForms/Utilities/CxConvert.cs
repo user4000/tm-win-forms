@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace TmWinForms.Standard
+namespace TmWinForms.Tools
 {
   internal class CxConvert
   {

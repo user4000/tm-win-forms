@@ -35,50 +35,11 @@ namespace TmWinForms
       if (DicPages.ContainsKey(page) == false) DicPages.Add(page, form);
     }
 
-
-
-
-    internal RadPageViewPage CreateNewPage(SubForm form)
-    {
-      RadPageViewPage page = null;
-
-      if (FlagItIsTimeToAddStandardForms == false)
-      {
-        page = new RadPageViewPage() { Name = form.UniqueName, Text = form.PageText };
-        MainForm.PvMain.Pages.Insert(++IndexPage, page);
-      }
-      else
-      {
-        page = TryToFindExistingPage(form.Form);
-      }
-
-      if (page == null) throw new ApplicationException("Error! Failed to find a [PageView] for standard form!");
-
-      MainForm.PvMain.SelectedPage = null;
-
-      page.ItemSize = new SizeF(120F, 30);
-      page.Location = new Point(10, 10);
-      page.TextAlignment = ContentAlignment.MiddleCenter;
-
-      RadPageViewStripElement element = (RadPageViewStripElement)MainForm.PvMain.GetChildAt(0);
-
-      element.ShowItemPinButton = false;
-      element.StripButtons = StripViewButtons.Scroll;
-      element.ItemAlignment = StripViewItemAlignment.Near;
-      element.ItemFitMode = StripViewItemFitMode.FillHeight;
-      element.ShowItemCloseButton = false;
-      element.ItemSpacing = FrameworkSettings.PageViewItemSpacing;
-
-      if (FrameworkSettings.StripOrientation != StripViewAlignment.Top) SetMainPageViewTabOrientation(FrameworkSettings.StripOrientation);
-
-      return page;
-    }
-
     private void AddFormToPage(SubForm subForm)
     {
       if (PageExists(subForm.UniqueName)) return;
 
-      var page = CreateNewPage(subForm);
+      RadPageViewPage page = CreateNewPage(subForm);
 
       AddSubFormToDictionary(subForm);
 
@@ -99,7 +60,7 @@ namespace TmWinForms
       subForm.SetPage(page);
 
       page.Tag = subForm;
-
+      
       page.Item.MinSize = new Size(FrameworkSettings.TabMinimumWidth, 0);
 
       page.Item.Visibility = subForm.FlagTabVisible ? ElementVisibility.Visible : ElementVisibility.Collapsed;

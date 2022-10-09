@@ -36,7 +36,6 @@ namespace TmWinFormsExample
       FrameworkManager.SetApplicationIcon(Properties.Resources.ApplicationIcon);     
       FrameworkManager.SetIconForSystemTray(Properties.Resources.ApplicationIcon);
 
-
       /* Настройки фреймворка, которые не сохраняются в текстовом файле и требуют явного указания значений (если не устраивают значения по умолчанию) */
 
       FmSettings.ConfirmExitButtonText = " Click me, my friend !";
@@ -49,9 +48,11 @@ namespace TmWinFormsExample
     static void OverrideFrameworkSettingsAfterLoadingFromTextFile()
     {
       /* 
-       Настройки фреймворка, которые сохраняются в текстовом файле и получают свои значения из текстового файла, но тем не менее
-       значения эти могут быть перекрыты другими значениями, которые программист должен указать явно в этом методе.
-       Это может быть нужно в тех случаях, когда в некотором приложении настройка не должна зависеть от значения в текстовом файле,
+       Именно в этом методе вы можете изменить те настройки фреймворка, которые получают свои значения из текстового файла.
+       Значения, заданные в этом методе перекрывают (имеют больший приоритет) те значения, которые при старте программы считываются из файла.
+         
+       Это может быть полезно в тех случаях, когда в некотором приложении настройка не должна зависеть от значения в текстовом файле,
+       (например, потому что её может изменить какой-нибудь продвинутый и не в меру активный пользователь)
        а должна иметь явное значение и не допускать изменения этого значения.
       */
 
@@ -59,7 +60,7 @@ namespace TmWinFormsExample
     }
 
     static void SetFrameworkSettingsAfterLoadingFromTextFile()
-    {
+    {      
       Events.OverrideLoadedFrameworkSettings = OverrideFrameworkSettingsAfterLoadingFromTextFile;
     }
 
@@ -72,7 +73,13 @@ namespace TmWinFormsExample
 
       ushort f3 = Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
-      Service.SetStartForm("form1");      // or Service.SetStartForm(f3);
+
+      ushort f4 = Service.AddForm<FxAboutProgram>("formAboutProgram", "About my super program", true, true);
+
+
+      Service.SetStartForm("form1");                    // or Service.SetStartForm(f3);
+
+      Service.SetAboutProgramForm("formAboutProgram");  // or Service.SetAboutProgramForm(f4);
     }
 
     static void SetApplicationEvents()

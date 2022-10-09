@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using TmWinForms.Form;
-using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
 using static TmWinForms.FrameworkManager;
@@ -31,20 +30,18 @@ namespace TmWinForms
     private ushort IdForm { get; set; }
 
 
-
     FrameworkService()
     {
       
     }
 
+    internal static FrameworkService Create() => new FrameworkService();
 
     internal void Configure(FxMain mainForm)
     {
       MainForm = mainForm;
     }
 
-
-    internal static FrameworkService Create() => new FrameworkService();
 
 
 

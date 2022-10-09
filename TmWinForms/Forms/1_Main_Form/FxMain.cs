@@ -30,12 +30,21 @@ namespace TmWinForms
 
       AdjustAboutProgramPage();
 
+      AdjustScrollStripButtons();
+
 
       this.MinimumSize = new Size(800, 600);
 
       // TODO: Сделать также настроку для PvMain  ItemFitMode
       // https://docs.telerik.com/devtools/winforms/controls/pageview/stripview/fitting-items
     }
+
+    void AdjustScrollStripButtons() // Настроим размеры небольших боковых кнопок, которые прокручивают полосу вкладок //
+    {
+      ((RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(0))).MinSize = new Size(26, 26);
+      ((RadPageViewStripButtonElement)(this.PvMain.GetChildAt(0).GetChildAt(0).GetChildAt(1).GetChildAt(1))).MinSize = new Size(26, 26);
+    }
+
 
     internal void LaunchStartTimer()
     {
@@ -69,7 +78,7 @@ namespace TmWinForms
 
     internal void AdjustAboutProgramPage()
     {
-      var page = this.PageAbout;
+      var page = this.PageAboutProgram;
       page.ItemSize = new SizeF(130F, 30);
       page.Location = new Point(10, 10);
       page.TextAlignment = ContentAlignment.MiddleCenter;

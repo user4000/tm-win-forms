@@ -39,9 +39,9 @@ namespace TmWinForms
 
 
 
-    internal Size AlertSize { get; set; } = CxStandard.ZeroSize;
+    internal Size AlertSize { get; set; } = Tools.CxStandard.ZeroSize;
 
-    internal Point AlertOffset { get; set; } = CxStandard.ZeroPoint;
+    internal Point AlertOffset { get; set; } = Tools.CxStandard.ZeroPoint;
 
     public TmMessage Position(MsgPos position)
     {

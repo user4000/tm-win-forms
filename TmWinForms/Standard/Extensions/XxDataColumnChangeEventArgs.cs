@@ -2,7 +2,6 @@
 
 namespace TmWinForms.Extensions
 {
-
   internal static class XxDataColumnChangeEventArgs
   {
     internal static string ZzProposedValue(this DataColumnChangeEventArgs e)

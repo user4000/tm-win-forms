@@ -75,7 +75,7 @@ namespace TmWinForms.Standard.Grid
       SetRowHeight(20);
     }
 
-    internal void SetRowHeight(int height) => Grid.TableElement.RowHeight = CxConvert.ValueInRange(height, 20, 50);
+    internal void SetRowHeight(int height) => Grid.TableElement.RowHeight = Tools.CxConvert.ValueInRange(height, 20, 50);
 
     internal void SetSizeOfCombobox(RadDropDownListEditorElement element)
     {
@@ -167,7 +167,7 @@ namespace TmWinForms.Standard.Grid
       {
         FieldName = fieldName,
         HeaderText = headerText,
-        Name = CxStandard.GetGridColumnName(fieldName),
+        Name = Tools.CxStandard.GetGridColumnName(fieldName),
         ReadOnly = readOnly
       };
       if (table != null)
@@ -188,7 +188,7 @@ namespace TmWinForms.Standard.Grid
       {
         FieldName = fieldName,
         HeaderText = headerText,
-        Name = CxStandard.GetGridColumnName(fieldName),
+        Name = Tools.CxStandard.GetGridColumnName(fieldName),
         ReadOnly = readOnly
       };
       if (list != null)

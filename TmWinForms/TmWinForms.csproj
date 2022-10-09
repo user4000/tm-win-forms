@@ -82,6 +82,10 @@
     <Compile Include="Management\Pages\W_Find_A_Page.cs" />
     <Compile Include="Management\Pages\X_Goto_Page.cs" />
     <Compile Include="Management\Pages\X_Show_Page.cs" />
+    <Compile Include="Management\Service\X_About_Program_Form.cs" />
+    <Compile Include="Management\Service\X_Check_Form_Exists.cs" />
+    <Compile Include="Management\Service\X_Create_New_Page.cs" />
+    <Compile Include="Management\Service\X_Start_Form.cs" />
     <Compile Include="Management\Themes\CxThemeManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -125,8 +129,7 @@
     <Compile Include="Forms\7_Error_Message\FxMessage.Designer.cs">
       <DependentUpon>FxMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Standard\Grid\TJGridManager.cs" />
-    <Compile Include="Standard\Grid\TTGridWithDataTable.cs" />
+    <Compile Include="Standard\Grid\GridManager.cs" />
     <Compile Include="Management\Main\FrameworkManager.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closing.cs" />
     <Compile Include="Management\Main\K_Main_Form_Shown.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="Management\Service\X_Prepare_To_Work.cs" />
     <Compile Include="Management\Service\X_Settings.cs" />
     <Compile Include="Management\Service\X_Set_Main_Page_View.cs" />
+    <Compile Include="Standard\Grid\GridWithDataTable.cs" />
     <Compile Include="Standard\Interfaces\IFrameworkLogger.cs" />
     <Compile Include="Standard\Interfaces\IUserLeftTheFormAsync.cs" />
     <Compile Include="Standard\Interfaces\IUserVisitedTheFormAsync.cs" />

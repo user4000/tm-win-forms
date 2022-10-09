@@ -39,7 +39,7 @@
       this.PageFirst = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageLog = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageSettings = new Telerik.WinControls.UI.RadPageViewPage();
-      this.PageAbout = new Telerik.WinControls.UI.RadPageViewPage();
+      this.PageAboutProgram = new Telerik.WinControls.UI.RadPageViewPage();
       this.PageExit = new Telerik.WinControls.UI.RadPageViewPage();
       this.NotifyIconMainForm = new System.Windows.Forms.NotifyIcon(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.MainFormMenu)).BeginInit();
@@ -113,7 +113,7 @@
       this.PvMain.Controls.Add(this.PageFirst);
       this.PvMain.Controls.Add(this.PageLog);
       this.PvMain.Controls.Add(this.PageSettings);
-      this.PvMain.Controls.Add(this.PageAbout);
+      this.PvMain.Controls.Add(this.PageAboutProgram);
       this.PvMain.Controls.Add(this.PageExit);
       this.PvMain.Dock = System.Windows.Forms.DockStyle.Fill;
       this.PvMain.Font = new System.Drawing.Font("Verdana", 10F);
@@ -152,11 +152,11 @@
       // 
       // PageAbout
       // 
-      this.PageAbout.ItemSize = new System.Drawing.SizeF(121F, 30F);
-      this.PageAbout.Location = new System.Drawing.Point(6, 35);
-      this.PageAbout.Name = "PageAbout";
-      this.PageAbout.Size = new System.Drawing.Size(1045, 660);
-      this.PageAbout.Text = "About Program";
+      this.PageAboutProgram.ItemSize = new System.Drawing.SizeF(121F, 30F);
+      this.PageAboutProgram.Location = new System.Drawing.Point(6, 35);
+      this.PageAboutProgram.Name = "PageAboutProgram";
+      this.PageAboutProgram.Size = new System.Drawing.Size(1045, 660);
+      this.PageAboutProgram.Text = "About Program";
       // 
       // PageExit
       // 
@@ -211,7 +211,7 @@
     public Telerik.WinControls.UI.RadPageViewPage PageFirst;
     public Telerik.WinControls.UI.RadPageViewPage PageLog;
     public Telerik.WinControls.UI.RadPageViewPage PageSettings;
-    public Telerik.WinControls.UI.RadPageViewPage PageAbout;
+    public Telerik.WinControls.UI.RadPageViewPage PageAboutProgram;
     public Telerik.WinControls.UI.RadPageViewPage PageExit;
     public Telerik.WinControls.UI.RadPageView PvMain;
     public System.Windows.Forms.NotifyIcon NotifyIconMainForm;
