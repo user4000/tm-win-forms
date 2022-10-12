@@ -39,7 +39,7 @@ namespace TmWinForms
 
       Pages.Configure(MainForm);
 
-      MainForm.Text = string.Empty; // TODO: Form caption //
+      MainForm.Text = FrameworkSettings.MainFormCaption;
 
       MainForm.SetProperties();
 
