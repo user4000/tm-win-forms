@@ -22,12 +22,12 @@ namespace TmWinForms
       SetIconDefaultValuesIfTheyHaveNoAnyValue();
 
       MainForm.Icon = IconApplication;
-      MainForm.NotifyIconMainForm.Icon = IconSystemTray;  
- 
+      MainForm.NotifyIconMainForm.Icon = IconSystemTray;
+
       #endregion ----------------------------------------------------------------------------------------------------------------
 
 
-
+      MainForm.Text = FrameworkSettings.MainFormCaption;
 
       MainForm.Visible = false;
 

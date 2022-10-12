@@ -53,6 +53,8 @@ namespace TmWinForms
       FrameworkSettings.FlagMainFormStartMinimized = settings.FlagMainFormStartMinimized;
 
       FrameworkSettings.FlagMinimizeMainFormToSystemTray = settings.FlagMinimizeMainFormToSystemTray;
+
+      FrameworkSettings.MainFormCaption = settings.MainFormCaption;
     }
 
 

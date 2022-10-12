@@ -101,7 +101,7 @@ namespace TmWinForms
 
 
 
-    private byte valueColumnWidthPercent = 0;
+    private byte valueColumnWidthPercent = 50;
 
     /// <summary>
     /// The property is stored in the file.
@@ -138,6 +138,18 @@ namespace TmWinForms
     public string ConfirmExitButtonText { get; set; } = string.Empty;
 
 
+
+
+
+
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+
+    [JsonProperty(Order = 50)]
+
+    public string MainFormCaption { get; set; } = string.Empty; 
 
 
 
