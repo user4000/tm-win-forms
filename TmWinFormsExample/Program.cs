@@ -133,6 +133,9 @@ namespace TmWinFormsExample
 
       Events.Start = action5;        // <--- Данное событие есть основная стартовая точка приложения // 
 
+
+
+
       Events.StartByTimer = action6; // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds) // 
     }
 

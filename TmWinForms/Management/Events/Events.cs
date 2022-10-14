@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
 
@@ -74,6 +74,12 @@ namespace TmWinForms
 
     /// <summary>
     /// Order of execution 6
+    /// </summary>
+    public Func<Task> StartAsync { get; set; }
+
+
+    /// <summary>
+    /// Order of execution 7
     /// </summary>
     public Action StartByTimer { get; set; }
 
