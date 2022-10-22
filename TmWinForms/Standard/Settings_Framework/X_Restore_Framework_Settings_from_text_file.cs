@@ -12,6 +12,8 @@ namespace TmWinForms
 
       FrameworkSettings.StartTimerIntervalMilliseconds = settings.StartTimerIntervalMilliseconds;
 
+      FrameworkSettings.StartTimerAsyncIntervalMilliseconds = settings.StartTimerAsyncIntervalMilliseconds;
+
       FrameworkSettings.StripOrientation = settings.StripOrientation;
 
       FrameworkSettings.TimeCheckOldLogFiles = settings.TimeCheckOldLogFiles;

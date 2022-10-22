@@ -116,6 +116,12 @@ namespace TmWinFormsExample
       };
 
 
+      Func<Task> funcTask7 = async () =>
+      {
+        await Task.Delay(1000);
+        Ms.Message("TEST !", "Start by Timer Async !").Single(MsgPos.TopCenter).Debug(3);
+      };
+
 
 
 
@@ -136,7 +142,9 @@ namespace TmWinFormsExample
 
 
 
-      Events.StartByTimer = action6; // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds) // 
+      Events.StartByTimer = action6;          // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds)      // 
+
+      Events.StartByTimerAsync = funcTask7;   // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerAsyncIntervalMilliseconds) // 
     }
 
 

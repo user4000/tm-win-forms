@@ -11,6 +11,9 @@ namespace TmWinForms
   {
     System.Windows.Forms.Timer TmStartMainApplication { get; set; } = new System.Windows.Forms.Timer();
 
+    System.Windows.Forms.Timer TmStartMainApplicationAsync { get; set; } = new System.Windows.Forms.Timer();
+
+
     public bool FlagSizeIsBeingChanged { get; private set; } = false;
 
   
@@ -54,16 +57,37 @@ namespace TmWinForms
 
       if (milliseconds == 0) return;
 
-      TmStartMainApplication.Interval = FrameworkSettings.StartTimerIntervalMilliseconds;
+      TmStartMainApplication.Interval = milliseconds;
       TmStartMainApplication.Tick += new EventHandler(EventStartMainApplication);
       TmStartMainApplication.Start();
     }
+
+    internal void LaunchStartTimerAsync()
+    {
+      if (FrameworkManager.Events.StartByTimerAsync == null) return;
+
+      int milliseconds = Math.Abs(FrameworkSettings.StartTimerAsyncIntervalMilliseconds);
+
+      if (milliseconds == 0) return;
+
+      TmStartMainApplicationAsync.Interval = milliseconds;
+      TmStartMainApplicationAsync.Tick += new EventHandler(EventStartMainApplicationAsync);
+      TmStartMainApplicationAsync.Start();
+    }
+
 
     void EventStartMainApplication(object sender, EventArgs e)
     {
       TmStartMainApplication.Stop();
       TmStartMainApplication.Tick -= new EventHandler(EventStartMainApplication);
       FrameworkManager.Events.StartByTimer?.Invoke();
+    }
+
+    async void EventStartMainApplicationAsync(object sender, EventArgs e)
+    {
+      TmStartMainApplicationAsync.Stop();
+      TmStartMainApplicationAsync.Tick -= new EventHandler(EventStartMainApplicationAsync);
+      if (FrameworkManager.Events.StartByTimerAsync != null) await FrameworkManager.Events.StartByTimerAsync();
     }
 
     internal void AdjustFirstPage()

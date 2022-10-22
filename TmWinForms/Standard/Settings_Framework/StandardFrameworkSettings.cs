@@ -257,6 +257,12 @@ namespace TmWinForms
     public int StartTimerIntervalMilliseconds { get; set; } = 200;
 
 
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+ 
+    [JsonProperty(Order = 51)]
+    public int StartTimerAsyncIntervalMilliseconds { get; set; } = 2000;
 
 
 
