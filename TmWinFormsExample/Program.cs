@@ -40,9 +40,9 @@ namespace TmWinFormsExample
 
       FmSettings.ConfirmExitButtonText = " Click me, my friend !";
 
-      FmSettings.HeaderFormExit = "Test exit";
-      FmSettings.HeaderFormLog = "Test log";
-      FmSettings.HeaderFormSettings = "Test settings";
+      FmSettings.HeaderFormExit = "Exit";
+      FmSettings.HeaderFormLog = "Messages";
+      FmSettings.HeaderFormSettings = "Settings";
     }
 
     static void OverrideFrameworkSettingsAfterLoadingFromTextFile()
@@ -64,7 +64,6 @@ namespace TmWinFormsExample
       Events.OverrideLoadedFrameworkSettings = OverrideFrameworkSettingsAfterLoadingFromTextFile;
     }
 
-
     static void SetUserForms()
     {
       ushort f1 = Service.AddForm<FxForm1>("form1", "My Form 1", true, true);
@@ -74,7 +73,7 @@ namespace TmWinFormsExample
       ushort f3 = Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
 
-      ushort f4 = Service.AddForm<FxAboutProgram>("formAboutProgram", "About my super program", true, true);
+      ushort f4 = Service.AddForm<FxAboutProgram>("formAboutProgram", "About program", true, true);
 
 
       Service.SetStartForm("form1");                    // or Service.SetStartForm(f3);
@@ -127,24 +126,21 @@ namespace TmWinFormsExample
 
       // Далее указаны события в порядке выполнения //
 
-      Events.MainFormLoad = action1;
+      //Events.MainFormLoad = action1;
 
-      Events.BeforeSubFormsAreCreated = action2;
+      //Events.BeforeSubFormsAreCreated = action2;
 
       // Then EventStartWork of each sub-form is executed ... //
 
-      Events.BeforeMainFormBecomesVisible = action3;
+      //Events.BeforeMainFormBecomesVisible = action3;
 
-      Events.MainFormShown = action4;
+      //Events.MainFormShown = action4;
 
-      Events.Start = action5;        // <--- Данное событие есть основная стартовая точка приложения // 
+      //Events.Start = action5;        // <--- Данное событие есть основная стартовая точка приложения // 
 
+      //Events.StartByTimer = action6;          // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds)      // 
 
-
-
-      Events.StartByTimer = action6;          // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerIntervalMilliseconds)      // 
-
-      Events.StartByTimerAsync = funcTask7;   // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerAsyncIntervalMilliseconds) // 
+      //Events.StartByTimerAsync = funcTask7;   // <--- Ещё одна стартовая точка приложения, выполняемая с задержкой (настройка FrameworkSettings.StartTimerAsyncIntervalMilliseconds) // 
     }
 
 
