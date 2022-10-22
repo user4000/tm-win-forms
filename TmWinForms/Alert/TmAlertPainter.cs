@@ -115,11 +115,13 @@ namespace TmWinForms
       Alert.Popup.AlertElement.ContentElement.TextImageRelation = TextImageRelation.TextBeforeImage;
       Alert.Popup.AlertElement.GradientStyle = GradientStyles.Gel;
       Alert.Popup.AlertElement.CaptionElement.TextAndButtonsElement.TextElement.TextWrap = true;
+      Alert.Popup.AlertElement.CaptionElement.CaptionGrip.AutoSizeMode = RadAutoSizeMode.FitToAvailableSize;
     }
 
     internal void SetColor(RadDesktopAlert Alert, MsgType MessageType)
     {
       SetStyle(Alert);
+
       switch ((byte)MessageType)
       {
         case 0: // Debug //
