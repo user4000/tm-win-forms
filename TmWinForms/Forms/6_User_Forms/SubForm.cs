@@ -25,7 +25,7 @@ namespace TmWinForms
     public bool FlagTabVisible { get; } = true; // Видима или скрыта верхушка вкладки //
 
 
-    private SubForm(ushort idForm, RadForm form, string uniqueName, string pageText, bool enabled, bool visible)
+    protected SubForm(ushort idForm, RadForm form, string uniqueName, string pageText, bool enabled, bool visible)
     { 
       Form = form;
       UniqueName = uniqueName;
@@ -83,11 +83,11 @@ namespace TmWinForms
       };
     }
 
-    void Dispose(bool ExecuteEndWorkHandler)
+    internal void Dispose(bool ExecuteEndWorkHandler)
     {
       if (Form != null)
       {
-        ExecEndWorkHandler();
+        if (ExecuteEndWorkHandler) ExecEndWorkHandler();
         Form.Visible = false;
         Form.Close();
         try { Form.Dispose(); } catch { };

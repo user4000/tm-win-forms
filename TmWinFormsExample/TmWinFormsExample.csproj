@@ -105,6 +105,42 @@
     <Compile Include="Forms\Form_About_Program\FxAboutProgram.Designer.cs">
       <DependentUpon>FxAboutProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview11.Designer.cs">
+      <DependentUpon>FxTreeview11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview12.Designer.cs">
+      <DependentUpon>FxTreeview12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview21.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview21.Designer.cs">
+      <DependentUpon>FxTreeview21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview22.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview22.Designer.cs">
+      <DependentUpon>FxTreeview22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview31.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview31.Designer.cs">
+      <DependentUpon>FxTreeview31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview32.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Treeview_1\FxTreeview32.Designer.cs">
+      <DependentUpon>FxTreeview32.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\MySettings.cs" />
@@ -119,6 +155,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_About_Program\FxAboutProgram.resx">
       <DependentUpon>FxAboutProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview11.resx">
+      <DependentUpon>FxTreeview11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview12.resx">
+      <DependentUpon>FxTreeview12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview21.resx">
+      <DependentUpon>FxTreeview21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview22.resx">
+      <DependentUpon>FxTreeview22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview31.resx">
+      <DependentUpon>FxTreeview31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Treeview_1\FxTreeview32.resx">
+      <DependentUpon>FxTreeview32.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

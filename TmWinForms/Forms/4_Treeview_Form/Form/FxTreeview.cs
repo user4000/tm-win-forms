@@ -10,9 +10,19 @@ namespace TmWinForms
 {
   public partial class FxTreeview : RadForm
   {
+    HxTreeview MnForm { get; set; }
+
+    FormTreeview MnTreeview { get; set; }
+
     public FxTreeview()
     {
       InitializeComponent();
+    }
+
+    public void Configure(FormTreeview formTreeview)
+    {
+      MnForm = HxTreeview.Create(this);
+      MnTreeview = formTreeview;
     }
   }
 }

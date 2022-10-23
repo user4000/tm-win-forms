@@ -77,6 +77,7 @@
     <Compile Include="Forms\4_Treeview_Form\Form\FxTreeview.Designer.cs">
       <DependentUpon>FxTreeview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\4_Treeview_Form\Helper\HxTreeview.cs" />
     <Compile Include="Management\Events\Events.cs" />
     <Compile Include="Management\Logger\CxLogger.cs" />
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
@@ -93,6 +94,10 @@
     <Compile Include="Management\Service\X_Create_New_Page.cs" />
     <Compile Include="Management\Service\X_Start_Form.cs" />
     <Compile Include="Management\Themes\CxThemeManager.cs" />
+    <Compile Include="Management\Treeview_Form\Classes\CxNode.cs" />
+    <Compile Include="Management\Treeview_Form\Main\FormTreeview.cs" />
+    <Compile Include="Management\Treeview_Form\Classes\Group.cs" />
+    <Compile Include="Management\Treeview_Form\Classes\TvForm.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,7 +216,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\4_Treeview_Form\Helper\" />
     <Folder Include="Message_Hub\Message_Hub_Events\" />
   </ItemGroup>
   <ItemGroup>
