@@ -57,6 +57,34 @@ namespace TmWinForms
       FrameworkSettings.FlagMinimizeMainFormToSystemTray = settings.FlagMinimizeMainFormToSystemTray;
 
       FrameworkSettings.MainFormCaption = settings.MainFormCaption;
+
+
+
+      FrameworkSettings.TreeviewNavigationAlwaysCollapseOnExit = settings.TreeviewNavigationAlwaysCollapseOnExit;
+
+      FrameworkSettings.TreeviewNavigationAlwaysExpandOnSelect = settings.TreeviewNavigationAlwaysExpandOnSelect;
+
+      FrameworkSettings.TreeviewNavigationPreventCollapseOnExit = settings.TreeviewNavigationPreventCollapseOnExit;
+
+      FrameworkSettings.TreeviewPanelWidth = settings.TreeviewPanelWidth;
+
+      FrameworkSettings.AllowLoadingImagesForTreeviewFromFiles = settings.AllowLoadingImagesForTreeviewFromFiles;
+
+      FrameworkSettings.ColorTreeviewBackground = settings.ColorTreeviewBackground;
+
+      FrameworkSettings.TreeviewIsLocatedOnTheLeftSide = settings.TreeviewIsLocatedOnTheLeftSide;
+
+      FrameworkSettings.FontTreeviewGroupNode = settings.FontTreeviewGroupNode;
+
+      FrameworkSettings.FontTreeviewSubFormNode = settings.FontTreeviewSubFormNode;
+
+      FrameworkSettings.ColorTreeviewGroupNode = settings.ColorTreeviewGroupNode;
+
+      FrameworkSettings.ColorTreeviewGroupNodeDisabled = settings.ColorTreeviewGroupNodeDisabled;
+
+      FrameworkSettings.ColorTreeviewSubFormNode = settings.ColorTreeviewSubFormNode;
+
+      FrameworkSettings.ColorTreeviewSubFormNodeDisabled = settings.ColorTreeviewSubFormNodeDisabled;
     }
 
 

@@ -10,9 +10,11 @@ namespace TmWinForms
 
     List<TvForm> SubForms { get; } = new List<TvForm>();
 
-    ushort IdForm { get; set; } = 1;
+    ushort IdFormTreeview { get; set; } = 0;
 
-    ushort GetNextIdForm() => IdForm++;
+    ushort IdSubForm { get; set; } = 1;
+
+    ushort GetNextIdSubForm() => IdSubForm++;
 
     FxTreeview Form { get; } = new FxTreeview();
 
@@ -50,7 +52,13 @@ namespace TmWinForms
 
       formTreeview.Form.Configure(formTreeview);
 
-      Service.AddForm(formTreeview.Form, uniqueName, pageText, tabEnabled, tabVisible);
+      formTreeview.IdFormTreeview = Service.AddForm(formTreeview.Form, uniqueName, pageText, tabEnabled, tabVisible);
+
+      formTreeview.AdjustMainPageviewAndTreeview();
+
+      formTreeview.AdjustStripViewContainer();
+
+      formTreeview.SetContextMenuForTreeview();
 
       return formTreeview;
     }
@@ -58,7 +66,11 @@ namespace TmWinForms
     public FormTreeview AddGroup(string code, string text, bool expandOnSelect, bool collapseOnExit)
     {
       LastCreatedGroup = Group.Create(code, text, (RankGroup++).ToString(), expandOnSelect, collapseOnExit);
+
       Groups.Add(LastCreatedGroup);
+
+      AddGroupNode(LastCreatedGroup);
+
       return this;
     }
 
@@ -66,8 +78,11 @@ namespace TmWinForms
     {
       if (LastCreatedGroup == null) return this;
 
-      TvForm subForm = TvForm.CreateForm(GetNextIdForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+      TvForm subForm = TvForm.CreateForm(GetNextIdSubForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+
       SubForms.Add(subForm);
+
+      AddFormNode(subForm);
 
       return this;
     }
@@ -77,8 +92,12 @@ namespace TmWinForms
       if (LastCreatedGroup == null) return this;
 
       T form = new T();
-      TvForm subForm = TvForm.CreateForm(GetNextIdForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+
+      TvForm subForm = TvForm.CreateForm(GetNextIdSubForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+
       SubForms.Add(subForm);
+
+      AddFormNode(subForm);
 
       return this;
     }

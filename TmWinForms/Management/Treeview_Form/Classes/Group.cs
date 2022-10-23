@@ -16,6 +16,7 @@ namespace TmWinForms
 
     public bool CollapseOnExit { get; private set; } = false;
 
+    public CxNode Node { get; private set; }
 
     private Group()
     {
@@ -38,5 +39,7 @@ namespace TmWinForms
     }
 
     internal void SetText(string text) => Text = text;
+
+    internal void SetNode(CxNode node) => Node = node;
   }
 }

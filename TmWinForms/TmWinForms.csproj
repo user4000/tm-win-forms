@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Forms\4_Treeview_Form\Helper\HxTreeview.cs" />
     <Compile Include="Management\Events\Events.cs" />
+    <Compile Include="Management\Image_Loader\CxImageLoader.cs" />
     <Compile Include="Management\Logger\CxLogger.cs" />
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
     <Compile Include="Management\Main\K_Create_Main_Form.cs" />
@@ -98,6 +99,9 @@
     <Compile Include="Management\Treeview_Form\Main\FormTreeview.cs" />
     <Compile Include="Management\Treeview_Form\Classes\Group.cs" />
     <Compile Include="Management\Treeview_Form\Classes\TvForm.cs" />
+    <Compile Include="Management\Treeview_Form\Main\H_Context_Menu.cs" />
+    <Compile Include="Management\Treeview_Form\Main\H_Create_Nodes_And_Pages.cs" />
+    <Compile Include="Management\Treeview_Form\Main\H_Adjust_Visual_Elements.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +111,7 @@
     <Compile Include="Standard\Extensions\XxDataTable.cs" />
     <Compile Include="Standard\Extensions\XxGridViewDataColumn.cs" />
     <Compile Include="Standard\Extensions\XxRadGridView.cs" />
+    <Compile Include="Standard\Extensions\XxRadPanel.cs" />
     <Compile Include="Standard\Extensions\XxString.cs" />
     <Compile Include="Forms\1_Main_Form\FxMain.cs">
       <SubType>Form</SubType>
@@ -183,6 +188,7 @@
     <Compile Include="Standard\Settings_Framework\U_Methods.cs" />
     <Compile Include="Standard\Settings_Framework\V_Alerts.cs" />
     <Compile Include="Standard\Settings_Framework\V_Standard_Forms.cs" />
+    <Compile Include="Standard\Settings_Framework\V_Treeview_Nodes.cs" />
     <Compile Include="Standard\Settings_Framework\X_Restore_Framework_Settings_from_text_file.cs" />
     <Compile Include="Utilities\CxConvert.cs" />
     <Compile Include="Utilities\CxStandard.cs" />

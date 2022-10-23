@@ -16,9 +16,6 @@ namespace TmWinForms
 
 
 
-
-
-
     private int tabMinWidth = 100;
 
     /// <summary>
@@ -285,9 +282,6 @@ namespace TmWinForms
 
     [JsonProperty(Order = 100)]
     public bool FlagMainFormStartMinimized { get; set; } = false;
-
-
-
 
   }
 }
