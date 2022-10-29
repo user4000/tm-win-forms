@@ -13,8 +13,6 @@ namespace TmWinForms
 
 
 
-
-
     async void EventPageChanged(object sender, EventArgs e)
     {
       PreviousPage = CurrentPage;

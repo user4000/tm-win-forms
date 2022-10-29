@@ -2,9 +2,9 @@
 using System.Drawing;
 using Telerik.WinControls;
 using System.Windows.Forms;
-using Telerik.WinControls.UI;
 using TmWinForms.Extensions;
-using static TmWinForms.FrameworkManager;
+using Telerik.WinControls.UI;
+using System.Threading.Tasks;
 
 namespace TmWinForms
 {
@@ -17,7 +17,7 @@ namespace TmWinForms
     public RadTreeNode PreviousNode { get; private set; }
 
 
-    void EventSelectedNodeChanged(object sender, RadTreeViewEventArgs e)
+    async void EventSelectedNodeChanged(object sender, RadTreeViewEventArgs e)
     {
       PreviousNode = CurrentNode;
 
@@ -48,6 +48,10 @@ namespace TmWinForms
 
       if (subForm.Page != null)
       {
+        if (subForm.Form.Visible == false) subForm.Form.Show();
+
+        await Task.Delay(10);
+
         Form.PvTreeview.SelectedPage = subForm.Page;
       }
       else
