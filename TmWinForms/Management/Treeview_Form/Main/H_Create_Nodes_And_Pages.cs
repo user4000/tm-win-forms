@@ -1,4 +1,6 @@
 ﻿using System;
+using Telerik.WinControls;
+using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
 using static TmWinForms.FrameworkManager;
@@ -16,6 +18,7 @@ namespace TmWinForms
     void AddFormNode(TvForm subForm)
     {
       CreateFormNode(subForm);
+      CreatePage(subForm);
     }
 
     CxNode CreateGroupNode(Group group) // NOTE: Create GROUP node // 
@@ -46,6 +49,7 @@ namespace TmWinForms
       };
 
       CxNode groupNode = subForm.FormGroup.Node;
+
       groupNode.Nodes.Add(node);
 
       subForm.SetNodeForm(node);
@@ -55,9 +59,7 @@ namespace TmWinForms
 
       node.SetForm(subForm);
       node.SetGroup(group);
-
       node.Image = Form.PicItem.Image;
-
       node.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
 
       bool expandGroup = true;
@@ -67,10 +69,36 @@ namespace TmWinForms
       if (expandGroup) groupNode.Expand();
 
       node.Enabled = subForm.FlagNodeEnabled;
-
       node.Visible = subForm.FlagNodeVisible;
-
       node.SetColor();
+    }
+
+    void CreatePage(TvForm subForm)
+    {
+      RadPageViewPage page = new RadPageViewPage()
+      {
+        Name = subForm.IdForm.ToString(),
+        Text = subForm.UniqueName
+      };
+
+      if(page.Item != null) page.Item.Visibility = ElementVisibility.Collapsed;
+
+      Form.PvTreeview.Pages.Add(page);
+
+      RadForm form = subForm.Form;
+
+      form.TopLevel = false; /* It is very important */
+      form.Dock = DockStyle.Fill;
+      form.FormBorderStyle = FormBorderStyle.None;
+
+      form.Visible = true;
+      form.BringToFront();
+
+      page.Controls.Add(form);
+
+      subForm.SetPage(page);
+
+      page.Tag = subForm;
     }
   }
 }

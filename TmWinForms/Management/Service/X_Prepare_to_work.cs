@@ -28,6 +28,8 @@ namespace TmWinForms
 
       // Выполнить событие IStartForm для каждой формы, которая поддерживает этот интерфейс //
       ExecStartWorkHandlerForEachSubForm();
+
+      foreach (var formWithTreeviewElement in ListTreeview) formWithTreeviewElement.SetEvents(); // Установить все события, связанные с Treeview, для форм FxTreeview //
     }
 
     internal void ExecStartWorkHandlerForEachSubForm()

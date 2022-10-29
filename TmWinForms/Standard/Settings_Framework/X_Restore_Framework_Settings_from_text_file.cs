@@ -62,13 +62,7 @@ namespace TmWinForms
 
       FrameworkSettings.MainFormCaption = settings.MainFormCaption;
 
-
-
-      FrameworkSettings.TreeviewNavigationAlwaysCollapseOnExit = settings.TreeviewNavigationAlwaysCollapseOnExit;
-
       FrameworkSettings.TreeviewNavigationAlwaysExpandOnSelect = settings.TreeviewNavigationAlwaysExpandOnSelect;
-
-      FrameworkSettings.TreeviewNavigationPreventCollapseOnExit = settings.TreeviewNavigationPreventCollapseOnExit;
 
       FrameworkSettings.TreeviewPanelWidth = settings.TreeviewPanelWidth;
 

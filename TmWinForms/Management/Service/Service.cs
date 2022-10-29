@@ -17,12 +17,13 @@ namespace TmWinForms
 
     internal Queue<SubForm> QueueForms { get; } = new Queue<SubForm>();
 
+    public List<FormTreeview> ListTreeview { get; } = new List<FormTreeview>(); // Список всех объектов FormTreeview //
+
+
 
     internal StandardApplicationSettings ProjectDefaultApplicationSettings { get; private set; } = null;  // Default settings before loading from file //
 
-
     internal StandardApplicationSettings CurrentApplicationSettings { get; private set; } = null;
-
 
     public TmAlertService AlertService { get; private set; } = null;
 

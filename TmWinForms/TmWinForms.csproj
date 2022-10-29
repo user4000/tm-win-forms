@@ -99,9 +99,13 @@
     <Compile Include="Management\Treeview_Form\Main\FormTreeview.cs" />
     <Compile Include="Management\Treeview_Form\Classes\Group.cs" />
     <Compile Include="Management\Treeview_Form\Classes\TvForm.cs" />
+    <Compile Include="Management\Treeview_Form\Main\K_Configure_Treeview_Events.cs" />
     <Compile Include="Management\Treeview_Form\Main\H_Context_Menu.cs" />
     <Compile Include="Management\Treeview_Form\Main\H_Create_Nodes_And_Pages.cs" />
     <Compile Include="Management\Treeview_Form\Main\H_Adjust_Visual_Elements.cs" />
+    <Compile Include="Management\Treeview_Form\Main\K_Event_Selected_Node_Changed.cs" />
+    <Compile Include="Management\Treeview_Form\Main\K_Event_User_Left_a_Node.cs" />
+    <Compile Include="Management\Treeview_Form\Main\K_Event_User_Selected_Group_Node.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +116,7 @@
     <Compile Include="Standard\Extensions\XxGridViewDataColumn.cs" />
     <Compile Include="Standard\Extensions\XxRadGridView.cs" />
     <Compile Include="Standard\Extensions\XxRadPanel.cs" />
+    <Compile Include="Standard\Extensions\XxRadTreeNode.cs" />
     <Compile Include="Standard\Extensions\XxString.cs" />
     <Compile Include="Forms\1_Main_Form\FxMain.cs">
       <SubType>Form</SubType>

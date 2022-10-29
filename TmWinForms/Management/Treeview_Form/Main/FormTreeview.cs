@@ -10,6 +10,7 @@ namespace TmWinForms
 
     List<TvForm> SubForms { get; } = new List<TvForm>();
 
+
     ushort IdFormTreeview { get; set; } = 0;
 
     ushort IdSubForm { get; set; } = 1;
@@ -59,6 +60,8 @@ namespace TmWinForms
       formTreeview.AdjustStripViewContainer();
 
       formTreeview.SetContextMenuForTreeview();
+
+      Service.ListTreeview.Add(formTreeview);
 
       return formTreeview;
     }

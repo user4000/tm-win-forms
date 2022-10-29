@@ -19,21 +19,6 @@ namespace TmWinForms
     public bool TreeviewNavigationAlwaysExpandOnSelect { get; set; } = false;
 
 
-    /// <summary>
-    /// If this option is enabled, then regardless of the group settings, the tree element will be collapsed on exit.
-    /// The property is stored in the file.
-    /// </summary>
-    [JsonProperty(Order = 28)]
-    public bool TreeviewNavigationAlwaysCollapseOnExit { get; set; } = false;
-
-
-    /// <summary>
-    /// If this option is enabled, then regardless of the group settings, the tree element will not collapse on exit.
-    /// The property is stored in the file.
-    /// </summary>
-    [JsonProperty(Order = 29)]
-    public bool TreeviewNavigationPreventCollapseOnExit { get; set; } = false;
-
 
 
     /// <summary>

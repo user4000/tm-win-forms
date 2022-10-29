@@ -75,17 +75,17 @@ namespace TmWinFormsExample
 
       FormTreeview tv1 = FormTreeview.Create("formTv1", "Main Menu 1", true, true)
 
-        .AddGroup("group11", "Group 1-1", true, false)
+        .AddGroup("group11", "Group 1-1", true, true)
 
           .AddForm<FxTreeview11>("f11", "Form Treeview 1 1", true, true)
           .AddForm<FxTreeview12>("f12", "Form Treeview 1 2", true, true)
 
-        .AddGroup("group12", "Group 1-2", true, false)
+        .AddGroup("group12", "Group 1-2", true, true)
 
           .AddForm<FxTreeview21>("f21", "Form Treeview 2 1", true, true)
           .AddForm<FxTreeview22>("f22", "Form Treeview 2 2", true, true)
 
-        .AddGroup("group13", "Group 1-2", true, false)
+        .AddGroup("group13", "Group 1-2", true, true)
 
           .AddForm<FxTreeview31>("f31", "Form Treeview 3 1", true, true)
           .AddForm<FxTreeview32>("f32", "Form Treeview 3 2", true, true);
