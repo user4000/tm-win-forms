@@ -10,6 +10,10 @@ namespace TmWinForms
       StandardFrameworkSettings settings = SettingsLoadedFromFile;
       if (settings == null) return;
 
+      FrameworkSettings.MainFormSize = settings.MainFormSize;
+
+      FrameworkSettings.MainFormLocation = settings.MainFormLocation;
+
       FrameworkSettings.StartTimerIntervalMilliseconds = settings.StartTimerIntervalMilliseconds;
 
       FrameworkSettings.StartTimerAsyncIntervalMilliseconds = settings.StartTimerAsyncIntervalMilliseconds;
