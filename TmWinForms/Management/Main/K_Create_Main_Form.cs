@@ -39,6 +39,9 @@ namespace TmWinForms
 
       Pages.Configure(MainForm);
 
+      TvNodes.Configure(MainForm, Service);
+      
+
       MainForm.Text = FrameworkSettings.MainFormCaption;
 
       MainForm.SetProperties();
@@ -60,7 +63,7 @@ namespace TmWinForms
         ThemeManager.SetApplicationTheme(FrameworkSettings.ThemeName);
       }
 
-
+      TvNodes.SetTreeviewBackgroundColor();
 
       //Application.ApplicationExit += new EventHandler(EventApplicationExit);
 

@@ -70,7 +70,7 @@ namespace TmWinFormsExample
       ushort f3 = Service.AddForm<FxForm3>("form3", "My Form 3", true, true);
 
 
-      FormTreeview tv1 = FormTreeview.Create("formTv1", "Main Menu 1", true, true)
+      FormTreeview tv1 = FormTreeview.Create("tv1", "Main Menu 1", true, true)
 
         .AddGroup("group11", "Group 1-1", true, false)
 

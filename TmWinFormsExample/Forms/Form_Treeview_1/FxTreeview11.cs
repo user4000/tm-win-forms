@@ -2,6 +2,8 @@
 using TmWinForms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using System.Threading.Tasks;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinFormsExample
 {
@@ -20,6 +22,11 @@ namespace TmWinFormsExample
       TxMessage.AppendText($"{Time()} ---- {this.GetType().FullName} ---- {msg}");
     }
 
+    void Write(string msg)
+    {
+      Log.Save($"{this.GetType().FullName} ---- {msg}");
+    }
+
     private void SetProperties()
     {
       
@@ -27,9 +34,25 @@ namespace TmWinFormsExample
 
     private void SetEvents()
     {
-
+      BxTestEnablePage.Click += new EventHandler(EventTest1);
     }
 
+    private async void EventTest1(object sender, EventArgs e)
+    {
+      BxTestEnablePage.Enabled = false;
+
+      bool flag = TswEnabled.Value;
+
+      //Print(flag.ToString());
+
+      //TvNodes.Select("tv1").GotoForm<FxTreeview31>();
+
+      //TvNodes.Select("tv1").ShowNode<FxTreeview31>(flag);
+
+      await Task.Delay(1000);
+
+      BxTestEnablePage.Enabled = true;
+    }
 
     public void EventStartWork()
     {
@@ -41,7 +64,7 @@ namespace TmWinFormsExample
 
     public void EventEndWork()
     {
-
+      //Write("EventEndWork");
     }
 
     public void EventUserVisitedTheForm()

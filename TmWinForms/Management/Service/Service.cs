@@ -28,7 +28,7 @@ namespace TmWinForms
     public TmAlertService AlertService { get; private set; } = null;
 
 
-    private ushort IdForm { get; set; }
+    private ushort IdForm { get; set; } = 1;
 
 
     FrameworkService()

@@ -31,6 +31,13 @@ namespace TmWinFormsExample
     void SetEvents()
     {
       BxTest1.Click += new EventHandler(EventTest1);
+      BxTestNavigation.Click += new EventHandler(EventTestNavigation);
+    }
+
+    private void EventTestNavigation(object sender, EventArgs e)
+    {
+      Pages.EnablePage<FxForm3>(false);
+      
     }
 
     private void EventTest1(object sender, EventArgs e)

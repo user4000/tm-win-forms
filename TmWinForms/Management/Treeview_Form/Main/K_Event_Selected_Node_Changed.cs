@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Drawing;
-using Telerik.WinControls;
-using System.Windows.Forms;
 using TmWinForms.Extensions;
 using Telerik.WinControls.UI;
 using System.Threading.Tasks;
@@ -16,6 +13,8 @@ namespace TmWinForms
 
     public RadTreeNode PreviousNode { get; private set; }
 
+    internal RadForm LastVisitedForm { get; private set; }
+
 
     async void EventSelectedNodeChanged(object sender, RadTreeViewEventArgs e)
     {
@@ -24,6 +23,11 @@ namespace TmWinForms
       CurrentNode = e.Node;
 
       EventUserLeftNode(PreviousNode, CurrentNode); // Событие: Пользователь покинул элемент Treeview //
+
+      await EventUserLeftNode(LastVisitedForm);
+
+      LastVisitedForm = null;
+
 
       if (e.Node == null) return;
 
@@ -53,11 +57,17 @@ namespace TmWinForms
         await Task.Delay(10);
 
         Form.PvTreeview.SelectedPage = subForm.Page;
+
+        LastVisitedForm = subForm.Form;
+
+        EventUserVisitedTheForm(LastVisitedForm);
+
+        await EventUserVisitedTheFormAsync(LastVisitedForm);
       }
       else
       {
         GotoEmptyPage();
       }
-    }
+    }  
   }
 }

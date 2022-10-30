@@ -20,12 +20,19 @@ namespace TmWinForms
 
 
 
-
     /// <summary>
     /// The property is stored in the file.
     /// </summary>
     [JsonProperty(Order = 30)]
     public int TreeviewPanelWidth { get; set; } = 250;
+
+
+
+    /// <summary>
+    /// The property is stored in the file.
+    /// </summary>
+    [JsonProperty(Order = 29)]
+    public bool TreeviewEnableHotTracking { get; set; } = false;
 
 
 
@@ -112,8 +119,6 @@ namespace TmWinForms
 
     [JsonProperty(Order = 51)]
     public Color ColorTreeviewSubFormNodeDisabled { get; set; } = Color.Gray;
-
-
 
   }
 }

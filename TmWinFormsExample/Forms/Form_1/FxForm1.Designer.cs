@@ -36,6 +36,7 @@
       this.BxTest3 = new Telerik.WinControls.UI.RadButton();
       this.BxTest2 = new Telerik.WinControls.UI.RadButton();
       this.BxTest1 = new Telerik.WinControls.UI.RadButton();
+      this.BxTestNavigation = new Telerik.WinControls.UI.RadButton();
       ((System.ComponentModel.ISupportInitialize)(this.LbFormTwo)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.TxtMessage)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest6)).BeginInit();
@@ -44,6 +45,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.BxTest3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.BxTestNavigation)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
       this.SuspendLayout();
       // 
@@ -121,11 +123,21 @@
       this.BxTest1.TabIndex = 10;
       this.BxTest1.Text = "Test 1";
       // 
+      // BxTestNavigation
+      // 
+      this.BxTestNavigation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.BxTestNavigation.Location = new System.Drawing.Point(79, 606);
+      this.BxTestNavigation.Name = "BxTestNavigation";
+      this.BxTestNavigation.Size = new System.Drawing.Size(271, 37);
+      this.BxTestNavigation.TabIndex = 11;
+      this.BxTestNavigation.Text = "Тестирование навигации";
+      // 
       // FxForm1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1081, 671);
+      this.Controls.Add(this.BxTestNavigation);
       this.Controls.Add(this.BxTest6);
       this.Controls.Add(this.BxTest5);
       this.Controls.Add(this.BxTest4);
@@ -148,6 +160,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.BxTest3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.BxTest1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.BxTestNavigation)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -164,5 +177,6 @@
     public Telerik.WinControls.UI.RadButton BxTest3;
     public Telerik.WinControls.UI.RadButton BxTest2;
     public Telerik.WinControls.UI.RadButton BxTest1;
+    public Telerik.WinControls.UI.RadButton BxTestNavigation;
   }
 }

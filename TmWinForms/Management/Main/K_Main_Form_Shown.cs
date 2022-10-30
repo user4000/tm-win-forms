@@ -4,15 +4,14 @@ namespace TmWinForms
 {
   partial class FrameworkManager
   {
-    static async void EventMainFormShown(object sender, EventArgs e)
+    static async void EventMainFormShown(object sender, EventArgs e) // NOTE: Очень важное событие "Главная форма показывается пользователю" //
     {
       MainForm.Shown -= new EventHandler(EventMainFormShown);
 
       Events.BeforeSubFormsAreCreated?.Invoke();
 
       Service.PlaceAllSubFormsToMainPageView();
-
-  
+ 
       Events.BeforeMainFormBecomesVisible?.Invoke();
 
       MainForm.VisualEffectFadeIn();

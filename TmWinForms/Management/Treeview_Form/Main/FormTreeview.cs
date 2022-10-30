@@ -4,14 +4,17 @@ using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
-  public partial class FormTreeview
+  public partial class FormTreeview : IUserVisitedTheForm, IUserVisitedTheFormAsync, IUserLeftTheForm, IUserLeftTheFormAsync
   {
     List<Group> Groups { get; } = new List<Group>();
 
     List<TvForm> SubForms { get; } = new List<TvForm>();
 
 
+
     ushort IdFormTreeview { get; set; } = 0;
+
+
 
     ushort IdSubForm { get; set; } = 1;
 
@@ -24,7 +27,7 @@ namespace TmWinForms
     Group LastCreatedGroup { get; set; }
 
     #region FxTreeview properties
-    string UniqueName { get; }
+    public string UniqueName { get; }
 
     string PageText { get; }
 
@@ -103,6 +106,29 @@ namespace TmWinForms
       AddFormNode(subForm);
 
       return this;
+    }
+
+    internal void ExecStartWorkHandlerForEachSubForm()
+    {
+      foreach (var item in SubForms)
+        if (item.Form is IStartWork)
+        {
+          (item.Form as IStartWork).EventStartWork();
+        }
+    }
+
+    internal void ExecEndWorkHandlerForEachSubForm()
+    {
+      foreach (var item in SubForms)
+        if (item.Form is IEndWork)
+        {
+          (item.Form as IEndWork).EventEndWork();
+        }
+    }
+
+    internal void SetTreeviewBackgroundColor()
+    {
+      Form.TvMain.TreeViewElement.BackColor = FrameworkSettings.ColorTreeviewBackground ?? Form.BackColor; // Form.SplitterMainVertical.BackColor;
     }
   }
 }

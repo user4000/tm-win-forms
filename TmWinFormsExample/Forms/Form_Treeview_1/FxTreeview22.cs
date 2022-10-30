@@ -2,10 +2,11 @@
 using TmWinForms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using static TmWinForms.FrameworkManager;
 
 namespace TmWinFormsExample
 {
-  public partial class FxTreeview22 : RadForm, IStartWork, IEndWork, IUserLeftTheForm, IUserVisitedTheForm
+  public partial class FxTreeview22 : RadForm, IStartWork, IEndWork, IUserLeftTheForm, IUserVisitedTheForm, IUserVisitedTreeviewForm, IUserLeftTreeviewForm
   {
     public FxTreeview22()
     {
@@ -52,6 +53,16 @@ namespace TmWinFormsExample
     public void EventUserLeftTheForm()
     {
       Print("User left the form");
+    }
+
+    public void EventUserVisitedTreeviewForm()
+    {
+      //Ms.Message(this.GetType().FullName, "user VISITED treeview form").Pos(MsgPos.BottomLeft).Ok(10);
+    }
+
+    public void EventUserLeftTreeviewForm()
+    {
+      //Ms.Message(this.GetType().FullName, "user LEFT treeview form").Pos(MsgPos.BottomLeft).Fail(10);
     }
   }
 }

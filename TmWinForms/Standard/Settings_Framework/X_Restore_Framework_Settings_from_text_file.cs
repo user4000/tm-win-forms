@@ -83,6 +83,8 @@ namespace TmWinForms
       FrameworkSettings.ColorTreeviewSubFormNode = settings.ColorTreeviewSubFormNode;
 
       FrameworkSettings.ColorTreeviewSubFormNodeDisabled = settings.ColorTreeviewSubFormNodeDisabled;
+
+      FrameworkSettings.TreeviewEnableHotTracking = settings.TreeviewEnableHotTracking;
     }
 
 

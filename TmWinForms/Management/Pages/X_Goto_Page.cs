@@ -7,25 +7,25 @@ namespace TmWinForms
   {
     public bool GotoPage(ushort id)
     {
-      var page = FindPage(id); if (page == null) return false;
-      return GotoPage(page);
+      return GotoPage(FindPage(id));
     }
 
     public bool GotoPage(string uniquePageName)
     {
-      var page = FindPage(uniquePageName); if (page == null) return false;
-      return GotoPage(page);
+      return GotoPage(FindPage(uniquePageName));
     }
 
     public bool GotoPage<T>()
     {
-      var page = FindPage<T>(); if (page == null) return false;
-      return GotoPage(page);
+      return GotoPage(FindPage<T>());
     }
 
     bool GotoPage(RadPageViewPage page)
     {
+      if (page == null) return false;
+
       bool result = true;
+
       try
       {
         MainForm.PvMain.SelectedPage = page;
@@ -34,6 +34,7 @@ namespace TmWinForms
       {
         result = false;
       }
+
       return result;
     }
   }

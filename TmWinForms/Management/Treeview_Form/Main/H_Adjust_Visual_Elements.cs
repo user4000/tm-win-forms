@@ -45,6 +45,8 @@ namespace TmWinForms
 
       Form.TvMain.ShowExpandCollapse = true;
       Form.PnTreeview.Width = FrameworkSettings.TreeviewPanelWidth;
+      Form.TvMain.HotTracking = FrameworkSettings.TreeviewEnableHotTracking;
+      //Form.TvMain.TreeViewElement.BackColor = FrameworkSettings.ColorTreeviewBackground ?? Form.PnTreeview.BackColor;
     }
 
     internal void AdjustStripViewContainer() // Полосу, отображающую вкладки, нужно скрыть //

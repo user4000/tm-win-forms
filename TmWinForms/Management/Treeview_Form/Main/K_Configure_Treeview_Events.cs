@@ -27,10 +27,9 @@ namespace TmWinForms
 
     internal void SetDefaultPage()
     {
-      // Если заранее пройтись по всем страницам, то можно подавить неприятный эффект мерцания формы, который проявляется в том случае, когда посещаешь страницу с формой первый раз //
-
+      // Если заранее пройтись по всем страницам, то можно подавить неприятный эффект мерцания формы, 
+      // который проявляется в том случае, когда посещаешь страницу с формой первый раз 
       foreach (var page in Form.PvTreeview.Pages) Form.PvTreeview.SelectedPage = page;
-
       Form.PvTreeview.SelectedPage = Form.PageEmpty;
     }
 

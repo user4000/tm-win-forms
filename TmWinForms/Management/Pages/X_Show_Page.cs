@@ -7,24 +7,22 @@ namespace TmWinForms
   {
     public bool ShowPage(ushort id, bool visible)
     {
-      var page = FindPage(id); if (page == null) return false;
-      return ShowPage(page, visible);
+      return ShowPage(FindPage(id), visible);
     }
 
     public bool ShowPage(string uniquePageName, bool visible)
     {
-      var page = FindPage(uniquePageName); if (page == null) return false;
-      return ShowPage(page, visible);
+      return ShowPage(FindPage(uniquePageName), visible);
     }
 
     public bool ShowPage<T>(bool visible)
     {
-      var page = FindPage<T>(); if (page == null) return false;
-      return ShowPage(page, visible);
+      return ShowPage(FindPage<T>(), visible);
     }
 
     bool ShowPage(RadPageViewPage page, bool visible)
     {
+      if (page == null) return false;
       page.Item.Visibility = visible ? Telerik.WinControls.ElementVisibility.Visible : Telerik.WinControls.ElementVisibility.Collapsed;
       return true;
     }

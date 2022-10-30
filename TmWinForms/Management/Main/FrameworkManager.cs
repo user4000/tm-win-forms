@@ -13,6 +13,9 @@ namespace TmWinForms
 
     public static PagesManager Pages { get; } = PagesManager.Create();
 
+    public static TvManager TvNodes { get; } = TvManager.Create();
+
+
     public static CxMessageManager Ms { get; } = CxMessageManager.Create();
 
 

@@ -82,17 +82,5 @@ namespace TmWinForms
         form.EventEndWork();
       };
     }
-
-    internal void Dispose(bool ExecuteEndWorkHandler)
-    {
-      if (Form != null)
-      {
-        if (ExecuteEndWorkHandler) ExecEndWorkHandler();
-        Form.Visible = false;
-        Form.Close();
-        try { Form.Dispose(); } catch { };
-        //Form = null;
-      }
-    }
   }
 }

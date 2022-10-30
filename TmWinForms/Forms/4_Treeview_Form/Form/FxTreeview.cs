@@ -5,10 +5,11 @@ using Telerik.WinControls;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using static TmWinForms.FrameworkManager;
+using System.Threading.Tasks;
 
 namespace TmWinForms
 {
-  public partial class FxTreeview : RadForm
+  public partial class FxTreeview : RadForm, IUserVisitedTheForm, IUserVisitedTheFormAsync, IUserLeftTheForm, IUserLeftTheFormAsync
   {
     HxTreeview MnForm { get; set; }
 
@@ -23,6 +24,27 @@ namespace TmWinForms
     {
       MnForm = HxTreeview.Create(this);
       MnTreeview = formTreeview;
+    }
+
+
+    public async Task EventUserLeftTheFormAsync()
+    {
+      await MnTreeview.EventUserLeftTheFormAsync();
+    }
+
+    public void EventUserLeftTheForm()
+    {
+      MnTreeview.EventUserLeftTheForm();
+    }
+
+    public async Task EventUserVisitedTheFormAsync()
+    {
+      await MnTreeview.EventUserVisitedTheFormAsync();
+    }
+
+    public void EventUserVisitedTheForm()
+    {
+      MnTreeview.EventUserVisitedTheForm();
     }
   }
 }
