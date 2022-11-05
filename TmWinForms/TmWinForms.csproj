@@ -131,6 +131,7 @@
     <Compile Include="Standard\Extensions\XxDataColumnChangeEventArgs.cs" />
     <Compile Include="Standard\Extensions\XxDataTable.cs" />
     <Compile Include="Standard\Extensions\XxGridViewDataColumn.cs" />
+    <Compile Include="Standard\Extensions\XxRadForm.cs" />
     <Compile Include="Standard\Extensions\XxRadGridView.cs" />
     <Compile Include="Standard\Extensions\XxRadPanel.cs" />
     <Compile Include="Standard\Extensions\XxRadTreeNode.cs" />

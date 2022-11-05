@@ -133,5 +133,11 @@ namespace TmWinForms
           (item.Form as IEndWork).EventEndWork();
         }
     }
+
+    public bool ContainsForm(RadForm form)
+    {
+      foreach (var item in SubForms) if (item.Form == form) return true;
+      return false;
+    }
   }
 }

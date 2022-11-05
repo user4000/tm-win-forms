@@ -1,4 +1,6 @@
-﻿namespace TmWinForms
+﻿using Telerik.WinControls.UI;
+
+namespace TmWinForms
 {
   public class TvManager
   {
@@ -32,6 +34,12 @@
     public FormTreeview Select(string uniqueName)
     {
       foreach (var item in FmService.ListTreeview) if (item.UniqueName == uniqueName) return item;
+      return null;
+    }
+
+    public FormTreeview Select(RadForm form)
+    {
+      foreach (var item in FmService.ListTreeview) if (item.ContainsForm(form)) return item;
       return null;
     }
 

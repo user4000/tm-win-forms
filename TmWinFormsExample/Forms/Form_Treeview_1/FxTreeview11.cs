@@ -1,6 +1,7 @@
 ﻿using System;
 using TmWinForms;
 using Telerik.WinControls;
+using TmWinForms.Extensions;
 using Telerik.WinControls.UI;
 using System.Threading.Tasks;
 using static TmWinForms.FrameworkManager;
@@ -48,6 +49,10 @@ namespace TmWinFormsExample
       //TvNodes.Select("tv1").GotoForm<FxTreeview31>();
 
       //TvNodes.Select("tv1").ShowNode<FxTreeview31>(flag);
+
+      //TvNodes.Select(this).GotoForm<FxTreeview31>();
+
+      this.ZzTreeview().GotoForm<FxTreeview32>();
 
       await Task.Delay(1000);
 
