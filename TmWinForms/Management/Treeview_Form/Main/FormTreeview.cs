@@ -1,4 +1,5 @@
-﻿using Telerik.WinControls.UI;
+﻿using System.Threading.Tasks;
+using Telerik.WinControls.UI;
 using System.Collections.Generic;
 using static TmWinForms.FrameworkManager;
 
@@ -108,6 +109,13 @@ namespace TmWinForms
       return this;
     }
 
+    internal void SetTreeviewBackgroundColor()
+    {
+      Form.TvMain.TreeViewElement.BackColor = FrameworkSettings.ColorTreeviewBackground ?? Form.BackColor; // Form.SplitterMainVertical.BackColor;
+    }
+
+
+
     internal void ExecStartWorkHandlerForEachSubForm()
     {
       foreach (var item in SubForms)
@@ -124,11 +132,6 @@ namespace TmWinForms
         {
           (item.Form as IEndWork).EventEndWork();
         }
-    }
-
-    internal void SetTreeviewBackgroundColor()
-    {
-      Form.TvMain.TreeViewElement.BackColor = FrameworkSettings.ColorTreeviewBackground ?? Form.BackColor; // Form.SplitterMainVertical.BackColor;
     }
   }
 }

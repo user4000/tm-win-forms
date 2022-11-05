@@ -13,7 +13,7 @@ namespace TmWinForms
 
 
 
-    async void EventPageChanged(object sender, EventArgs e)
+    async void EventPageChanged(object sender, EventArgs e) // Событие: Пользователь выбрал страницу (вкладку) //
     {
       PreviousPage = CurrentPage;
 
@@ -24,7 +24,7 @@ namespace TmWinForms
       await EventPageChanged(CurrentPage);
     }
 
-    async Task EventUserLeftThePage(RadPageViewPage page)
+    async Task EventUserLeftThePage(RadPageViewPage page) // Событие: Пользователь покинул страницу (вкладку) //
     {
       if (page == null) return;
 
@@ -47,13 +47,14 @@ namespace TmWinForms
       }
     }
 
-    async Task EventPageChanged(RadPageViewPage page)
+    async Task EventPageChanged(RadPageViewPage page) // Событие: Пользователь выбрал страницу (вкладку) //
     {
       if (page == null) return;
 
       Events.UserVisitedPage?.Invoke(page);
 
       if (Service.DicPages.ContainsKey(page) == false) return;
+      
       if (Service.DicPages.TryGetValue(page, out RadForm form))
       {
         if (form is IUserVisitedTheForm)

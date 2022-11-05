@@ -61,7 +61,6 @@ namespace TmWinFormsExample
       Print("EventStartWork");
     }
 
-
     public void EventEndWork()
     {
       //Write("EventEndWork");
@@ -69,7 +68,7 @@ namespace TmWinFormsExample
 
     public void EventUserVisitedTheForm()
     {
-      Print("User visited the form");
+      Print("User visited the form");      
     }
 
     public void EventUserLeftTheForm()

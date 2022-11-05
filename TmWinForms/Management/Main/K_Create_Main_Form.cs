@@ -8,11 +8,8 @@ namespace TmWinForms
     static FxMain CreateMainForm()
     {
       MainForm = new FxMain();
-     
-      foreach(var page in MainForm.PvMain.Pages)
-      {
-        page.Item.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-      }
+
+      MainForm.HideTabsOfAllPages();
 
 
 
@@ -20,7 +17,6 @@ namespace TmWinForms
       #region Tune Icons ---------------------------------------------------------------------------------------------------------
 
       SetIconDefaultValuesIfTheyHaveNoAnyValue();
-
       MainForm.Icon = IconApplication;
       MainForm.NotifyIconMainForm.Icon = IconSystemTray;
 

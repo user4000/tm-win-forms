@@ -3,7 +3,6 @@ using System.Drawing;
 using TmWinForms.Form;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
-using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {

@@ -41,8 +41,6 @@ namespace TmWinForms
       return FileName;
     }
 
-
-
     internal static void SaveErrorToTextFile(string message, Exception ex)
     {
       string filePath = @"1______Error______1.txt";

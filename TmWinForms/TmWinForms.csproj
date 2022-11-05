@@ -84,6 +84,11 @@
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
     <Compile Include="Management\Main\K_Create_Main_Form.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closed.cs" />
+    <Compile Include="Management\Service\Y_Event_Start_Work_and_End_Work.cs" />
+    <Compile Include="Management\Service\Y_Raise_Event_Connection_to_Server.cs" />
+    <Compile Include="Management\Service\Y_Raise_Event_Localization.cs" />
+    <Compile Include="Management\Service\Y_Raise_Event_User_Form.cs" />
+    <Compile Include="Management\Treeview_Form\Main\M_Raise_Event.cs" />
     <Compile Include="Management\Treeview_Form\Main\I_User_Left_Treeview_Form.cs" />
     <Compile Include="Management\Treeview_Form\Main\I_User_Visited_Treeview_Form.cs" />
     <Compile Include="Management\Treeview_Form\Main\L_Event_User_Left_sub_Form.cs" />
@@ -177,6 +182,11 @@
     <Compile Include="Management\Service\X_Settings.cs" />
     <Compile Include="Management\Service\X_Set_Main_Page_View.cs" />
     <Compile Include="Standard\Grid\GridWithDataTable.cs" />
+    <Compile Include="Standard\Interfaces\IConnection.cs" />
+    <Compile Include="Standard\Interfaces\IConnectionAsync.cs" />
+    <Compile Include="Standard\Interfaces\IEventUserForm.cs" />
+    <Compile Include="Standard\Interfaces\IEventUserFormAsync.cs" />
+    <Compile Include="Standard\Interfaces\IFormLocalizer.cs" />
     <Compile Include="Standard\Interfaces\IFrameworkLogger.cs" />
     <Compile Include="Standard\Interfaces\IUserLeftTheFormAsync.cs" />
     <Compile Include="Standard\Interfaces\IUserLeftTreeviewForm.cs" />
@@ -194,8 +204,6 @@
     <Compile Include="Standard\Model\MxSimpleEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Standard\Enum\MsgType.cs" />
-    <Compile Include="Standard\Interfaces\IConnectedToServer.cs" />
-    <Compile Include="Standard\Interfaces\IDisconnectedFromServer.cs" />
     <Compile Include="Standard\Interfaces\IEndWork.cs" />
     <Compile Include="Standard\Interfaces\IMessageSubsystem.cs" />
     <Compile Include="Standard\Interfaces\IStartWork.cs" />

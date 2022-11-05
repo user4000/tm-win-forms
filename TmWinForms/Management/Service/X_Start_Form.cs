@@ -40,7 +40,13 @@ namespace TmWinForms
       }
     }
 
-    internal bool GotoStartForm()
+    internal void GotoStartForm() // Перейти на стартовую форму (если, конечно, такая форма была задана программистом) //
+    {
+      bool startForm = this.GotoStartFormInner();
+      if (startForm == false) this.GotoStartFormUsingStringCode();
+    }
+
+    bool GotoStartFormInner()
     {
       if (IdStartForm == 0) return false;
 
@@ -58,7 +64,7 @@ namespace TmWinForms
       return result;
     }
 
-    internal bool GotoStartFormUsingStringCode()
+    bool GotoStartFormUsingStringCode()
     {
       if (string.IsNullOrWhiteSpace(CodeStartForm)) return false;
 

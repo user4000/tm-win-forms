@@ -18,20 +18,9 @@ namespace TmWinForms
 
       MainForm.Visible = true;
 
-
-
-
-      bool startForm = Service.GotoStartForm();
-
-      if (startForm == false) Service.GotoStartFormUsingStringCode();
-
-
-
+      Service.GotoStartForm(); // Перейти на стартовую форму (если, конечно, такая форма была задана программистом) //
 
       MainForm.ShowMainPageView(true);
-
-
-
 
       Events.MainFormShown?.Invoke();
 

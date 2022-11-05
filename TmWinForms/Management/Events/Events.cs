@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using Telerik.WinControls.UI;
-using static TmWinForms.FrameworkManager;
 
 namespace TmWinForms
 {
@@ -12,21 +11,12 @@ namespace TmWinForms
 
     public Action<RadPageViewPage> UserLeftPage { get; set; }
 
-    public Action<RadPageViewPage, RadForm> UserVisitedForm { get; set; }
-
-    public Action<RadPageViewPage, RadForm> UserLeftForm { get; set; }
-
-
-
-
-
 
     public Action MainFormResize { get; set; }
 
     public Action MainFormResizeEnd { get; set; }
 
     public Action MainFormResizeBegin { get; set; }
-
 
 
 

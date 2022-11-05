@@ -1,11 +1,7 @@
 ﻿using System;
-using TmWinForms;
 using System.Diagnostics;
-using Telerik.WinControls;
-using System.Windows.Forms;
-using Telerik.WinControls.UI;
-using static TmWinForms.FrameworkManager;
 using System.Threading.Tasks;
+using Telerik.WinControls.UI;
 
 namespace TmWinForms
 {
@@ -26,25 +22,24 @@ namespace TmWinForms
       MnTreeview = formTreeview;
     }
 
+    public void EventUserLeftTheForm()
+    {
+      MnTreeview.EventUserLeftTheForm();
+    }
 
     public async Task EventUserLeftTheFormAsync()
     {
       await MnTreeview.EventUserLeftTheFormAsync();
     }
 
-    public void EventUserLeftTheForm()
+    public void EventUserVisitedTheForm()
     {
-      MnTreeview.EventUserLeftTheForm();
+      MnTreeview.EventUserVisitedTheForm();
     }
 
     public async Task EventUserVisitedTheFormAsync()
     {
       await MnTreeview.EventUserVisitedTheFormAsync();
-    }
-
-    public void EventUserVisitedTheForm()
-    {
-      MnTreeview.EventUserVisitedTheForm();
     }
   }
 }

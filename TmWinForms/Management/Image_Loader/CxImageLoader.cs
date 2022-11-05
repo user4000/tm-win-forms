@@ -92,13 +92,13 @@ namespace TmWinForms
       if (Directory.Exists(MainFolder) == false) return;
 
       ImgGroup = LoadFromFile(MainFolder, FileNameImageGroup, ImageExt);
-      ImgGroupExit = LoadFromFile(MainFolder, FileNameImageGroupExit, ImageExt);
-      ImgGroupSettings = LoadFromFile(MainFolder, FileNameImageGroupSettings, ImageExt);
+      //ImgGroupExit = LoadFromFile(MainFolder, FileNameImageGroupExit, ImageExt);
+      //ImgGroupSettings = LoadFromFile(MainFolder, FileNameImageGroupSettings, ImageExt);
 
       ImgItem = LoadFromFile(MainFolder, FileNameImageItem, ImageExt);
-      ImgItemExit = LoadFromFile(MainFolder, FileNameImageItemExit, ImageExt);
-      ImgItemSettings = LoadFromFile(MainFolder, FileNameImageItemSettings, ImageExt);
-      ImgItemMessages = LoadFromFile(MainFolder, FileNameImageItemMessages, ImageExt);
+      //ImgItemExit = LoadFromFile(MainFolder, FileNameImageItemExit, ImageExt);
+      //ImgItemSettings = LoadFromFile(MainFolder, FileNameImageItemSettings, ImageExt);
+      //ImgItemMessages = LoadFromFile(MainFolder, FileNameImageItemMessages, ImageExt);
     }
 
     internal Image LoadFromFile(string folder, string fileName, string fileExt)

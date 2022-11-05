@@ -15,8 +15,8 @@ namespace TmWinForms
     public async Task EventUserLeftTheFormAsync()
     {
       foreach (var item in SubForms)
-        if (item.Form is IUserLeftTheFormAsync)
-          await (item.Form as IUserLeftTheFormAsync).EventUserLeftTheFormAsync();
+        if (item.Form is IUserLeftTreeviewFormAsync)
+          await (item.Form as IUserLeftTreeviewFormAsync).EventUserLeftTreeviewFormAsync();
     }
   }
 }

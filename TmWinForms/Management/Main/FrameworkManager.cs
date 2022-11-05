@@ -45,7 +45,7 @@ namespace TmWinForms
     public static bool FlagSystemTrayIconIsConfigured { get; private set; } = false; // Пользователь хочет использовать иконку приложения в системном лотке //
 
 
-    static bool FlagServiceApplication()
+    static bool FlagServiceApplication() // Является ли данное приложение сервером ? //
     {
       return 
         (FrameworkSettings.FlagMainFormStartMinimized) && 

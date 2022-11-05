@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Telerik.WinControls.UI;
 
 namespace TmWinForms
@@ -53,16 +54,9 @@ namespace TmWinForms
 
 
 
-
-
-
-
-
-
-
-
-
     internal void SetPage(RadPageViewPage page) => Page = page;
+
+
 
 
     internal void ExecStartWorkHandler()
@@ -80,6 +74,46 @@ namespace TmWinForms
       {
         IEndWork form = (IEndWork)Form;
         form.EventEndWork();
+      };
+    }
+
+
+
+
+    internal void RaiseEventUserForm(bool flag, string text, object arg)
+    {
+      if ((Form != null) && (Form is IEventUserForm))
+      {
+        IEventUserForm form = (IEventUserForm)Form;
+        form.EventUserForm(flag, text, arg);
+      };
+    }
+
+    internal async Task RaiseEventUserFormAsync(bool flag, string text, object arg)
+    {
+      if ((Form != null) && (Form is IEventUserFormAsync))
+      {
+        IEventUserFormAsync form = (IEventUserFormAsync)Form;
+        await form.EventUserFormAsync(flag, text, arg);
+      };
+    }
+
+
+    internal void RaiseEventConnection(bool connected, bool connectedFirstTime, string text, object arg)
+    {
+      if ((Form != null) && (Form is IConnection))
+      {
+        IConnection form = (IConnection)Form;
+        form.EventConnected(connected, connectedFirstTime, text, arg);
+      };
+    }
+
+    internal async Task RaiseEventConnectionAsync(bool connected, bool connectedFirstTime, string text, object arg)
+    {
+      if ((Form != null) && (Form is IConnectionAsync))
+      {
+        IConnectionAsync form = (IConnectionAsync)Form;
+        await form.EventConnectedAsync(connected, connectedFirstTime, text, arg);
       };
     }
   }

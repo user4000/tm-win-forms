@@ -110,6 +110,13 @@ namespace TmWinForms
       page.Item.Visibility = ElementVisibility.Collapsed;
     }
 
+    internal void HideTabsOfAllPages()
+    {
+      foreach (var page in this.PvMain.Pages)
+      {
+        page.Item.Visibility = ElementVisibility.Hidden;
+      }
+    }
 
     internal void SetEvents()
     {
