@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace TmWinForms
 {
@@ -18,6 +18,8 @@ namespace TmWinForms
 
     public CxNode Node { get; private set; }
 
+    public List<TvForm> Forms { get; } = new List<TvForm>();
+
     private Group()
     {
 
@@ -30,6 +32,11 @@ namespace TmWinForms
       Rank = rank ?? string.Empty;
       ExpandOnSelect = expandOnSelect;
       CollapseOnExit = collapseOnExit;
+
+      if (string.IsNullOrWhiteSpace(Code))
+      {
+        FrameworkManager.Error("Error!", "The unique code of the group is empty!");
+      }
     }
 
     internal static Group Create(string code, string text, string rank, bool expandOnSelect, bool collapseOnExit)
@@ -38,8 +45,66 @@ namespace TmWinForms
       return group;
     }
 
+    internal void EventFormAddedToGroup(TvForm tvForm)
+    {
+      Forms.Add(tvForm);
+    }
+
     internal void SetText(string text) => Text = text;
 
     internal void SetNode(CxNode node) => Node = node;
+
+
+
+
+
+    public void Enable(bool enable)
+    {
+      Node.Enabled = enable;
+      foreach (var node in Node.Nodes)
+      {
+        node.Enabled = enable;
+      }
+    }
+
+    public void Show(bool show)
+    {
+      Node.Visible = show;
+      foreach (var node in Node.Nodes)
+      {
+        node.Visible = show;
+      }
+    }
+
+    public void EnableItems(bool enable)
+    {
+      foreach(var node in Node.Nodes)
+      {
+        node.Enabled = enable;
+      }
+    }
+
+    public void ShowItems(bool show)
+    {
+      foreach (var node in Node.Nodes)
+      {
+        node.Visible = show;
+      }
+    }
+
+    public void Goto()
+    {
+      Node.TreeView.SelectedNode = Node;
+    }
+
+    public void Expand()
+    {
+      Node.ExpandAll();
+    }
+
+    public void Collapse()
+    {
+      Node.Collapse();
+    }
   }
 }

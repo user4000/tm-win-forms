@@ -2,7 +2,7 @@
 
 namespace TmWinForms
 {
-  public class TvManager
+  public class TvManager  // Обеспечивает выбор объекта FormTreeview //
   {
     FxMain MainForm { get; set; }
 
@@ -25,27 +25,35 @@ namespace TmWinForms
     internal static TvManager Create() => new TvManager();
 
 
-    public FormTreeview Select(int index = 0)
+    internal void SetTreeviewBackgroundColor()
     {
-      if (FmService.ListTreeview.Count > index) return FmService.ListTreeview[index];
+      foreach (var item in FmService.ListTreeview) item.SetTreeviewBackgroundColor();
+    }
+
+
+    public FormTreeview Select(int indexOfTreeview = 0)
+    {
+      if (FmService.ListTreeview.Count > indexOfTreeview) return FmService.ListTreeview[indexOfTreeview];
       return null;
     }
 
-    public FormTreeview Select(string uniqueName)
+    public FormTreeview Select(string uniqueNameOfTreeview)
     {
-      foreach (var item in FmService.ListTreeview) if (item.UniqueName == uniqueName) return item;
+      foreach (var item in FmService.ListTreeview) if (item.UniqueName == uniqueNameOfTreeview) return item;
       return null;
     }
 
     public FormTreeview Select(RadForm form)
     {
-      foreach (var item in FmService.ListTreeview) if (item.ContainsForm(form)) return item;
-      return null;
-    }
+      //foreach (var item in FmService.ListTreeview) if (item.ContainsForm(form)) return item;
 
-    internal void SetTreeviewBackgroundColor()
-    {
-      foreach (var item in FmService.ListTreeview) item.SetTreeviewBackgroundColor();
+      SubForm subForm = SubForm.GetSubForm(form);
+      if ((subForm != null) && (subForm is TvForm))
+      {
+        return ((subForm as TvForm).Treeview);
+      }
+
+      return null;
     }
   }
 }

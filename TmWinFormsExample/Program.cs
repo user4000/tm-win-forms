@@ -82,7 +82,7 @@ namespace TmWinFormsExample
           .AddForm<FxTreeview21>("f21", "Form Treeview 2 1", true, true)
           .AddForm<FxTreeview22>("f22", "Form Treeview 2 2", true, true)
 
-        .AddGroup("group13", "Group 1-2", true, false)
+        .AddGroup("group13", "Group 1-3", true, false)
 
           .AddForm<FxTreeview31>("f31", "Form Treeview 3 1", true, true)
           .AddForm<FxTreeview32>("f32", "Form Treeview 3 2", true, true);

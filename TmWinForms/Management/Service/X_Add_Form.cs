@@ -7,7 +7,7 @@ namespace TmWinForms
 {
   partial class FrameworkService
   {
-    ushort GetNextIdForm() => IdForm++;
+    internal ushort GetNextIdForm() => IdForm++;
 
 
     ushort IdStartForm { get; set; } = 0;

@@ -2,6 +2,7 @@
 using System.Drawing;
 using TmWinForms.Themes;
 using System.Windows.Forms;
+using Telerik.WinControls;
 
 namespace TmWinForms
 {
@@ -118,9 +119,11 @@ namespace TmWinForms
       Events.BeforeMainFormIsCreated?.Invoke();
     }
 
-
-
-
+    internal static void Error(string header, string message)
+    {
+      RadMessageBox.Show(message, header, MessageBoxButtons.OK, RadMessageIcon.Error);
+      throw new ApplicationException($"{header}\r\n{message}");
+    }
 
     public static void Run() // Главная точка входа - запуск программы начинается с этого метода //
     {

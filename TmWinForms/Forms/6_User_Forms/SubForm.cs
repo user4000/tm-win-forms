@@ -43,6 +43,7 @@ namespace TmWinForms
     internal static SubForm Create(ushort idForm, RadForm form, string uniqueName, string pageText, bool enabled, bool visible)
     {
       SubForm userForm = new SubForm(idForm, form, uniqueName, pageText, enabled, visible);
+      userForm.RadFormMustSaveReferenceToSubForm(form);
       return userForm;
     }
 
@@ -52,6 +53,18 @@ namespace TmWinForms
       return Create(idForm, form, uniqueName, pageText, enabled, visible);
     }
 
+
+    internal void RadFormMustSaveReferenceToSubForm(RadForm form)
+    {
+      form.RootElement.Tag = this;
+    }
+
+
+    internal static SubForm GetSubForm(RadForm form)
+    {
+      if ((form.RootElement.Tag != null) && (form.RootElement.Tag is SubForm)) return (form.RootElement.Tag as SubForm);
+      return null;
+    }
 
 
     internal void SetPage(RadPageViewPage page) => Page = page;

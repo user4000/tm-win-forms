@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 using Telerik.WinControls.UI;
 using System.Collections.Generic;
 using static TmWinForms.FrameworkManager;
@@ -11,15 +11,9 @@ namespace TmWinForms
 
     List<TvForm> SubForms { get; } = new List<TvForm>();
 
-
+    HashSet<string> GroupCodes { get; } = new HashSet<string>();
 
     ushort IdFormTreeview { get; set; } = 0;
-
-
-
-    ushort IdSubForm { get; set; } = 1;
-
-    ushort GetNextIdSubForm() => IdSubForm++;
 
     FxTreeview Form { get; } = new FxTreeview();
 
@@ -72,9 +66,16 @@ namespace TmWinForms
 
     public FormTreeview AddGroup(string code, string text, bool expandOnSelect, bool collapseOnExit)
     {
+      if (GroupCodes.Contains(code))
+      {
+        Error("Error !", $"Group code is not unique! Code = {code}");
+      }
+
       LastCreatedGroup = Group.Create(code, text, (RankGroup++).ToString(), expandOnSelect, collapseOnExit);
 
       Groups.Add(LastCreatedGroup);
+
+      GroupCodes.Add(code);
 
       AddGroupNode(LastCreatedGroup);
 
@@ -85,7 +86,7 @@ namespace TmWinForms
     {
       if (LastCreatedGroup == null) return this;
 
-      TvForm subForm = TvForm.CreateForm(GetNextIdSubForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+      TvForm subForm = TvForm.CreateForm(Service.GetNextIdForm(), this, LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
 
       SubForms.Add(subForm);
 
@@ -100,7 +101,7 @@ namespace TmWinForms
 
       T form = new T();
 
-      TvForm subForm = TvForm.CreateForm(GetNextIdSubForm(), LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
+      TvForm subForm = TvForm.CreateForm(Service.GetNextIdForm(), this, LastCreatedGroup, form, uniqueName, pageText, enabled, visible);
 
       SubForms.Add(subForm);
 
@@ -138,6 +139,38 @@ namespace TmWinForms
     {
       foreach (var item in SubForms) if (item.Form == form) return true;
       return false;
+    }
+
+    public Group GetGroup(string uniqueCode)
+    {
+      foreach (var group in Groups)
+        if (group.Code == uniqueCode) return group;
+      return null;
+    }
+
+    public void EnableGroup(string uniqueCode, bool enable)
+    {
+      GetGroup(uniqueCode)?.Enable(enable);
+    }
+
+    public void ShowGroup(string uniqueCode, bool show)
+    {
+      GetGroup(uniqueCode)?.Show(show);
+    }
+
+    public void GotoGroup(string uniqueCode)
+    {
+      GetGroup(uniqueCode)?.Goto();
+    }
+
+    public void EnableGroupItems(string uniqueCode, bool enable)
+    {
+      GetGroup(uniqueCode)?.EnableItems(enable);
+    }
+
+    public void ShowGroupItems(string uniqueCode, bool show)
+    {
+      GetGroup(uniqueCode)?.ShowItems(show);
     }
   }
 }

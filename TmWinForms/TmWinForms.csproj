@@ -84,6 +84,8 @@
     <Compile Include="Management\Logger\CxLoggerDefaultConfiguration.cs" />
     <Compile Include="Management\Main\K_Create_Main_Form.cs" />
     <Compile Include="Management\Main\K_Main_Form_Closed.cs" />
+    <Compile Include="Management\Pages\X_Set_Image.cs" />
+    <Compile Include="Management\Pages\X_Set_Text.cs" />
     <Compile Include="Management\Service\Y_Event_Start_Work_and_End_Work.cs" />
     <Compile Include="Management\Service\Y_Raise_Event_Connection_to_Server.cs" />
     <Compile Include="Management\Service\Y_Raise_Event_Localization.cs" />
