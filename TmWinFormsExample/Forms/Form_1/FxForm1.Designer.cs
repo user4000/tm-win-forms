@@ -53,7 +53,7 @@
       // 
       this.LbFormTwo.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.LbFormTwo.ForeColor = System.Drawing.Color.Blue;
-      this.LbFormTwo.Location = new System.Drawing.Point(31, 31);
+      this.LbFormTwo.Location = new System.Drawing.Point(12, 12);
       this.LbFormTwo.Name = "LbFormTwo";
       this.LbFormTwo.Size = new System.Drawing.Size(232, 38);
       this.LbFormTwo.TabIndex = 2;
@@ -61,18 +61,18 @@
       // 
       // TxtMessage
       // 
-      this.TxtMessage.Location = new System.Drawing.Point(79, 130);
+      this.TxtMessage.Location = new System.Drawing.Point(12, 73);
       this.TxtMessage.MaxLength = 90000;
       this.TxtMessage.Multiline = true;
       this.TxtMessage.Name = "TxtMessage";
-      this.TxtMessage.Size = new System.Drawing.Size(852, 315);
+      this.TxtMessage.Size = new System.Drawing.Size(1045, 419);
       this.TxtMessage.TabIndex = 4;
       this.TxtMessage.VerticalScrollBarState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
       // 
       // BxTest6
       // 
       this.BxTest6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest6.Location = new System.Drawing.Point(808, 498);
+      this.BxTest6.Location = new System.Drawing.Point(741, 541);
       this.BxTest6.Name = "BxTest6";
       this.BxTest6.Size = new System.Drawing.Size(123, 37);
       this.BxTest6.TabIndex = 5;
@@ -81,7 +81,7 @@
       // BxTest5
       // 
       this.BxTest5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest5.Location = new System.Drawing.Point(662, 498);
+      this.BxTest5.Location = new System.Drawing.Point(595, 541);
       this.BxTest5.Name = "BxTest5";
       this.BxTest5.Size = new System.Drawing.Size(123, 37);
       this.BxTest5.TabIndex = 6;
@@ -90,7 +90,7 @@
       // BxTest4
       // 
       this.BxTest4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest4.Location = new System.Drawing.Point(517, 498);
+      this.BxTest4.Location = new System.Drawing.Point(450, 541);
       this.BxTest4.Name = "BxTest4";
       this.BxTest4.Size = new System.Drawing.Size(123, 37);
       this.BxTest4.TabIndex = 7;
@@ -99,7 +99,7 @@
       // BxTest3
       // 
       this.BxTest3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest3.Location = new System.Drawing.Point(372, 498);
+      this.BxTest3.Location = new System.Drawing.Point(305, 541);
       this.BxTest3.Name = "BxTest3";
       this.BxTest3.Size = new System.Drawing.Size(123, 37);
       this.BxTest3.TabIndex = 8;
@@ -108,7 +108,7 @@
       // BxTest2
       // 
       this.BxTest2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest2.Location = new System.Drawing.Point(227, 498);
+      this.BxTest2.Location = new System.Drawing.Point(160, 541);
       this.BxTest2.Name = "BxTest2";
       this.BxTest2.Size = new System.Drawing.Size(123, 37);
       this.BxTest2.TabIndex = 9;
@@ -117,7 +117,7 @@
       // BxTest1
       // 
       this.BxTest1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTest1.Location = new System.Drawing.Point(79, 498);
+      this.BxTest1.Location = new System.Drawing.Point(12, 541);
       this.BxTest1.Name = "BxTest1";
       this.BxTest1.Size = new System.Drawing.Size(123, 37);
       this.BxTest1.TabIndex = 10;
@@ -126,7 +126,7 @@
       // BxTestNavigation
       // 
       this.BxTestNavigation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.BxTestNavigation.Location = new System.Drawing.Point(79, 606);
+      this.BxTestNavigation.Location = new System.Drawing.Point(12, 602);
       this.BxTestNavigation.Name = "BxTestNavigation";
       this.BxTestNavigation.Size = new System.Drawing.Size(271, 37);
       this.BxTestNavigation.TabIndex = 11;

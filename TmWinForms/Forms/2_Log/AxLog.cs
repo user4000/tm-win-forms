@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Drawing;
 using System.Threading;
+using System.Diagnostics;
 using TmWinForms.Standard;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
@@ -414,7 +415,7 @@ namespace TmWinForms.Form
     }
 
     internal void MessageHandler(TmMessage Message)
-    {
+    {     
       if (Message.FlagTable)
       {
         AddOneRowThreadSafe(Message);
@@ -422,7 +423,7 @@ namespace TmWinForms.Form
 
       if (Message.FlagFile)
       {
-        Log.Save(Message.MessageType, Message.Header, Message.Text); 
+        FrameworkManager.Log.Save(Message.MessageType, Message.Header, Message.Text); 
       }
 
       if (Message.FlagAlert)

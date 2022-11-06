@@ -66,18 +66,13 @@ namespace TmWinForms
       return null;
     }
 
-
     internal void SetPage(RadPageViewPage page) => Page = page;
-
-
-
 
     internal void ExecStartWorkHandler()
     {
       if ((Form != null) && (Form is IStartWork))
       {
-        IStartWork form = (IStartWork)Form;
-        form.EventStartWork();
+        (Form as IStartWork).EventStartWork();
       };
     }
 
@@ -85,8 +80,7 @@ namespace TmWinForms
     {
       if ((Form != null) && (Form is IEndWork))
       {
-        IEndWork form = (IEndWork)Form;
-        form.EventEndWork();
+        (Form as IEndWork).EventEndWork();
       };
     }
 

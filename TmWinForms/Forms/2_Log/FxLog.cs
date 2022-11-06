@@ -16,7 +16,7 @@ namespace TmWinForms.Form
       InitializeComponent();
     }
 
-    public void EventStartWork()
+    public void Configure()
     {
       CxLog = new AxLog(this);
       CxLog.InitializeGrid(GxLog);
@@ -27,6 +27,11 @@ namespace TmWinForms.Form
       GxLog.Dock = DockStyle.Fill;
 
       SetEvents();
+    }
+
+    public void EventStartWork()
+    {
+
     }
 
     public void SetEvents()

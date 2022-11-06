@@ -15,7 +15,7 @@ namespace TmWinForms
 
       foreach (KeyValuePair<string, SubForm> entry in DicForms) // Цикл по всем формам, располагающимся на страницах главного PageView //
       {
-        localizer.Localization(entry.Value.Form);
+        if (entry.Value.Form is INeedLocalization) localizer.Localization(entry.Value.Form);
       }
 
       foreach (var formWithTreeviewElement in ListTreeview) // Цикл по всем формам вида FxTreeview //

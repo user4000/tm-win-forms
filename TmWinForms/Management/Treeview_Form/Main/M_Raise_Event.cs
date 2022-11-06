@@ -7,7 +7,7 @@ namespace TmWinForms
     internal void RaiseEventLocalization(IFormLocalizer localizer)
     {
       foreach (var item in SubForms)
-        if (item.Form != null)
+        if ((item.Form != null) && (item.Form is INeedLocalization))
         {
           localizer.Localization(item.Form);
         }

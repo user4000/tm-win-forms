@@ -8,7 +8,7 @@ using static TmWinForms.FrameworkManager;
 
 namespace TmWinFormsExample
 {
-  public partial class FxTreeview11 : RadForm, IStartWork, IEndWork, IUserLeftTheForm, IUserVisitedTheForm
+  public partial class FxTreeview11 : RadForm, IStartWork, IEndWork, IUserLeftTheForm, IUserVisitedTheForm, INeedLocalization
   {
     public FxTreeview11()
     {
@@ -20,12 +20,13 @@ namespace TmWinFormsExample
     void Print(string msg)
     {
       if (TxMessage.Text.Length > 10000) TxMessage.Clear();
-      TxMessage.AppendText($"{Time()} ---- {this.GetType().FullName} ---- {msg}");
+      TxMessage.AppendText($"{Time()} ---- {this.GetType().FullName} ---- {msg}{Environment.NewLine}");
+      Ms.Message(this.GetType().FullName, msg).NoAlert().ToFile().Debug();
     }
 
     void Write(string msg)
     {
-      Log.Save($"{this.GetType().FullName} ---- {msg}");
+      Log.Save($"{this.GetType().FullName} ---- {msg}{Environment.NewLine}");
     }
 
     private void SetProperties()
@@ -73,12 +74,12 @@ namespace TmWinFormsExample
 
     public void EventUserVisitedTheForm()
     {
-      Print("User visited the form");      
+      //Print("User visited the form");      
     }
 
     public void EventUserLeftTheForm()
     {
-      Print("User left the form");
+      //Print("User left the form");
     }
   }
 }

@@ -18,6 +18,8 @@ namespace TmWinFormsExample
     public static StandardFrameworkSettings FmSettings { get; } = FrameworkManager.FrameworkSettings; // Framework embedded settings //
 
 
+    public static CxManager Manager { get; private set; }
+
     static void SaveToLog(string msg) => FrameworkManager.Log.Save(msg);
 
 
@@ -196,6 +198,8 @@ namespace TmWinFormsExample
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
+      Manager = CxManager.Create();
+
       // Сначала установим настройки фреймворка которые не сохраняются в текстовом файле //
       SetFrameworkSettingsBeforeLoadingFromTextFile();
 
@@ -210,6 +214,7 @@ namespace TmWinFormsExample
 
       // Затем следует настроить события, выполняемые при завершении работы приложения //
       SetEventsMainFormClosing();
+
 
       // Далее следует запуск фреймворка //
       FrameworkManager.Run();

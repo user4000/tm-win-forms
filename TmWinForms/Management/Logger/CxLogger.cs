@@ -11,8 +11,6 @@ namespace TmWinForms
   {
     const string Empty = "";
 
-    Serilog.Core.Logger MainLogger { get; set; }
-
     internal bool FlagConfigured { get; private set; } = false;
 
     internal bool FlagStopWork { get; private set; } = true;
@@ -56,7 +54,7 @@ namespace TmWinForms
     {
       if (FlagConfigured)
       {
-        RadMessageBox.Show("You must not configure the logger more than one time!", "Error !", System.Windows.Forms.MessageBoxButtons.OK, RadMessageIcon.Error);
+        //RadMessageBox.Show("You must not configure the logger more than one time!", "Error !", System.Windows.Forms.MessageBoxButtons.OK, RadMessageIcon.Error);
         return;
       }
 
@@ -73,8 +71,6 @@ namespace TmWinForms
       {
         folder = $"{folder}/{applicationName}";
       }
-
-
 
       FolderOfLogFiles = folder;
       CheckOldLogFiles();
@@ -97,8 +93,10 @@ namespace TmWinForms
     void CreateMainLogger(string fileName)
     {
       LoggerConfiguration config = new LoggerConfiguration()
+        .MinimumLevel.Debug()
         .WriteTo.File
         (
+
           fileName,
 
           outputTemplate: CxLoggerConfig.outputTemplate,
@@ -118,15 +116,18 @@ namespace TmWinForms
           rollingInterval: Serilog.RollingInterval.Infinite,
 
           restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug
+
          );
 
-      MainLogger = config.CreateLogger();
+      Log.Logger = config.CreateLogger();
+    
+      //RadMessageBox.Show($"Main logger created !!!  {MainLogger.GetType().FullName}");
     }
 
     internal void EventEndWork()
     {
       FlagStopWork = true;
-      Log.CloseAndFlush();
+      Log.CloseAndFlush();    
     }
 
     public void Save(string message)
@@ -147,13 +148,13 @@ namespace TmWinForms
 
       switch (type)
       {
-        case MsgType.Debug: MainLogger.Debug(HeaderAndMessage); break;
-        case MsgType.Info: MainLogger.Information(HeaderAndMessage); break;
-        case MsgType.Ok: MainLogger.Information(HeaderAndMessage); break;
-        case MsgType.Fail: MainLogger.Warning(HeaderAndMessage); break;
-        case MsgType.Warning: MainLogger.Warning(HeaderAndMessage); break;
-        case MsgType.Error: MainLogger.Error(HeaderAndMessage); break;
-        default: MainLogger.Debug(HeaderAndMessage); break;
+        case MsgType.Debug: Log.Debug(HeaderAndMessage); break;
+        case MsgType.Info: Log.Information(HeaderAndMessage); break;
+        case MsgType.Ok: Log.Information(HeaderAndMessage); break;
+        case MsgType.Fail: Log.Warning(HeaderAndMessage); break;
+        case MsgType.Warning: Log.Warning(HeaderAndMessage); break;
+        case MsgType.Error: Log.Error(HeaderAndMessage); break;
+        default: Log.Debug(HeaderAndMessage); break;         
       }
     }
 
@@ -163,13 +164,13 @@ namespace TmWinForms
 
       switch (type)
       {
-        case MsgType.Debug: MainLogger.Debug(exception, message); break;
-        case MsgType.Info: MainLogger.Information(exception, message); break;
-        case MsgType.Ok: MainLogger.Information(exception, message); break;
-        case MsgType.Fail: MainLogger.Warning(exception, message); break;
-        case MsgType.Warning: MainLogger.Error(exception, message); break;
-        case MsgType.Error: MainLogger.Fatal(exception, message); break;
-        default: MainLogger.Error(exception, message); break;
+        case MsgType.Debug: Log.Debug(exception, message); break;
+        case MsgType.Info: Log.Information(exception, message); break;
+        case MsgType.Ok: Log.Information(exception, message); break;
+        case MsgType.Fail: Log.Warning(exception, message); break;
+        case MsgType.Warning: Log.Error(exception, message); break;
+        case MsgType.Error: Log.Fatal(exception, message); break;
+        default: Log.Error(exception, message); break;
       }
     }
   }

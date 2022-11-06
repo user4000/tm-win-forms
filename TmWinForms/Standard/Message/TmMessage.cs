@@ -157,7 +157,8 @@ namespace TmWinForms
 
     public TmMessage NoTable() => Table(false);
 
-    public void Create() => FrameworkManager.Ms.ActionCreate(this);
+    public void Create() => FrameworkManager.Ms.ActionCreate(this); // Вызвать метод ActionCreate передав ему аргумент TmMessage //
+
 
     public void Debug(int delaySeconds = 0)
     {

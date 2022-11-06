@@ -107,8 +107,8 @@ namespace TmWinForms
 
     static void LoadFrameworkSettings()
     {
-      // Программист не удосужился сконфигурировать логгер. Сделаем это за него, с настройками по умолчанию //
-      if (Log.FlagConfigured == false) Log.Configure(); 
+      // Может быть, что программист не удосужился сконфигурировать логгер. Сделаем это за него, с настройками по умолчанию //
+      Log.Configure(); 
 
       FrameworkSettings.LoadFrameworkSettings();
 

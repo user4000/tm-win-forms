@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -44,6 +45,7 @@ namespace TmWinForms
         "\nMessage : " + ex.Message +
         "\nSource : " + ex.Source +
         "\nStackTrace : " + ex.StackTrace;
+
       return new TmMessage
       {
         Header = header,
@@ -83,7 +85,7 @@ namespace TmWinForms
 
     private static void DoNothing(TmMessage Message)
     {
-
+      //Trace.WriteLine($"Do nothing !!! {Message.Header} {Message.Text}");
     }
 
     internal void InitMessageSubsystem(Action<TmMessage> MessageHandlerMethod)

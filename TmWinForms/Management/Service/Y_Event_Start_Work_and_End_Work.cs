@@ -7,6 +7,8 @@ namespace TmWinForms
   {
     internal void ExecStartWorkHandlerForEachSubForm()
     {
+      //FrameworkManager.Ms.Message("Проверка", "К этому моменту подсистема сообщений уже должна работать").NoAlert().Debug();
+
       foreach (KeyValuePair<string, SubForm> entry in DicForms) // Цикл по всем формам, располагающимся на страницах главного PageView //
       {
         entry.Value.ExecStartWorkHandler();

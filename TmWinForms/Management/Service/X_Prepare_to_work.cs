@@ -26,7 +26,8 @@ namespace TmWinForms
 
       AddFormsFromQueueToPageView(); // Добавляем формы из очереди на Page View //
 
-      
+      FormLog.Configure(); // Сконфигурируем форму сообщений до того, как начнётся запуск события IStartForm для каждой формы //
+
       ExecStartWorkHandlerForEachSubForm(); // Выполнить событие IStartForm для каждой формы //
     }
   }

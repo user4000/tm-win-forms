@@ -141,6 +141,8 @@
     <Compile Include="Forms\Form_Treeview_1\FxTreeview32.Designer.cs">
       <DependentUpon>FxTreeview32.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management\Localizer\CxLocalizer.cs" />
+    <Compile Include="Management\Main\CxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\MySettings.cs" />
